@@ -17,9 +17,17 @@ As carbon dioxide levels rise, we need solutions. This project explores how we c
 2. **The Build:** How to build an electrolysis cell for under $100.
 3. **The Data:** How to measure results safely.
 
-## Quick Equation Test
-Here is the reduction of CO2 to Carbon Monoxide:
+## Guide Chapters
 
-$$ CO_2 + 2H^+ + 2e^- \rightarrow CO + H_2O $$
+### [1. The Theory](./theory)
+Understanding redox reactions, thermodynamics, and why CO2 is so hard to break.
 
+### [2. The Build (Coming Soon)](./)
+How to build an H-Cell for under $100.
+
+### [3. Safety (Coming Soon)](./)
+Handling CO gas and high currents safely.
+
+---
+*Created by [Wit Kulvutiroj] -Kamnoetvidya Science Academy Student*
 [Read the Guide](./guide)
