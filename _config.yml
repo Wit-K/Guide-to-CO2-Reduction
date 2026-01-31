@@ -1,0 +1,6 @@
+title: High School ECR Guide
+description: A student-friendly guide to Electrochemical CO2 Reduction
+theme: jekyll-theme-cayman
+markdown: kramdown
+plugins:
+  - jekyll-seo-tag
