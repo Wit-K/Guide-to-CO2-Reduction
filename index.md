@@ -1,3 +1,6 @@
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 ---
 layout: default
 title: Home
@@ -15,7 +18,8 @@ As carbon dioxide levels rise, we need solutions. This project explores how we c
 3. **The Data:** How to measure results safely.
 
 ## Quick Equation Test
-Does this look like a math formula?
+Here is the reduction of CO2 to Carbon Monoxide:
+
 $$ CO_2 + 2H^+ + 2e^- \rightarrow CO + H_2O $$
 
 [Read the Guide](./guide)
