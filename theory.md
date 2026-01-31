@@ -39,7 +39,7 @@ The anode is the electrode connected to the positive terminal. This is where ele
 *   **Key Equation:** $$ 2H_2O \rightarrow O_2 + 4H^+ + 4e^- $$
 
 ### The Electrolyte
-This is the liquid solution between the two electrodes. Because pure water does not conduct electricity well, we dissolve salts like $$KHCO_3$$ (whcich makes the solution more conductive) into it.
+This is the liquid solution between the two electrodes. Because pure water does not conduct electricity well, we dissolve salts, like $$KHCO_3$$, (which makes the solution more conductive) into it.
 *   **Function:** It allows ions to move between the cathode and anode to balance the charge. Without an electrolyte, the circuit is broken, and no reaction happens.
 
 ---
