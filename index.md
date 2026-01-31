@@ -22,7 +22,7 @@ As carbon dioxide levels rise, we need solutions. This project explores how we c
 ### [1. The Theory](./theory)
 Understanding redox reactions, thermodynamics, and why CO2 is so hard to break.
 
-### [2. The Build (Coming Soon)](./)
+### [2. The Build: DIY Setup](./equipment)
 How to build an H-Cell for under $100.
 
 ### [3. Safety (Coming Soon)](./)
