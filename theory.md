@@ -13,7 +13,7 @@ To understand this project, we must first know what electrochemical reduction is
 Most people are familiar with combustion, where we burn a fuel with oxygen to release energy. This process produces carbon dioxide ($$CO_2$$) and water.
 $$ Fuel + Oxygen \rightarrow CO_2 + H_2O + Energy $$
 
-We can actually reverse that process and that is essentially what "CO2 Reduction (CO2R)" is. We use energy from different sources (like heat or light) to complete this process, but electrical energy is what we will be focusing on as it is the most efficient yet. Using energy to force electrons back into carbon dioxide, we can convert it from a waste product back into a useful fuel or chemical feedstock and naming it the process of "electrochemical CO2 redcution".
+We can actually reverse that process and that is essentially what "CO2 Reduction (CO2R)" is. We use energy from different sources (like heat or light) to complete this process, but electrical energy is what we will be focusing on as it is the most efficient yet. Using energy to force electrons back into carbon dioxide, we can convert it from a waste product back into a useful fuel or chemical feedstock, naming it the process of "electrochemical CO2 redcution".
 
 $$ CO_2 + H_2O + Energy (Electricity) \rightarrow Fuel + Oxygen $$
 
