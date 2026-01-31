@@ -29,7 +29,7 @@ Here are the three critical components of the system:
 ### The Cathode (The Reduction Site)
 The cathode is the electrode connected to the negative terminal of your power supply. This is where the electrons enter the solution.
 *   **What happens here:** Positive ions or neutral molecules (like $$CO_2$$) are attracted to the surface. They accept electrons and undergo reduction.
-*   **Function:** This is the most important part of the setup. The material of the cathode (e.g., Copper, Gold, Silver) determines what product you make. Researchers are working on creating better cathode which makes better product.
+*   **Function:** This is the most important part of the setup. The material of the cathode (e.g., Copper, Gold, Silver) determines what product you make. Researchers are working on to create better cathode which makes better product.
 *   **Key Equation:** $$ CO_2 + 2H^+ + 2e^- \rightarrow CO + H_2O $$
 
 ### The Anode (The Oxidation Site)
