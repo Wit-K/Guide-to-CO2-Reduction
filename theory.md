@@ -50,31 +50,30 @@ In an electrochemical experiment, there are two main parameters we can alter or 
 ### Potential (Voltage)
 Potential is the energy or basically, the push applied to the system. Every chemical reaction has its own minimum energy requirement to proceed.
 *   **Thermodynamic Potential:** This is the theoretical minimum voltage needed to start the reaction. For converting CO2 to Carbon Monoxide, this is approximately -0.11 Volts.
-*   **Applied Potential:** In the lab, you must apply significantly more voltage than the theoretical value to get the intended result. This is because real-world electrochemical reactions are hardly perfectly efficient and requires additional energy to overcome the theroretical minimum. That difference between what you apply and what is theoretically needed is called "Overpotential".
+*   **Applied Potential:** This is the real potential applied in the real experiment, which is significantly more than the theoretical value. This is because real-world electrochemical reactions are hardly perfectly efficient and requires additional energy to overcome the theroretical minimum.
 
 ### Current (Amperage)
-While voltage is the push, the current is the flow. Current measures the rate at which electrons are moving across the interface.
-*   Since the chemical reaction consumes electrons, the current tells you directly how fast the reaction is happening.
+While voltage is the push, the current is the flow. Current measures the rate at which electrons are moving across the interface. Since the chemical reaction consumes electrons, the current tells you directly how fast the reaction is happening.
 *   **High Current:** A fast reaction rate.
 *   **Low Current:** A slow reaction rate.
 
 ### Surface Area and Normalization
-A large piece of copper will naturally allow more current to pass than a thin copper wire, just because there is more space for the reaction to occur. This makes comparision unfair. So, to make fair comparisons between different experiments, we wil look at **Current Density** instead. This is the ratio of current by surface area of the electrode telling us how active the material is regardless of its size.
+A large piece of copper will naturally allow more current to pass than a thin copper wire, just because there is more space for the reaction to occur. This makes comparision unfair. So, to make fair comparisons between different experiments, we wil look at "Current Density" instead. This is the ratio of current by surface area of the electrode, telling us how active the material is regardless of its size.
 
 ---
 
 ## 4. Thermodynamics and Kinetics
-A common confusion for beginners is why the reaction does not start exactly at the theoretical voltage.
+A common questions from beginners is why the reaction does not start exactly at the theoretical voltage.
 
 ### The Energy Barrier
-Even if you apply enough energy to make the reaction possible (Thermodynamics), the reaction might still be too slow to measure. This is because molecules need to rearrange themselves, bonds need to break, and intermediates need to form.
+Even if you apply enough energy to make the reaction possible, the reaction might still be too slow to measure. This is because molecules need to rearrange themselves, bonds need to break, and intermediates need to form.
 
 ### Overpotential
 To overcome this slowness, we apply extra voltage. This extra voltage is the **Overpotential**.
 *   If a catalyst is "good," it requires very little overpotential to reach a high current.
 *   If a catalyst is "bad," you must apply a massive voltage to get even a small current.
 
-In your research, your goal is often to find a setup that produces the most product with the least amount of overpotential (energy waste).
+In research, the goal is often to find a setup that produces the most product with the least amount of overpotential.
 
 ---
 
@@ -93,3 +92,38 @@ We measure success using **Faradaic Efficiency (FE)**. This represents the perce
 *   **0% FE:** All electrons were wasted making Hydrogen gas.
 
 The choice of metal for your cathode dictates this selectivity. Some metals (like Platinum) are excellent at making Hydrogen, which makes them terrible for CO2 reduction. Other metals (like Copper, Gold, or Silver) are poor at making Hydrogen, allowing the CO2 reduction to compete effectively.
+
+---
+
+## 6. Catalyst Materials: What determines the product?
+Not all metals act the same. In the 1980s, Japanese researcher Yoshio Hori discovered that metals can be categorized into three distinct groups based on what they produce when you apply electricity in CO2-saturated water.
+
+### Group 1: The Hydrogen Generators (Avoid these)
+Metals like **Platinum (Pt), Nickel (Ni), Iron (Fe), and Titanium (Ti)**.
+*   **Behavior:** These metals bind to Hydrogen atoms very strongly.
+*   **Result:** If you use these as a cathode, you will produce almost exclusively Hydrogen gas. The CO2 will barely touch the surface.
+*   **Verdict:** Do not use these for the working electrode.
+
+### Group 2: The Two-Electron Pathway (CO / Formate)
+Metals like **Silver (Ag), Gold (Au), Zinc (Zn), and Tin (Sn)**.
+*   **Behavior:** These metals are poor at making hydrogen, allowing CO2 to react. However, they stop the reaction early.
+*   **Result:** They produce Carbon Monoxide (CO) or Formate (HCOO-).
+*   **Verdict:** Great for beginners. Zinc is cheap and makes Formate; Silver is expensive but makes CO efficiently.
+
+### Group 3: The Hydrocarbon Pathway (Copper)
+**Copper (Cu)** is unique in the periodic table.
+*   **Behavior:** Copper has just the right binding energy to hold onto the Carbon atom, allowing it to bond with other Carbon atoms.
+*   **Result:** It can produce Methane ($CH_4$), Ethylene ($C_2H_4$), and Ethanol ($C_2H_5OH$).
+*   **Verdict:** The "Holy Grail" of research. However, it is complex because it produces a mix of many different liquids and gases at once.
+
+---
+
+## 7. The Physical Limit: Solubility
+Finally, we must understand the environment. CO2 is a gas, but the reaction happens on the solid metal surface inside a liquid.
+
+For the reaction to work, CO2 gas must dissolve into the water to reach the electrode.
+1.  **Solubility:** CO2 does not dissolve well in water (approx. 33mM concentration at room temperature).
+2.  **Mass Transport:** As you run the reaction, you use up the CO2 near the metal surface. If new CO2 cannot diffuse in fast enough, the reaction starves, and Hydrogen evolution takes over.
+
+**Practical Implication:**
+This is why you will see instructions to "bubble" CO2 gas continuously into the solution. It ensures the water stays saturated with CO2, giving the reaction the best chance to succeed.
