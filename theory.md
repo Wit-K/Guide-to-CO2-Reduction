@@ -29,7 +29,7 @@ Here are the three critical components of the system:
 ### The Cathode (The Reduction Site)
 The cathode is the electrode connected to the negative terminal of your power supply. This is where the electrons enter the solution.
 *   **What happens here:** Positive ions or neutral molecules (like $$CO_2$$) are attracted to the surface. They accept electrons and undergo reduction.
-*   **Function:** This is the most important part of the setup. The material of the cathode (e.g., Copper, Gold, Silver) determines what product you make. Researchers are working together to create better cathode which makes better product.
+*   **Function:** This is the most important part of the setup. The material of the cathode determines what product you make. Researchers are working together to create better cathode which makes better product.
 *   **Key Equation:** $$ CO_2 + 2H^+ + 2e^- \rightarrow CO + H_2O $$
 
 ### The Anode (The Oxidation Site)
@@ -81,37 +81,39 @@ In research, the goal is often to find a setup that produces the most product wi
 The most difficult part of CO2 reduction is not breaking the CO2; it is avoiding the water.
 
 ### The Hydrogen Problem
-Since our electrolyte is mostly water, there are billions of water molecules surrounding the electrode for every one CO2 molecule. Water can also accept electrons to form Hydrogen gas ($H_2$).
+Since our electrolyte is mostly water, there are billions of water molecules surrounding the electrode for every one CO2 molecule. Water can also accept electrons to form Hydrogen gas ($$H_2$$).
 $$ 2H^+ + 2e^- \rightarrow H_2 $$
 
-This is called the **Hydrogen Evolution Reaction (HER)**. It is a parasitic reaction that wastes your electricity.
+This is called the "Hydrogen Evolution Reaction (HER)". It is an annoying competing reaction that wastes electricity and hinders reactions that we actually want.
 
 ### Selectivity (Faradaic Efficiency)
-We measure success using **Faradaic Efficiency (FE)**. This represents the percentage of electrons that went into making the product you wanted (like CO) versus the product you didn't want (like Hydrogen).
-*   **100% FE:** Every electron resulted in CO2 reduction.
+We measure the efficiency using "Faradaic Efficiency (FE)". It represents the percentage of electrons that went into making the product you want (like methane) against all the products produced (including Hydrogen).
+*   **100% FE:** Every electron resulted in $$CO_2$$ reduction.
+*   **50% FE:** Half of the electron resulted in $$CO_2$$ reduction.
 *   **0% FE:** All electrons were wasted making Hydrogen gas.
 
-The choice of metal for your cathode dictates this selectivity. Some metals (like Platinum) are excellent at making Hydrogen, which makes them terrible for CO2 reduction. Other metals (like Copper, Gold, or Silver) are poor at making Hydrogen, allowing the CO2 reduction to compete effectively.
+The choice of metal in the cathode determines this selectivity. Some metals are excellent at making Hydrogen, which makes them terrible for CO2 reduction. While others are poor at making Hydrogen, allowing the CO2 reduction to compete and have a chance against HER.
 
 ---
 
-## 6. Catalyst Materials: What determines the product?
-Not all metals act the same. In the 1980s, Japanese researcher Yoshio Hori discovered that metals can be categorized into three distinct groups based on what they produce when you apply electricity in CO2-saturated water.
+## 6. Catalyst Materials
+Not all metals act the same and they can often be categorized into three groups based on what they produce when applied electricity:
 
-### Group 1: The Hydrogen Generators (Avoid these)
-Metals like **Platinum (Pt), Nickel (Ni), Iron (Fe), and Titanium (Ti)**.
+### Group 1: Hydrogen Producers
+Metals: **Platinum (Pt), Nickel (Ni), Iron (Fe), Titanium (Ti)** and more.
 *   **Behavior:** These metals bind to Hydrogen atoms very strongly.
-*   **Result:** If you use these as a cathode, you will produce almost exclusively Hydrogen gas. The CO2 will barely touch the surface.
-*   **Verdict:** Do not use these for the working electrode.
+*   **Typical Products:** If you use these as a cathode, you will produce mostly Hydrogen gas. The CO2 will barely touch the surface.
+*   **:** Do not use these for the working electrode.
 
-### Group 2: The Two-Electron Pathway (CO / Formate)
-Metals like **Silver (Ag), Gold (Au), Zinc (Zn), and Tin (Sn)**.
-*   **Behavior:** These metals are poor at making hydrogen, allowing CO2 to react. However, they stop the reaction early.
-*   **Result:** They produce Carbon Monoxide (CO) or Formate (HCOO-).
+### Group 2: Two-Electron Pathway (CO / Formate)
+Metals: **Silver (Ag), Gold (Au), Zinc (Zn), Tin (Sn)** and more.
+*   **Behavior:** These metals are poor at making hydrogen, allowing CO2 to react. However, they stop the reaction early and separate from the reaction site.
+*   **Typical Products:** They produce Carbon Monoxide (CO) or Formate (HCOO-).
 *   **Verdict:** Great for beginners. Zinc is cheap and makes Formate; Silver is expensive but makes CO efficiently.
 
-### Group 3: The Hydrocarbon Pathway (Copper)
-**Copper (Cu)** is unique in the periodic table.
+### Group 3: Hydrocarbon Pathway
+Metal: **Copper (Cu)**
+is unique in the periodic table. It is the only metal known to make multi-carbon products (very valuable).
 *   **Behavior:** Copper has just the right binding energy to hold onto the Carbon atom, allowing it to bond with other Carbon atoms.
 *   **Result:** It can produce Methane ($CH_4$), Ethylene ($C_2H_4$), and Ethanol ($C_2H_5OH$).
 *   **Verdict:** The "Holy Grail" of research. However, it is complex because it produces a mix of many different liquids and gases at once.
