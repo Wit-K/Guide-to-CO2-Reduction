@@ -38,34 +38,33 @@ All of these are crucial components in "three electrode system" commonly used in
 ---
 
 ## 3. The Working Electrode (WE)
-The Working Electrode (Cathode) is the centerpiece of the experiment. It serves as the electron donor and the active site where the reduction reaction occurs.
+Core Research.
 
 ### Role & Significance
-Connected to the negative terminal, most of the time, the Working Electrode is the catalyst. In electrochemistry, the material of the electrode dictates the entire reaction pathway. The specific atomic arrangement on the surface determines whether $CO_2$ is converted into Carbon Monoxide, Methane, or just Hydrogen gas. Therefore, the choice of the Working Electrode is the primary variable in any CO2 reduction study.
+The Working Electrode (Cathode) is the centerpiece of the experiment. It serves as the electron donor and the active site where the reduction reaction occurs. Connected to the negative terminal, most of the time, the Working Electrode is the catalyst. In electrochemistry, the material of the electrode dictates the entire reaction pathway. The specific atomic arrangement on the surface determines whether $CO_2$ is converted into Carbon Monoxide, Methane, or just Hydrogen gas. Therefore, the choice of the Working Electrode is the primary variable in any CO2 reduction study.
 
 ### Key Properties That Affect Results
-1.  **Surface Composition:** The purity of the metal is critical. Even trace impurities can alter the product distribution.
-2.  **Surface Morphology:** The roughness or nano-structure of the surface changes the local environment and the availability of reaction sites, often influencing the efficiency of the reaction.
-3.  **Pretreatment and Modification:** There are multiples available modification of the metal before running the experiment. This affects the reaction widely and often change what product are produced. For example, oxidizing copper before using it as a catalyst could help increase its surface area and integrating copper nano particles onto support might enable it to make methane instead of ethanol.
+1.  **Surface Morphology and Composition:** The roughness or nano-structure of the surface changes the local environment and the availability of reaction sites, often influencing the efficiency of the reaction. The purity of the metal is also critcal, and even trace of impurities can alter the product distribution.
+2.  **Pretreatment and Modification:** There are multiples available modification of the metal before running the experiment. This affects the reaction widely and often change what product are produced.
 
 ### Common Choices in Research
+In this field, the WE varies by a lot to each researchers analyzing different materials. However, the most common working electrode are metals:
 *   **Copper (Cu):** The most significant material in the field, as it is the only bulk metal capable of efficiently producing hydrocarbons (Ethylene, Ethanol).
-*   **Gold (Au), Silver (Ag), Zinc (Zn):** Materials commonly used to produce Carbon Monoxide (CO).
-*   **Tin (Sn), Bismuth (Bi):** Materials often selected for Formate production.
-
+*   **Other Transition Metals:** Au, Zn and Ag are commonly used to produce CO. And Sn and Bi are commonly used to produce Formate
+These metals can undergoes several tuning and modifying as stated. The common example are: oxidizing metals to help increase its surface area and change the product distribution, replacing chunks of metal by their nano particles might improve their faradaic efficiency and supporting metals with structures like carbon could help in mass transport of CO2.
 ---
 
 ## 4. The Counter Electrode (CE)
-The Counter Electrode (Anode) completes the electrical circuit. While the focus of the experiment is on the cathode, the anode is equally necessary for the system to function.
+Complete the Circuit.
 
 ### Role & Significance
-Connected to the positive terminal, the Counter Electrode balances the reaction. For every electron consumed by the $CO_2$ reduction at the cathode, an oxidation reaction must occur here (typically splitting water into Oxygen). Crucially, the Counter Electrode must be "inert." If it degrades or dissolves during the experiment, metal ions can migrate across the cell and contaminate the Working Electrode, rendering the data invalid.
+The Counter Electrode (Anode) completes the electrical circuit. While the focus of the experiment is on the cathode side, the anode is necessary for the system to fully function. Connected to the positive terminal, the Counter Electrode balances the reaction. For every electron consumed by the $CO_2$ reduction at the cathode, an oxidation reaction must occur here (typically splitting water into Oxygen).
 
 ### Key Properties That Affect Results
-1.  **Chemical Inertness:** The material must withstand high oxidation potentials without corroding.
-2.  **Surface Area:** To ensure the Counter Electrode does not become a bottleneck, researchers typically ensure its surface area is significantly larger than that of the Working Electrode.
+1.  **Chemical Inertness:** The material must withstand high oxidation potentials without corroding. If it degrades or dissolves during the experiment, metal ions can cross the cell and contaminate the Working Electrode, making the data invalid.
+2.  **Surface Area:** To ensure the Counter Electrode does not become a bottleneck, researchers ensure its surface area is significantly larger than that of the Working Electrode. This makes the test fair when compairing between Catalysts.
 
 ### Common Choices in Research
-*   **Platinum (Pt):** The academic standard due to its exceptional stability and conductivity, usually in the form of a wire or mesh.
+*   **Platinum (Pt):** The academic standard due to its exceptional stability and conductivity, usually comes in form of wire or mesh.
 *   **Graphite/Carbon:** A cost-effective alternative often used in educational settings, though it requires monitoring for degradation over long-term experiments.
-*   **Dimensionally Stable Anodes (DSA):** Industrial-grade oxides (like Iridium Oxide) designed for high-current durability.
+*   **Dimensionally Stable Anodes (DSA):** Industrial-grade oxides (like Iridium Oxide) designed specifically for high-current durability.
