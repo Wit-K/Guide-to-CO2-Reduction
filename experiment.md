@@ -24,14 +24,14 @@ If you put everything in one beaker, the oxygen produced in Anodic Chamber would
 ---
 
 ## 2. Anatomy of an H-Cell System
-A standard H-Type cell is modular. While the exact geometry varies between manufacturers, every valid scientific setup is composed of five distinct subsystems. Understanding the role of each is necessary for designing a valid experiment.
+Even though there are many different H-Cells from various manufacturer, most of them consists of 5 main components. Understanding their roles are necessary for designing a valid experiment.
 
-### The Core Components
+### The Core Components in Simple Term
 1.  **The Working Electrode (WE):** The catalyst material where the CO2 reduction reaction occurs.
-2.  **The Counter Electrode (CE):** An inert material that completes the electrical circuit.
-3.  **The Reference Electrode (RE):** A specialized probe with a stable, known potential used for measurement accuracy.
+2.  **The Counter Electrode (CE):** An inert and electrically conductive material that completes the electrical circuit.
+3.  **The Reference Electrode (RE):** A specialized and stable probe with known constant potential for benchmarking.
 4.  **The Membrane:** A selective barrier that isolates the two chambers.
-5.  **The Electrolyte:** The ionic solution that facilitates charge transfer.
+5.  **The Electrolyte:** The ionic solution that allows charge transfer.
 
 ### System Configuration: 2-Electrode vs. 3-Electrode
 One of the first design choices a researcher makes is how to control the voltage.
