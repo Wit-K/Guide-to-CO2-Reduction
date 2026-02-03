@@ -7,13 +7,24 @@
 
 ---
 
-## 1. The Analytical Ch
-In Electrochemical CO2 Reduction, the analysis that researchers mostly do involves around the speed of the reaction, the selectivity of the product and the stability of the catalyst.
+## 1. The Three Pillars of Analysis
+To evaluate the success of a CO2 reduction experiment, researchers focus on three primary performance metrics. Data collection is designed to answer these three questions:
+
+1.  **Activity (Speed):** *How fast is the reaction occurring?*
+    *   In chemistry, we usually measure reaction rates in Moles/Second. In electrochemistry, we measure this from the Current. Higher current equals faster fuel production.
+
+2.  **Selectivity (Purity):** *What product are we making?*
+    *   Electricity can create many different things, so we need to determine what percentage of the electrons actually went into the desired target product.
+
+3.  **Stability (Durability):** *How long does the catalyst last?*
+    *   A catalyst works very fast for the first 10 seconds but dies out afterward is useless. We analyze stability by monitoring how the Activity and Selectivity change over time.
+  
+These 3 pillars will be expanded later, but for now just keep in mind that we need these three things from the data that you will be collecting.
 
 ---
 
 ## 2. Phase 1: Data Collection
-A valid dataset requires the collection of three distinct metrics.
+A dataset typically requires the collection of three distinct metrics.
 
 ### A. Electrical Data
 These data are usually automatically provided by the potentiostat or multimeter.
