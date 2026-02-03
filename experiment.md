@@ -68,3 +68,39 @@ The Counter Electrode (Anode) completes the electrical circuit. While the focus 
 *   **Platinum (Pt):** The academic standard due to its exceptional stability and conductivity, usually comes in form of wire or mesh.
 *   **Graphite/Carbon:** A cost-effective alternative often used in educational settings, though it requires monitoring for degradation over long-term experiments.
 *   **Dimensionally Stable Anodes (DSA):** Industrial-grade oxides (like Iridium Oxide) designed specifically for high-current durability.
+
+---
+
+## 5. The Reference Electrode (RE)
+The Ruler of Electrochemistry
+
+### Role & Significance
+The Reference Electrode provides a stable, known voltage against which the Working Electrode is measured. In a standard 3-electrode setup, the Reference Electrode does not carry current. Its sole purpose is to sense the potential at the Working Electrode without interference from the Anode. Without a Reference Electrode, you will be measuring the voltage across the entire cell, which includes the wires and solution resistance, making it impossible to know exactly how much energy is being applied to the reaction itself.
+
+### Key Properties That Affect Results
+1.  **Stability:** The potential of the reference must not change over time. If the reference move up or down by even 0.1V, the data becomes useless because you no longer know the true energy applied to the $CO_2$.
+2.  **Impedance:** It must have a low-resistance connection to the electrolyte to ensure fast and accurate reading by the potentiostat.
+
+### Common Choices in Research
+*   **Silver/Silver Chloride (Ag/AgCl):** The most common reference electrode for aqueous (water-based) experiments due to its stability and non-toxicity.
+*   **Saturated Calomel Electrode (SCE):** An older standard using Mercury, but now has largely phased out due to toxicity concerns.
+*   **Reversible Hydrogen Electrode (RHE):** This is the reference in theoryx. While researchers normally report data vs. RHE, they physically use an Ag/AgCl electrode in the lab and convert the numbers mathematically later.
+
+---
+
+## 6. The Membrane (Separator)
+The Membrane is the physical barrier located inside the "bridge" of the H-Cell, separating the Cathodic chamber from the Anodic chamber.
+
+### Role & Significance
+The membrane serves two opposing functions: it must block chemicals but allow electricity.
+1.  **Isolation:** It prevents the Oxygen gas produced at the Anode from migrating to the Cathode (which would ruin the reduction reaction).
+2.  **Conduction:** It must allow ions (charged particles like $H^+$ or $K^+$) to pass through freely to complete the circuit. If the membrane is too restrictive, the electrical resistance increases, and the cell heats up.
+
+### Key Properties That Affect Results
+1.  **Ionic Conductivity:** How easily ions flow through. High resistance leads to a large voltage drop (IR drop) across the cell.
+2.  **Gas Crossover:** The ability to stop gas bubbles. If $O_2$ crosses over, it can re-oxidize your products, making it look like your experiment failed.
+
+### Common Choices in Research (Conceptual)
+*   **Nafion (Cation Exchange Membrane):** The industry standard (specifically Nafion 117 or 212). It allows positive ions ($H^+$) to pass but blocks negative ions and gases.
+*   **Anion Exchange Membranes (AEM):** Membranes that allow negative ions ($OH^-$ or $HCO_3^-$) to pass. These are often used in alkaline electrolytes.
+*   **Salt Bridges / Glass Frits:** The classic laboratory alternative. While they have higher electrical resistance than Nafion, they are cost-effective and sufficient for fundamental studies where high current density is not the primary goal.
