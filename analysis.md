@@ -74,3 +74,71 @@ Different products require different amounts of electrons to form. These values,
 
 The more electrons required, the more electricity used up per the same mole of product.
 
+---
+
+## 4. Phase 3: The Core Metrics
+Once you have your raw data and your constants, you can calculate the two numbers that are actually report in a research paper.
+
+### A. Measuring Activity: Current Density ($j$)
+Raw current is misleading. Of course, a massive sheet of copper will pass more current than a tiny wire; therefore, to compare your catalyst fairly against other researchers, the surface area must be normallized.
+
+**The Formula:**
+$$ j = \frac{I}{A} $$
+
+*   **$j$:** Current Density ($mA/cm^2$)
+*   **$I$:** Current (mA)
+*   **$A$:** Surface Area of the electrode ($cm^2$)
+
+**Interpretation:**
+*   **High $j$:** The material is highly active; the reaction is fast.
+*   **Low $j$:** The material is sluggish; the reaction is slow.
+The number will further depends on type and category of catalyst which can be further compare with other work of same kind or the control
+
+### B. Measuring Selectivity: Faradaic Efficiency (FE)
+This is one of the critical if not the most critical calculation in $CO_2$ reduction. It tells you the percentage of electrons that were successfully used to create your desired product, versus those wasted on unwanted side reactions.
+
+**The Formula:**
+$$ FE = \frac{n \times z \times F}{Q} \times 100 $$
+
+*   **$n$:** Moles of product produced.
+*   **$z$:** Electrons required per molecule (from the Reference Table).
+*   **$F$:** Faraday’s Constant ($96,485 \ C/mol$).
+*   **$Q$:** Total Charge passed ($Current \times Time$).
+
+**Example:**
+If you ran 100 Coulombs of charge ($Q$) and produced a small amount of Methane, you plug the moles of Methane into $n$, use 8 for $z$, and calculate.
+*   **FE = 80%:** The catalyst is excellent.
+*   **FE = 1%:** The catalyst is mostly just making waste.
+
+---
+
+## 5. Phase 4: Visualizing the Data in Graph
+Countless of numbers collected from the instrument don't tell us the whole story; we need to connect the dots and interpret the whole reaction. To understand how a catalyst behaves, we plot current, voltage and time.
+
+### A. The Sweep Techniques: LSV and CV
+These are the first experiments you run to see if your catalyst is working. You vary the voltage and measure the current output.
+
+**1. Linear Sweep Voltammetry (LSV)**
+*   **The Action:** The potentiostat scans the voltage in one direction (e.g., from 0V down to -2.0V).
+*   **The Result:** A graph where the current stays near zero until a specific voltage, then drastically shoots down. This is because a reaction has its own specific minimum for the reaction to proceed.
+*   **Onset Potential:** This is the voltage where the current starts to rise meaning the reaction turns on. A more positive onset potential is better as it can be inferred the reaction needs less energy to start. (Note that positive is less energy as we are considering the reduction reaction where we look at negative potentials)
+
+**2. Cyclic Voltammetry (CV)**
+*   **The Action:** The potentiostat scans the voltage down and then back up in a loop (0V $\rightarrow$ -2.0V $\rightarrow$ 0V).
+*   **The Result:** A supposedly Duck-shaped loop, but the shape can varies with the experiments and conditions.
+*   **The Difference:** While LSV just shows performance, CV is a diagnostic tool. The shape tells you about the capacitance (surface area) and reversibility. If the graph looks totally different in a few loop, the catalyst might be unstable. This is why in research, they often run the loop many times to ensure stability and reproducibility.
+
+So while CV offer more data to interpret, LSV maybe suited to some experiment such as experiment focusing on steady state behavior.
+
+### B. Chronoamperometry (CA)
+LSV and CV only last a few seconds. To measure products, you need to run the reaction for a longer period.
+
+*   **The Action:** Hold the voltage constant (e.g. -1.0V) and record current over time.
+*   **The Graph:**
+    *   **X-Axis:** Time (Seconds)
+    *   **Y-Axis:** Current Density ($mA/cm^2$)
+*   **Interpretation:**
+    *   **Flat Line:** Stable catalyst.
+    *   **Declining Line:** The catalyst is unstable (e.g. being poisoned or falling off).
+
+---
