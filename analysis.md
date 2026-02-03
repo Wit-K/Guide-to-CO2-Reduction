@@ -3,51 +3,46 @@
 </script>
 
 # Data Collection, Analysis & Interpretation
-*Part 3: From Raw Numbers to Chemical Insight*
+*Part 3: From Raw Data to Chemical Insight*
 
 ---
 
-## 1. The Analysis Pipeline
-In scientific research, running the experiment is only half the battle. The goal is to translate raw electrical signals into meaningful chemical data. The workflow generally follows this pipeline:
-1.  **Collect Raw Data:** Gather electrical readings and physical measurements.
-2.  **Apply Constants:** Use standard physical constants to bridge physics and chemistry.
-3.  **Calculate Metrics:** Convert raw numbers into standard units (Current Density, Efficiency).
-4.  **Visualize:** Plot graphs (Voltammetry) to identify trends.
+## 1. The Analytical Ch
+In Electrochemical CO2 Reduction, the analysis that researchers mostly do involves around the speed of the reaction, the selectivity of the product and the stability of the catalyst.
 
 ---
 
 ## 2. Phase 1: Data Collection
-Before doing any calculations, a researcher must collects three specific types of data.
+A valid dataset requires the collection of three distinct metrics.
 
 ### A. Electrical Data
-If you are using a potentiostat or even a multimeter, these numbers are provided automatically.
+These data are usually automatically provided by the potentiostat or multimeter.
 *   **Current ($I$):** The rate of electron flow, measured in Amperes (A) or Milliamperes (mA).
-*   **Voltage ($V$):** The potential difference applied, measured in Volts (V).
-*   **Time ($t$):** The duration of the electrolysis, measured in Seconds (s).
-*   **Charge ($Q$):** The total number of electrons passed. Calculated as $Q = I \times t$.
+*   **Voltage ($V$):** The driving force, measured in Volts (V).
+*   **Time ($t$):** The duration of the electrolysis (Seconds).
+*   **Total Charge ($Q$):** The total electron count ($Q = I \times t$).
 
-### B. Physical Data (The Normalization Factor)
-*   **Electrode Surface Area ($A$):** The geometric area of the Working Electrode dipped in the solution.
-*   *Why it measures:* You cannot compare a giant industrial plate to a tiny laboratory wire using raw current. You must measure the area (in $cm^2$) to calculate density later.
+### B. Physical Data
+*   **Electrode Surface Area ($A$):** The geometric area of the catalyst submerged in the electrolyte ($cm^2$).
+*   This allows for the calculation of current density, enabling comparisons between different sized electrodes.
 
 ### C. Chemical Data
-*   **Product Yield ($n$):** The physical amount of fuel produced, measured in **Moles**.
-*   *The Challenge:* The potentiostat does **not** tell you this. It only tells you how many electrons passed. It does not tell you if those electrons made Methane, Carbon Monoxide, or just Hydrogen. You must determine this using separate detection methods (discussed in Section 5).
+*   **Product Amount ($n$):** The actual quantity of fuel produced, measured in Moles.
+*   This requires external detection methods which will be later discussed in Section 5.
 
 ---
 
-## 3. Phase 2: The Reference Cheat Sheet
-To perform any analysis, you need specific physical constants. These values are the "Key" to converting electricity (Coulombs) into Chemistry (Moles).
+## 3. Phase 2: Fundamental Constants & Stoichiometry
+To convert electrical charge (Coulombs) into chemical mass (Moles), two constants are required.
 
-### The Universal Constant
-**Faraday’s Constant ($F$)** represents the total electric charge carried by one mole of electrons.
+### The Conversion Factor
+**Faraday’s Constant ($F$)** represents the charge of one mole of electrons.
 $$ F \approx 96,485 \ C/mol $$
-*   *Usage:* This number allows you to convert the "Total Charge" from your machine into "Moles of Electrons."
 
-### The Electron Reference Table ($z$ or $n$)
-Not all products are created equal. Making a complex molecule requires more electrons than making a simple one. You must know the **electron requirement ($z$)** for the specific product you are detecting.
+### The Stoichiometric Constant ($z$)
+Different products require different amounts of electrons to form. These values, denoted as $z$ (or $n$), will be used to calculate efficiency. Here are the table of some commonly found products from CO2 reduction reaction.
 
-| Product | Chemical Formula | Electrons Required ($z$) | Product State |
+| Product | Chemical Formula | Electrons Required ($z$) | Phase |
 | :--- | :--- | :---: | :--- |
 | **Hydrogen** | $H_2$ | **2** | Gas |
 | **Carbon Monoxide** | $CO$ | **2** | Gas |
@@ -57,4 +52,5 @@ Not all products are created equal. Making a complex molecule requires more elec
 | **Ethanol** | $C_2H_5OH$ | **12** | Liquid |
 | **Propanol** | $C_3H_7OH$ | **18** | Liquid |
 
-*   **Key Insight:** Notice that Methane requires 4 times as much electricity to create as Carbon Monoxide. This is why "High Current" doesn't always mean "More Moles"—it might just mean you are making a more electron-hungry product.
+The more electrons required, the more electricity used up per the same mole of product.
+
