@@ -3,7 +3,7 @@
 </script>
 
 # Data Collection, Analysis & Interpretation
-*From Raw Numbers to Chemical Insight*
+*Part 3: From Raw Numbers to Chemical Insight*
 
 ---
 
@@ -16,11 +16,11 @@ In scientific research, running the experiment is only half the battle. The goal
 
 ---
 
-## 2. Phase 1: Data Collection (The Raw Inputs)
-Before doing any calculations, a researcher must aggregate three specific types of data.
+## 2. Phase 1: Data Collection
+Before doing any calculations, a researcher must collects three specific types of data.
 
-### A. Electrical Data (The "Easy" Part)
-If you are using a potentiostat or a multimeter, these numbers are provided automatically.
+### A. Electrical Data
+If you are using a potentiostat or even a multimeter, these numbers are provided automatically.
 *   **Current ($I$):** The rate of electron flow, measured in Amperes (A) or Milliamperes (mA).
 *   **Voltage ($V$):** The potential difference applied, measured in Volts (V).
 *   **Time ($t$):** The duration of the electrolysis, measured in Seconds (s).
@@ -30,7 +30,7 @@ If you are using a potentiostat or a multimeter, these numbers are provided auto
 *   **Electrode Surface Area ($A$):** The geometric area of the Working Electrode dipped in the solution.
 *   *Why it measures:* You cannot compare a giant industrial plate to a tiny laboratory wire using raw current. You must measure the area (in $cm^2$) to calculate density later.
 
-### C. Chemical Data (The "Hard" Part)
+### C. Chemical Data
 *   **Product Yield ($n$):** The physical amount of fuel produced, measured in **Moles**.
 *   *The Challenge:* The potentiostat does **not** tell you this. It only tells you how many electrons passed. It does not tell you if those electrons made Methane, Carbon Monoxide, or just Hydrogen. You must determine this using separate detection methods (discussed in Section 5).
 
