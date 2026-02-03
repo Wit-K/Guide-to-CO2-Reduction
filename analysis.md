@@ -32,7 +32,7 @@ These 3 pillars will be expanded later, but for now just keep in mind that we ne
 
 ---
 
-## 2. Phase 1: Data Collection
+## 2. Data Collection
 A dataset typically requires the collection of three distinct metrics.
 
 ### A. Electrical Data
@@ -52,7 +52,7 @@ These data are usually automatically provided by the potentiostat or multimeter.
 
 ---
 
-## 3. Phase 2: Fundamental Constants & Stoichiometry
+## 3. Fundamental Constants & Stoichiometry
 To convert electrical charge (Coulombs) into chemical mass (Moles), two constants are required.
 
 ### The Conversion Factor
@@ -76,7 +76,7 @@ The more electrons required, the more electricity used up per the same mole of p
 
 ---
 
-## 4. Phase 3: The Core Metrics
+## 4. The Core Metrics
 Once you have your raw data and your constants, you can calculate the two numbers that are actually report in a research paper.
 
 ### A. Measuring Activity: Current Density ($j$)
@@ -112,7 +112,7 @@ If you ran 100 Coulombs of charge ($Q$) and produced a small amount of Methane, 
 
 ---
 
-## 5. Phase 4: Visualizing the Data in Graph
+## 5. Visualizing the Data in Graph
 Countless of numbers collected from the instrument don't tell us the whole story; we need to connect the dots and interpret the whole reaction. To understand how a catalyst behaves, we plot current, voltage and time.
 
 ### A. The Sweep Techniques: LSV and CV
@@ -143,9 +143,7 @@ LSV and CV only last a few seconds. To measure products, you need to run the rea
 
 ---
 
-## 6. Phase 5: Product Detection
-*The "Black Box" Problem*
-
+## 6. Product Detection
 The most common question beginners ask is: "My machine says 50mA of current. How much Methane did I make?"
 The answer is: the machine doesn't know and the current only counts electrons. It doesn't know if those electrons made Methane, Carbon Monoxide, or just Hydrogen. To find the moles for your efficiency calculation, you need a separate detection method. To find the moles for the efficiency calculation, you must analyze both the gas coming out of the cell and the liquid electrolyte inside the cell.
 
@@ -164,40 +162,39 @@ If you read a paper in *Nature* or *Science*, they use separate instruments for 
     *   *HPLC:* Separates chemical compounds in the liquid based on how they stick to a filter column.
 *   **Result:** A concentration reading of the compounds found in the solution
 
-### B. The Student "Hacks" (Alternative Detection)
-If you cannot access a \$50,000 GC or NMR, you have alternatives.
+### B. Resource-limited alternative settings
+High school and undergraduate laboratories often lack access to chromatography or spectroscopy. In these scenarios, researchers can adapt classical chemical methods to gather useful, albeit less specific, data.
 
-**1. Liquid Products: Titration**
-If you are using a Zinc or Tin catalyst (which primarily makes Formate/Formic Acid), the product stays in the water.
-*   **Method:** Simple chemical titration (e.g., Potassium Permanganate oxidation) can determine the concentration of organics in your electrolyte.
-*   **Result:** Gives you the total moles of liquid product ($n$).
+**1. Volumetric Analysis**
+If distinguishing between Hydrogen and Carbon Monoxide is not possible, one can focus on the total reaction rate.
+*   **The Concept:** By capturing the total volume of gas evolved over a specific time period, researchers can compare the *actual* gas volume produced against the *theoretical* volume predicted by Faraday’s Law.
+*   **The Insight:** While this does not identify the specific product, it confirms whether the system is acting efficiently or if electrons are being lost to non-gaseous side reactions.
 
-**2. Gas Products: Volume Displacement**
-*   **Method:** Connect the exhaust of your cell to an inverted graduated cylinder filled with water. As gas is produced, it pushes the water out.
-*   **Result:** This gives you the **Total Volume** of gas produced.
-*   **Limitation:** It doesn't tell you *which* gas it is (CO vs H2), but it allows you to calculate the "Total Gas Efficiency."
+**2. Wet Chemical Quantification**
+Liquid products like Formate or Ethanol act as reducing agents.
+*   **The Concept:** Classical titration methods using strong oxidizers (such as Permanganate or Dichromate) can be used to estimate the total concentration of organic compounds in the electrolyte.
+*   **The Insight:** This provides a quantitative measure of total organic liquid products, which is often sufficient for preliminary screening of catalysts like Tin or Zinc.
 
-**3. Specific Sensors**
-*   **Method:** Low-cost Arduino sensors (like the MQ-7) can detect Carbon Monoxide specifically.
-*   **Result:** A rough ppm (parts per million) reading to prove you made CO and not just Hydrogen.
+**3. Solid-State Gas Sensing**
+Modern air quality monitoring technology has made specific gas detection more accessible.
+*   **The Concept:** Metal-oxide semiconductor sensors (commonly used in safety alarms) react specifically to Carbon Monoxide or combustible gases.
+*   **The Insight:** While these sensors typically lack the high resolution of a GC, they can provide semi-quantitative data (Parts Per Million) to confirm that Carbon Monoxide is being produced, distinguishing a successful CO2 reduction from a simple Hydrogen evolution reaction.
 
 ---
 
-## 7. Conclusion: The Recommended Workflow
-Data analysis is not something you do at the end; it dictates how you run the experiment. Here is the step-by-step flow for a successful study:
+## 7. Conclusion
+Data analysis is something that is not only done at the end of the experiments but dictates what the next step in the experiment is as well. This is a step-by-step simple flow for a successful study:
 
-1.  **Measure Dimensions:** Before starting, measure the **Surface Area ($cm^2$)** of your working electrode.
-2.  **Diagnostic Check (CV):** Run a **Cyclic Voltammetry** scan to see if the electrode is clean (check for oxidation peaks).
-3.  **Performance Check (LSV):** Run a **Linear Sweep** to find the "Onset Potential" (at what voltage does the current start rising?).
-4.  **Production Run (Chronoamperometry):** Pick a voltage (e.g., -1.0V) and hold it for 60 minutes.
+1.  **Measure Dimensions:** Before starting, measure the Surface Area ($cm^2$) of your working electrode.
+2.  **Diagnostic Check (CV):** Run a Cyclic Voltammetry scan to see if the electrode is clean.
+3.  **Performance Check (LSV):** Run a Linear Sweep Voltammetry to find the Onset Potential.
+4.  **Production Run (Chronoamperometry):** Pick a voltage and hold for a period of time.
     *   *Action:* During this hour, collect gas samples (if using GC) or wait to sample the liquid (if analyzing liquids).
 5.  **The Math:**
     *   Take the average Current ($I$) from Step 4.
-    *   Divide by Area to get **Current Density ($j$)**.
-    *   Quantify product moles ($n$) using your detection method.
-    *   Calculate **Faradaic Efficiency ($FE$)**.
+    *   Divide by Area to get Current Density ($j$).
+    *   Quantify product moles ($n$) using your selected detection method.
+    *   Calculate Faradaic Efficiency ($FE$).
 6.  **Report:**
-    *   Present the **Current Density** graph to show Activity (Speed).
-    *   Present the **FE** bar chart to show Selectivity (Product Purity).
-  
-
+    *   Present the Current Density graph to show Activity.
+    *   Present the FE bar chart to show Selectivity.  
