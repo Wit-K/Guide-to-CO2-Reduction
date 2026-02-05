@@ -149,7 +149,25 @@ If the gas flow fluctuates, the concentration of $CO_2$ at the electrode changes
 
 ---
 
-## 9. Conceptual Arrangement & Conclusion
+## 9. Safety & Operational Hazards
+*Common protocols for handling gases and electricity.*
+
+*   **Carbon Monoxide (CO) Toxicity:**
+    *   *Risk:* The primary product of this reaction is CO, an odorless, colorless, and deadly gas.
+    *   *Protocol:* Experiments should be conducted in a fume hood or a well-ventilated space equipped with CO detector.
+*   **High-Pressure Cylinders:**
+    *   *Risk:* $CO_2$ tanks contain massive pressure. If it leaked or valve tear, it becomes a big projectile
+    *   *Protocol:* Cylinders should be chained/strapped to a wall or stable bench at all times. Not moving a tank without the safety cap screwed on.
+*   **Alkaline Electrolytes:**
+    *   *Risk:* Potassium Hydroxide ($KOH$) and Bicarbonate solutions can cause eye damage and skin irritation.
+    *   *Protocol:* Chemical goggles and nitrile gloves to prevent any accidents.
+*   **Electrical Safety in Wet Environments:**
+    *   *Risk:* Saltwater is highly conductive. Spills near the power supply can cause short circuits.
+    *   *Protocol:* Power supplies should be kept above the bench surface and ensure that all alligator clips are dry before turning on the voltage.
+ 
+Note that these are just some common safety and protocal when working with CO2 reduction. There are other several guidlines which should always be looked up and followed for each chemical and instruments.
+
+## 10. Conceptual Arrangement
 Understanding how everyhting fit together is important in real experiment.
 
 ### General Assembly Logic
