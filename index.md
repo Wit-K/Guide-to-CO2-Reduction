@@ -27,7 +27,7 @@ Key electrochemical concepts explained from the root with intuition and context.
 ### [2. Experimental Design](./experiment)
 A guide to the hardware. Identifying the correct electrochemical cell, electrode and electrolyte for different experiments.
 
-### [3. Data Analysis & Interpretation](./analysis)
+### [3. Data Collection, Analysis & Interpretation](./analysis)
 How to read typical results, avoid common mistakes, and understand what conclusions can be made.
 
 ### [4. Common Problems & Troubleshooting](./troubleshooting)
