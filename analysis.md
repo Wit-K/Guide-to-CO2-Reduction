@@ -144,19 +144,18 @@ LSV and CV only last a few seconds. To measure products, you need to run the rea
 ---
 
 ## 6. Product Detection
-The most common question beginners ask is: "My machine says 50mA of current. How much Methane did I make?"
-The answer is: the machine doesn't know and the current only counts electrons. It doesn't know if those electrons made Methane, Carbon Monoxide, or just Hydrogen. To find the moles for your efficiency calculation, you need a separate detection method. To find the moles for the efficiency calculation, you must analyze both the gas coming out of the cell and the liquid electrolyte inside the cell.
+The most common beinner's misconception is thinking that the we can tell what products we made from the current alone. But in truth, the machine doesn't know if those electrons made Methane, Carbon Monoxide, or just Hydrogen. To find the moles for your efficiency calculation, you need a separate detection method. To find the moles for the efficiency calculation, you must analyze both the gas coming out of the cell and the liquid electrolyte inside the cell.
 
 ### A. The Professional Standards
 If you read a paper in *Nature* or *Science*, they use separate instruments for each phase.
 
 **1. For Gas Products (e.g. $CO, CH_4, H_2, C_2H_4$):**
-*   **Instrument:** **Gas Chromatography (GC)**.
+*   **Instrument:** Gas Chromatography (GC).
 *   **How it works:** Use a syringe to take gas from the head space after running CA; then, inject the gas stream into a long column. Different gases move at different speeds, so the detector detects them at different time disinguising the gases.
 *   **Result:** Peaks showing how many micromoles of each gas were created.
 
 **2. For Liquid Products (e.g. Formate, Ethanol, Propanol):**
-*   **Instrument:** **Nuclear Magnetic Resonance (NMR)** or **High-Performance Liquid Chromatography (HPLC)**.
+*   **Instrument:** Nuclear Magnetic Resonance (NMR) or High-Performance Liquid Chromatography (HPLC).
 *   **How it works:** You take a small sample of your electrolyte water after the experiment.
     *   *NMR:* Uses magnetic fields to identify specific carbon-hydrogen bonds (e.g., distinguishing the $CH_3$ group in Ethanol from the $H-C$ bond in Formate).
     *   *HPLC:* Separates chemical compounds in the liquid based on how they stick to a filter column.
@@ -185,7 +184,7 @@ Modern air quality monitoring technology has made specific gas detection more ac
 ## 7. Conclusion
 Data analysis is something that is not only done at the end of the experiments but dictates what the next step in the experiment is as well. This is a simple workflow for the data collection and analysis in general study CO2 reduction reaction:
 
-1.  **Measuring the surface area:** Before starting, measure the Surface Area ($cm^2$) of your working electrode.
+1.  **Measuring the surface area:** Before starting, measure the Surface Area of your working electrode.
 2.  **Diagnostic Check (CV):** Run a Cyclic Voltammetry scan to see if the electrode is clean.
 3.  **Performance Check (LSV):** Run a Linear Sweep Voltammetry to find the Onset Potential.
 4.  **Production Run (Chronoamperometry):** Pick a voltage and hold for a period of time.
