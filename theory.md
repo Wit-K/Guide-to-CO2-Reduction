@@ -25,7 +25,7 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
 ## 2. Basic Electrochemistry
 Experiments in this field take place inside an "electrolytic cell". Unlike a battery (which creates electricity from chemicals), an electrolytic cell uses an external power source to force non-spontaneous chemical reactions to happen.
 
-The critical components of the system include:
+There are two sides of the reaction which can happen in electrochemstry:
 
 ### The Cathode (The Reduction Site)
 The cathode is the "electrode" connected to the negative terminal of the power supply. This is where electrons enter the solution.
@@ -38,10 +38,6 @@ The anode is the "electrode" connected to the positive terminal. This is where e
 *   **What happens here:** To balance the electrons used at the cathode, something must lose electrons (oxidize) at the anode. In most experiments, water is oxidized into oxygen gas.
 *   **Function:** While we focus on what is happening on the cathode, the anode is necessary to complete the circuit.
 *   **Key Equation:** $$ 2H_2O \rightarrow O_2 + 4H^+ + 4e^- $$
-
-### The Electrolyte
-This is the liquid solution between the two electrodes. Because pure water does not conduct electricity well, we dissolve salts, like $$KHCO_3$$, (which makes the solution more conductive) into it.
-*   **Function:** It allows ions to move between the cathode and anode to balance the charge. Without an electrolyte, the circuit is broken, and no reaction happens.
 
 ---
 
