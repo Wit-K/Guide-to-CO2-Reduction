@@ -14,7 +14,7 @@ Most people are familiar with combustion, where we burn a fuel with oxygen to re
 
 $$ Fuel + Oxygen \rightarrow CO_2 + H_2O + Energy $$
 
-We can actually reverse that process and that is essentially what "CO2 Reduction (CO2R)" is. We use energy from different sources (like heat or light) to complete this process, but electrical energy is what we will be focusing on as it is the most efficient yet. Using energy to force electrons back into carbon dioxide, we can convert it from a waste product back into a useful fuel or chemical feedstock, naming it the process of "electrochemical CO2 reduction".
+We can actually reverse that process and that is essentially what "$$CO_2$$ Reduction ($$CO_2$$R)" is. We use energy from different sources (like heat or light) to complete this process, but electrical energy is what we will be focusing on as it is the most efficient yet. Using energy to force electrons back into carbon dioxide, we can convert it from a waste product back into a useful fuel or chemical feedstock, naming it the process of "electrochemical CO2 reduction".
 
 $$ CO_2 + H_2O + Energy (Electricity) \rightarrow Fuel + Oxygen $$
 
@@ -46,7 +46,7 @@ In an electrochemical experiment, there are two main parameters we can alter or 
 
 ### Potential (Voltage)
 Potential is the energy or basically, the push applied to the system. Every chemical reaction has its own minimum energy requirement to proceed.
-*   **Thermodynamic Potential:** This is the theoretical minimum voltage needed to start the reaction. For converting CO2 to Carbon Monoxide, this is approximately -0.11 Volts.
+*   **Thermodynamic Potential:** This is the theoretical minimum voltage needed to start the reaction. For converting $$CO_2$$ to Carbon Monoxide, this is approximately -0.11 Volts.
 *   **Applied Potential:** This is the real potential applied in the real experiment, which is significantly more than the theoretical value. This is because real-world electrochemical reactions are hardly perfectly efficient and requires additional energy to overcome the theroretical minimum.
 
 ### Current (Amperage)
@@ -70,7 +70,7 @@ But if we are only pumping in $$CO_2$$ gas, where is the $$H^+$$ even coming fro
 
 **2. What does the product look like?**
 When we say "Fuel," don't expect liquid gasoline or diesel to drip right off the electrode.
-*   **Gas Products:** Carbon Monoxide (CO), Methane ($$CH_4$$), and Ethylene ($$C_2H_4$$) will appear as bubbles mixing with the unreacted $$CO_2$$ bubbles.
+*   **Gas Products:** Carbon Monoxide ($$CO$$), Methane ($$CH_4$$), and Ethylene ($$C_2H_4$$) will appear as bubbles mixing with the unreacted $$CO_2$$ bubbles.
 *   **Liquid Products:** Formate ($$HCOO^-$$) and Ethanol ($$C_2H_5OH$$) will dissolve into the water. You won't be able to distinguishes them from water. You will have to test the liquid later to find out the what actually comes out.
 
 ---
@@ -91,7 +91,7 @@ In research, the goal is often to find a setup that produces the most product wi
 ---
 
 ## 6. Selectivity and the Competing Reaction
-The most difficult part of CO2 reduction is not breaking the CO2; it is avoiding the water.
+The most difficult part of $$CO_2$$ reduction is not breaking the $$CO_2$$; it is avoiding the water.
 
 ### The Hydrogen Problem
 Since our electrolyte is mostly water, there are billions of water molecules surrounding the electrode for every one CO2 molecule. Water can also accept electrons to form Hydrogen gas ($$H_2$$).
@@ -112,20 +112,20 @@ We measure the efficiency using "Faradaic Efficiency (FE)". It represents the pe
 If we are applying electricity, why doesn't the CO2 just break apart on its own?
 
 ### The Stability Problem
-Carbon Dioxide is an incredibly stable molecule: it has a linear shape ($$O=C=O$$) with strong double bonds. It is already happy as is and resist changes coming in its way. So if you just stick a wire in water and apply voltage, don't expect long chain carbon compound to form; the electricity will ignore CO2 and just split water, which is easy to break apart, instead.
+Carbon Dioxide is an incredibly stable molecule: it has a linear shape ($$O=C=O$$) with strong double bonds. It is already happy as is and resist changes coming in its way. So if you just stick a wire in water and apply voltage, don't expect long chain carbon compound to form; the electricity will ignore $$CO_2$$ and just split water, which is easy to break apart, instead.
 
 ### What the Catalyst Does
 This is where the metal electrode comes into play. The reaction does not happen in the liquid; it happens on the surface of the metal.
-1.  **Adsorption:** The CO2 molecule lands on the metal surface.
+1.  **Adsorption:** The $$CO_2$$ molecule lands on the metal surface.
 2.  **Activation:** The metal atoms grab the Carbon and Oxygen, physically bending the molecule. This bending weakens the bonds, making it easier for electrons to attack.
 3.  **Formation:** The electron attack the reactants, breaking them apart. The atoms then combine with each other, forming new molecules which is our product.
-4.  **Desorption:** Once the fuel is made, the metal must let go so the product can float away and make room for more CO2.
+4.  **Desorption:** Once the fuel is made, the metal must let go so the product can float away and make room for more $$CO_2$$.
 
 ### The "Goldilocks" Zone
-The metal must bind to the CO2 with just the right amount of force for it to create products efficeintly. Scientists are trying to find or design a material that is just right.
-*   **Too Weak:** If the metal doesn't hold onto the CO2 strongly enough, the reaction never starts and all was there is Hydrogen.
-*   **Too Strong:** If the metal grabs too tight, the CO2 gets stuck. The surface gets clogged, and the reaction stops. This is the term define as "surface poisoning".
-*   **Just Right:** The metal holds onto CO2 long enough to break it, but lets go of after the product form.
+The metal must bind to the $$CO_2$$ with just the right amount of force for it to create products efficeintly. Scientists are trying to find or design a material that is just right.
+*   **Too Weak:** If the metal doesn't hold onto the $$CO_2$$ strongly enough, the reaction never starts and all was there is Hydrogen.
+*   **Too Strong:** If the metal grabs too tight, the $$CO_2$$ gets stuck. The surface gets clogged, and the reaction stops. This is the term define as "surface poisoning".
+*   **Just Right:** The metal holds onto $$CO_2$$ long enough to break it, but lets go of after the product form.
 
 The goal of the research is to find a catalyst surface that has this perfect balance.
 
@@ -136,18 +136,18 @@ Not all metals act the same and they can often be categorized into three groups 
 
 ### Group 1: Hydrogen Producers
 **Metals:** Platinum (Pt), Nickel (Ni), Iron (Fe), Titanium (Ti) and more.
-Do not use these metals if you are aiming for CO2 reduction.
+Do not use these metals if you are aiming for $$CO_2$$ reduction.
 *   **Behavior:** These metals bind to Hydrogen atoms very strongly.
 *   **Typical Products:** Mostly Hydrogen gas. The CO2 will barely touch the surface.
 
 ### Group 2: Two-Electron Pathway (CO / Formate)
-**Metals:** Silver (Ag), Gold (Au), Zinc (Zn), Tin (Sn) and more.
-They are great for beginners; however, different metals are specialized in making different product, so research first on what products you are looking for. For example, Zinc makes Formate and Silver makes CO efficiently.
+**Metals:** Silver ($$Ag$$), Gold ($$Au$$), Zinc ($$Zn$$), Tin ($$Sn$$) and more.
+They are great for beginners; however, different metals are specialized in making different product, so research first on what products you are looking for. For example, Zinc makes Formate and Silver makes $$CO$$ efficiently.
 *   **Behavior:** These metals are poor at making hydrogen, allowing CO2 to react. However, they stop the reaction early and separate from the reaction site.
-*   **Typical Products:** Carbon Monoxide (CO) or Formate (HCOO-).
+*   **Typical Products:** Carbon Monoxide ($$CO$$) or Formate ($$HCOO-$$).
 
 ### Group 3: Hydrocarbon Pathway
-**Metal:** Copper (Cu)
+**Metal:** Copper ($$Cu$$)
 It is unique in the periodic table and the only metal known to make multi-carbon products (very valuable). However, it is complex as it produces a mix of different products' state at once and can be somewhat unpredictable. Scientist are trying to tune the metal and understand mechanism of how each product forms in different environment.
 *   **Behavior:** Copper has just the right binding energy with the Carbon atom. This allows the carbon atoms to bond with other Carbon atoms without dettaching from the surface of the metal first.
 *   **Typical Products:** Methane ($$CH_4$$), Ethylene ($$C_2H_4$$), and Ethanol ($$C_2H_5OH$$).
@@ -155,7 +155,7 @@ It is unique in the periodic table and the only metal known to make multi-carbon
 ---
 
 ## 9. The Physical Limit
-Finally, we must understand the environment and its limit in real-world. CO2 is a gas, but the reaction happens on the solid metal surface inside a liquid. For the reaction to work, CO2 gas must dissolve into the water to reach the electrode.
+Finally, we must understand the environment and its limit in real-world. $$CO_2$$ is a gas, but the reaction happens on the solid metal surface inside a liquid. For the reaction to work, $$CO_2$$ gas must dissolve into the water to reach the electrode.
 Some of the limits are:
 1.  **Solubility:** CO2 does not dissolve well in water: just around 33mM concentration at room temperature.
 2.  **Mass Transport:** As you run the reaction, you use up the CO2 near the metal surface. If new CO2 cannot diffuse in fast enough, the reaction stops and Hydrogen evolution takes over instead.
