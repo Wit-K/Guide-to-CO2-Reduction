@@ -47,7 +47,6 @@ All of these are crucial components in "three electrode system" commonly used in
 ---
 
 ## 3. The Working Electrode (WE)
-Core Research.
 
 ### Role & Significance
 The Working Electrode (Cathode) is the centerpiece of the experiment. It serves as the electron donor and the active site where the reduction reaction occurs. Connected to the negative terminal, most of the time, the Working Electrode is the catalyst. In electrochemistry, the material of the electrode dictates the entire reaction pathway. The specific atomic arrangement on the surface determines whether $CO_2$ is converted into Carbon Monoxide, Methane, or just Hydrogen gas. Therefore, the choice of the Working Electrode is the primary variable in any $$CO_2$$ reduction study.
@@ -64,7 +63,6 @@ These metals can undergoes several tuning and modifying as stated. The common ex
 ---
 
 ## 4. The Counter Electrode (CE)
-Complete the Circuit.
 
 ### Role & Significance
 The Counter Electrode (Anode) completes the electrical circuit. While the focus of the experiment is on the cathode side, the anode is necessary for the system to fully function. Connected to the positive terminal, the Counter Electrode balances the reaction. For every electron consumed by the $CO_2$ reduction at the cathode, an oxidation reaction must occur here (typically splitting water into Oxygen).
@@ -81,7 +79,6 @@ The Counter Electrode (Anode) completes the electrical circuit. While the focus 
 ---
 
 ## 5. The Reference Electrode (RE)
-The Ruler of Electrochemistry
 
 ### Role & Significance
 The Reference Electrode provides a stable, known voltage against which the Working Electrode is measured. In a standard 3-electrode setup, the Reference Electrode does not carry current. Its sole purpose is to sense the potential at the Working Electrode without interference from the Anode. Without a Reference Electrode, you will be measuring the voltage across the entire cell, which includes the wires and solution resistance, making it impossible to know exactly how much energy is being applied to the reaction itself.
@@ -98,7 +95,6 @@ The Reference Electrode provides a stable, known voltage against which the Worki
 ---
 
 ## 6. The Membrane
-The Selective Barrier
 
 ### Role & Significance
 The Membrane is the physical barrier located inside the bridge of the H-Cell, separating the Cathodic chamber from the Anodic chamber. The membrane serves two key functions: it must block chemicals while allowing electricity to flow.
@@ -117,7 +113,6 @@ The Membrane is the physical barrier located inside the bridge of the H-Cell, se
 ---
 
 ## 7. The Electrolyte
-The Conductive Medium
 
 ### Role & Significance
 The electrolyte is the conductive liquid that fills the cell.
@@ -139,7 +134,6 @@ It serves three main functions:
 ---
 
 ## 8. External Control & Supply Systems
-The Hardware and Support
 
 ### Role & Significance
 Only the cell alone cannot operate. The experiment requires external hardware to deliver reactants, control the energy input and collect the data.
@@ -176,10 +170,9 @@ If the gas flow fluctuates, the concentration of $CO_2$ at the electrode changes
  
 Note that these are just some common safety and protocal when working with CO2 reduction. There are other several guidlines which should always be looked up and followed for each chemical and instruments.
 
-## 10. Conceptual Arrangement
-Understanding how everyhting fit together is important in real experiment.
+---
 
-### General Assembly Logic
+## 10. General Assembly Concept
 While specific designs vary, the standard H-Cell experiment follows this logical arrangement:
 
 1.  **The Gas Path:**
