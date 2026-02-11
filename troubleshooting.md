@@ -28,7 +28,6 @@ The root of the problems often stems from these:
 
 ## 2. Category A: Electrical Anomalies
 These issues pop up immediately upon starting the experiment and are generally related to charge movement.
-
 ### Issue: Incomplete Circuit
 *   **Symptom:**
     The current remains only at 0.00 A or flucuate at noise level ($<1 \mu A$).
@@ -53,7 +52,6 @@ These issues pop up immediately upon starting the experiment and are generally r
 
 ## 3. Category B: Electrochemical Performance
 The chemical reaction is not behaving as predicted.
-
 ### Issue: Catalyst Deactivation
 *   **Symptom:**
     The current starts high and promising, but then decays rapidly (e.g. dropping by 50% within the first 20 minutes) without stabilizing.
