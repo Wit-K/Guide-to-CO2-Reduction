@@ -77,7 +77,7 @@ The more electrons required, the more electricity used up per the same mole of p
 ---
 
 ## 4. The Core Metrics
-Once you have your raw data and your constants, you can calculate the two numbers that are actually report in a research paper.
+Once you have your raw data and your constants, you can calculate the two numbers that are actually report in a research paper: the current density and the faradaic efficiency.
 
 ### A. Measuring Activity: Current Density ($j$)
 Raw current is misleading. Of course, a massive sheet of copper will pass more current than a tiny wire; therefore, to compare your catalyst fairly against other researchers, the surface area must be normallized.
@@ -113,8 +113,6 @@ If you ran 100 Coulombs of charge ($Q$) and produced a small amount of Methane, 
 ---
 
 ## 4. The Collection Protocol
-*Standard Operating Procedures for Data Acquisition*
-
 Before diving into the experiment, you must establish a strict routine for when and how you collect data. Because all datas are different, they require different sampling strategies.
 
 ### A. The Geometric Surface Area ($A_{geo}$)
@@ -184,9 +182,7 @@ Modern air quality monitoring technology has made specific gas detection more ac
 ---
 
 ## 6. Case Study: A Real Calculation Walkthrough
-*Putting the Theory into Practice*
-
-Let's look at a hypothetical experiment to see how we go from raw spreadsheet numbers to a final percentage.
+Let's look at a hypothetical experiment to see how we go from raw numbers to a final percentage.
 
 ### The Scenario
 You are testing a Silver (Ag) catalyst to produce Carbon Monoxide (CO). You run the experiment for 30 minutes.
