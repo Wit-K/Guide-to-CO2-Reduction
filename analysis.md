@@ -223,6 +223,9 @@ $$ FE = \frac{28.95}{90} \times 100 = \mathbf{32.1\%} $$
 ### The Interpretation
 You have 32% Faradaic Efficiency for CO. And since Silver mostly makes CO and Hydrogen, the remaining 68% of the electrons likely went into making Hydrogen gas.
 
+![Product Selectivity](./assets/images/fe_vs_voltage.png)
+*Figure : The "Kuhl Plot." This stacked chart shows how product selectivity changes as you increase voltage. Notice how Hydrogen (Grey) decreases as Methane (Blue) increases.*
+
 ---
 
 ## 7. Visualizing the Data in Graph
@@ -235,6 +238,9 @@ These are the first experiments you run to see if your catalyst is working. You 
 *   **The Action:** The potentiostat scans the voltage in one direction (e.g., from 0V down to -2.0V).
 *   **The Result:** A graph where the current stays near zero until a specific voltage, then drastically shoots down. This is because a reaction has its own specific minimum for the reaction to proceed.
 *   **Onset Potential:** This is the voltage where the current starts to rise meaning the reaction turns on. A more positive onset potential is better as it can be inferred the reaction needs less energy to start. (Note that positive is less energy as we are considering the reduction reaction where we look at negative potentials)
+
+![LSV Graph](./assets/images/lsv_graph.png)
+*Figure : A Linear Sweep Voltammetry (LSV) scan. The "knee" of the curve indicates where the reaction turns on.*
 
 **2. Cyclic Voltammetry (CV)**
 *   **The Action:** The potentiostat scans the voltage down and then back up in a loop (0V $\rightarrow$ -2.0V $\rightarrow$ 0V).
