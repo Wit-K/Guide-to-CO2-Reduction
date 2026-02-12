@@ -20,6 +20,9 @@ $$ CO_2 + H_2O + Energy (Electricity) \rightarrow Fuel + Oxygen $$
 
 Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It requires a significant amount of energy and a specific environment to break its bonds and form new ones. This is why we need an electrochemical cell.
 
+![Optimization Map](./assets/images/optimization_heatmap.png)
+*Figure : Visualizing the complex relationship between Voltage, pH, and Efficiency.*
+
 ---
 
 ## 2. Basic Electrochemistry
@@ -91,6 +94,9 @@ To overcome this slowness, we apply extra voltage. This extra voltage is the "Ov
 
 In research, the goal is often to find a setup that produces the most product with the least amount of overpotential.
 
+![Tafel Plot](./assets/images/tafel_plot.png)
+*Figure : A Tafel Plot. A smaller slope (Blue) means the catalyst requires less extra energy (overpotential) to increase the reaction speed.*
+
 ---
 
 ## 6. Selectivity and the Competing Reaction
@@ -138,7 +144,28 @@ The goal of the research is to find a catalyst surface that has this perfect bal
 
 ---
 
-## 8. Catalyst materials
+## 8. The Reaction Environment (pH Effects)
+To truly control the reaction, you must look beyond the metal and look at the liquid environment.
+
+### The "Local pH" Effect
+One of the most critical concepts in modern CO2 research is the difference between the Bulk pH (the liquid in the middle of the beaker) and the Local pH (the liquid touching the catalyst surface).
+
+**The Chemistry:**
+When CO2 is reduced, the reaction consumes protons ($H^+$) or generates hydroxide ($OH^-$):
+$$ CO_2 + H_2O + 2e^- \rightarrow CO + 2OH^- $$
+
+This rapid production of $OH^-$ causes the pH near to the electrode to spike drastically (often rising to pH 10 or 11), even if the bulk solution remains neutral.
+
+### Why High pH is Good
+A high local pH is actually beneficial for two reasons:
+1.  **Suppresses Hydrogen:** The Hydrogen Evolution Reaction (HER) requires protons ($H^+$). By depleting protons near the surface, we starve the HER side-reaction.
+2.  **Favors C-C Coupling:** Advanced research suggests that a high local pH helps Carbon atoms stick together, promoting the formation of Ethylene and Ethanol over simple Methane.
+
+This is why we use buffers like Potassium Bicarbonate ($KHCO_3$). They are good at maintaining a neutral bulk pH while allowing the necessary local pH gradients to establish on the surface.
+
+---
+
+## 9. Catalyst materials
 Not all metals act the same and they can often be categorized into three groups based on what they produce:
 
 ### Group 1: Hydrogen Producers
@@ -161,7 +188,7 @@ It is unique in the periodic table and the only metal known to make multi-carbon
 
 ---
 
-## 9. The Physical Limit
+## 10. The Physical Limit
 Finally, we must understand the environment and its limit in real-world. $$CO_2$$ is a gas, but the reaction happens on the solid metal surface inside a liquid. For the reaction to work, $$CO_2$$ gas must dissolve into the water to reach the electrode.
 Some of the limits are:
 1.  **Solubility:** CO2 does not dissolve well in water: just around 33mM concentration at room temperature.
