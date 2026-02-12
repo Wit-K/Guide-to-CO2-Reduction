@@ -5,9 +5,6 @@
 # Electrochemical CO2 Reduction
 **A practical, beginner-friendly guide for starting research**
 
-![Optimization Map](./assets/images/optimization_heatmap.png)
-*Figure 1: Visualizing the complex relationship between Voltage, pH, and Efficiency.*
-
 ---
 
 ## The Motivation
