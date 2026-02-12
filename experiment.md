@@ -35,6 +35,9 @@ If you put everything in one beaker, the oxygen produced in Anodic Chamber would
 ## 2. Simple Anatomy of an H-Cell System
 Even though there are many different H-Cells from various manufacturer, most of them consists of 5 main components. Understanding their roles are necessary for designing a valid experiment.
 
+![H-Cell Schematic](./assets/images/h_cell_schematic.png)
+*Figure : Schematic of a standard 3-electrode H-Cell. Note the separation of Anode and Cathode.*
+
 ### The Core Components in Simple Term
 1.  **The Working Electrode (WE):** The catalyst material where the CO2 reduction reaction occurs.
 2.  **The Counter Electrode (CE):** An inert and electrically conductive material that completes the electrical circuit.
