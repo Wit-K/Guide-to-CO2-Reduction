@@ -66,6 +66,9 @@ The chemical reaction is not behaving as predicted.
 *   **Suggestion/Diagnosis:**
     Most often, this indicates electrolyte contamination. Trace organic compounds from plastic tubing or unwashed glassware may clog the active sites of the catalyst. If the decay is erratic, gas bubbles may be sticking to the electrode surface, thereby, blocking the liquid from touching the metal.
 
+![Pourbaix Diagram](./assets/images/pourbaix_diagram.png)
+*Figure : Simplified Pourbaix Diagram for Copper. To prevent your electrode from dissolving (Corrosion), you must keep your voltage and pH in the yellow "Immunity" region.*
+
 ### Issue: Selectivity Loss
 *   **Symptom:**
     The current is stable and high, but the Faradaic Efficiency shows low carbon-based fuels and high Hydrogen.
