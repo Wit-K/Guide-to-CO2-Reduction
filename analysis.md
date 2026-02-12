@@ -263,19 +263,15 @@ LSV and CV only last a few seconds. To measure products, you need to run the rea
 ### C. Kinetic Analysis: The Tafel Plot
 While an LSV and CV show you when the reaction starts, a Tafel Plot tells you how hard it is to drive the reaction faster. It connects the extra energy you apply (Overpotential) to the speed you get out (Log Current).
 
-*   **The Axes:**
+*   **The Graph**
     *   **Y-Axis:** Overpotential ($\eta$) in Volts (How much extra push you are giving).
     *   **X-Axis:** Logarithm of Current Density ($\log j$).
-*   **The Slope (The "Tafel Slope"):**
-    *   This is the most important number. It is measured in mV/decade (millivolts needed to increase current by 10x).
+    *   **The Slope (The "Tafel Slope"):** It is the most important number measured in mV/decade (millivolts needed to increase current by 10x).
     *   **Small Slope (e.g., 30-40 mV/dec):** Excellent. A tiny increase in voltage gives a huge boost in current.
     *   **Large Slope (e.g., 120 mV/dec):** Poor. You have to push very hard to get a small increase in speed.
 
 ![Tafel Plot](./assets/images/tafel_plot.png)
 *Figure : A Tafel Plot comparing two catalysts. The Blue line has a smaller slope, meaning it is kinetically faster and more efficient than the Red line.*
-
-**Why calculate this?**
-If you report a Tafel Slope in your high school portfolio, it proves you understand **Reaction Kinetics**, not just how to run the machine. It suggests you know which step of the atomic reaction is the "bottleneck" (Rate Determining Step).
 
 ---
 
