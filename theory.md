@@ -94,9 +94,6 @@ To overcome this slowness, we apply extra voltage. This extra voltage is the "Ov
 
 In research, the goal is often to find a setup that produces the most product with the least amount of overpotential.
 
-![Tafel Plot](./assets/images/tafel_plot.png)
-*Figure : A Tafel Plot. A smaller slope (Blue) means the catalyst requires less extra energy (overpotential) to increase the reaction speed.*
-
 ---
 
 ## 6. Selectivity and the Competing Reaction
