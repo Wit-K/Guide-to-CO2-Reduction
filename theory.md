@@ -60,7 +60,10 @@ A large piece of copper will naturally allow more current to pass than a thin co
 ---
 
 ## 4. Common Misconception
-These are the common misconception you may have along exploring this new
+These are the common misconception you may have along exploring this new topic.
+
+![Energy Landscape](./assets/images/energy_landscape.png)
+*Figure : The Energy Landscape. The catalyst must help the molecule climb these energy "hills" to form new bonds.*
 
 **1. Where does the Hydrogen come from?**
 You will notice the equations have $$H^+$$ in them.
@@ -123,6 +126,10 @@ This is where the metal electrode comes into play. The reaction does not happen 
 
 ### The "Goldilocks" Zone
 The metal must bind to the $$CO_2$$ with just the right amount of force for it to create products efficeintly. Scientists are trying to find or design a material that is just right.
+
+![The Volcano Plot](./assets/images/volcano_plot.png)
+*Figure : The Volcano Plot. Copper sits near the peak, making it the most versatile catalyst for hydrocarbons.*
+
 *   **Too Weak:** If the metal doesn't hold onto the $$CO_2$$ strongly enough, the reaction never starts and all was there is Hydrogen.
 *   **Too Strong:** If the metal grabs too tight, the $$CO_2$$ gets stuck. The surface gets clogged, and the reaction stops. This is the term define as "surface poisoning".
 *   **Just Right:** The metal holds onto $$CO_2$$ long enough to break it, but lets go of after the product form.
