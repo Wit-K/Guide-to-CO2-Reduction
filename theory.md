@@ -192,7 +192,7 @@ It is unique in the periodic table and the only metal known to make multi-carbon
 *   **Behavior:** Copper has just the right binding energy with the Carbon atom. This allows the carbon atoms to bond with other Carbon atoms without dettaching from the surface of the metal first.
 *   **Typical Products:** Methane ($$CH_4$$), Ethylene ($$C_2H_4$$), and Ethanol ($$C_2H_5OH$$).
 
-![Periodic Table of CO2 Reduction](./assets/images/periodic_table_co2.png)
+![Periodic Table of CO2 Reduction](./assets/images/periodic_table_improved.png)
 *Figure: Metals color-coded by their primary product.*
 
 ---
