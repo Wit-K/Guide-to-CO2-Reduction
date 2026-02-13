@@ -58,7 +58,7 @@ The Working Electrode (Cathode) is the centerpiece of the experiment. It serves 
 1.  **Surface Morphology and Composition:** The roughness or nano-structure of the surface changes the local environment and the availability of reaction sites, often influencing the efficiency of the reaction. The purity of the metal is also critcal, and even trace of impurities can alter the product distribution.
 2.  **Pretreatment and Modification:** There are multiples available modification of the metal before running the experiment. This affects the reaction widely and often change what product are produced.
 
-![Polishing Motion](polishing.png)
+![Polishing Motion](./assets/images/polishing.png)
 *Figure : The correct "Figure-8" motion for polishing electrodes to ensure an even surface.*
 
 ### Common Choices in Research
@@ -156,7 +156,7 @@ If the gas flow fluctuates, the concentration of $CO_2$ at the electrode changes
 *   **Gas Supply:** Mostly used CO2 tank to supply gas in the system; however, user must be aware of its grade as lower grade can comes with impurities.
 *   **Electrical Control:** The most common device is the Potentiostat. It is a computer-controlled device that acts as both the power supply and the multimeter, automatically logging data.
 
-![Sparging vs Blanketing](sparging_vs_blanketing.png)
+![Sparging vs Blanketing](./assets/images/sparging_vs_blanketing.png)
 *Figure : Ensure the gas tube goes into the liquid to fully saturate the electrolyte.*
 
 ---
@@ -193,7 +193,7 @@ While specific designs vary, the standard H-Cell experiment follows this logical
     *   **Cathodic Chamber:** Contains the Working Electrode (WE) and the Reference Electrode (RE). The RE is placed as close to the WE as possible to get an accurate reading.
     *   **Anodic Chamber:** Contains only the Counter Electrode (CE) to prevent contamination from Anodic side (eg. O2 gas generated.)
 
-![Experimental Flow Chart](workflow.png)
+![Experimental Flow Chart](./assets/images/workflow.png)
 *Figure : The complete roadmap of a CO2 reduction experiment.*
 
 ---
