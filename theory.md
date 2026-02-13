@@ -20,9 +20,6 @@ $$ CO_2 + H_2O + Energy (Electricity) \rightarrow Fuel + Oxygen $$
 
 Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It requires a significant amount of energy and a specific environment to break its bonds and form new ones. This is why we need an electrochemical cell.
 
-![Optimization Map](./assets/images/optimization_heatmap.png)
-*Figure : Visualizing the complex relationship between Voltage, pH, and Efficiency.*
-
 ---
 
 ## 2. Basic Electrochemistry
@@ -65,9 +62,6 @@ A large piece of copper will naturally allow more current to pass than a thin co
 ## 4. Common Misconception
 These are the common misconception you may have along exploring this new topic.
 
-![Energy Landscape](./assets/images/energy_landscape.png)
-*Figure : The Energy Landscape. The catalyst must help the molecule climb these energy "hills" to form new bonds.*
-
 **1. Where does the Hydrogen come from?**
 You will notice the equations have $$H^+$$ in them.
 ($$ CO_2 + 2H^+ + 2e^- \rightarrow CO + H_2O $$)
@@ -93,6 +87,9 @@ To overcome this slowness, we apply extra voltage. This extra voltage is the "Ov
 *   If a catalyst is "bad," you must apply a massive voltage to get even a small current.
 
 In research, the goal is often to find a setup that produces the most product with the least amount of overpotential.
+
+![Energy Landscape](./assets/images/energy_landscape.png)
+*Figure : The Energy Landscape. The catalyst must help the molecule climb these energy "hills" to form new bonds.*
 
 ---
 
@@ -159,6 +156,9 @@ A high local pH is actually beneficial for two reasons:
 2.  **Favors C-C Coupling:** Advanced research suggests that a high local pH helps Carbon atoms stick together, promoting the formation of Ethylene and Ethanol over simple Methane.
 
 This is why we use buffers like Potassium Bicarbonate ($KHCO_3$). They are good at maintaining a neutral bulk pH while allowing the necessary local pH gradients to establish on the surface.
+
+![Optimization Map](./assets/images/optimization_heatmap.png)
+*Figure : Visualizing the complex relationship between Voltage, pH, and Efficiency.*
 
 ---
 
