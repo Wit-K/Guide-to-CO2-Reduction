@@ -154,7 +154,7 @@ If you read a paper in *Nature* or *Science*, they use separate instruments for 
 *   **How it works:** Use a syringe to take gas from the head space after running CA; then, inject the gas stream into a long column. Different gases move at different speeds, so the detector detects them at different time disinguising the gases.
 *   **Result:** Peaks showing how many micromoles of each gas were created.
 
-![GC Trace Schematic](TCD_FID.png)
+![GC Trace Schematic](./assets/images/TCD_FID.png)
 *Figure : Typical chromatograms showing separation of gases. Top: TCD detector for inorganic gases. Bottom: FID detector for hydrocarbons.*
 
 **2. For Liquid Products (e.g. Formate, Ethanol, Propanol):**
@@ -164,10 +164,10 @@ If you read a paper in *Nature* or *Science*, they use separate instruments for 
     *   *HPLC:* Separates chemical compounds in the liquid based on how they stick to a filter column.
 *   **Result:** A concentration reading of the compounds found in the solution
 
-![NMR Spectrum](NMR.png)
+![NMR Spectrum](./assets/images/NMR.png)
 *Figure : An example 1H-NMR spectrum. Note the large water peak (suppressed) relative to the small product peaks.*
 
-![Calibration Curve](calibration.png)
+![Calibration Curve](./assets/images/calibration.png)
 *Figure 3: A standard calibration curve converting peak area into concentration.*
 
 ### B. Resource-limited alternative settings
