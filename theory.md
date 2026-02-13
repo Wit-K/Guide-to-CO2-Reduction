@@ -134,14 +134,14 @@ This is where the metal electrode comes into play. The reaction does not happen 
 4.  **Desorption:** Once the fuel is made, the metal must let go so the product can float away and make room for more $$CO_2$$.
 
 ### The "Goldilocks" Zone
-The metal must bind to the $$CO_2$$ with just the right amount of force for it to create products efficeintly. Scientists are trying to find or design a material that is just right.
+The metal must bind to the $$CO$$ (the intermediate) with just the right amount of force for it to create products efficeintly. Scientists are trying to find or design a material that is just right.
 
 ![The Volcano Plot](./assets/images/volcano_plot.png)
 *Figure : The Volcano Plot. Copper sits near the peak, making it the most versatile catalyst for hydrocarbons.*
 
-*   **Too Weak:** If the metal doesn't hold onto the $$CO_2$$ strongly enough, the reaction never starts and all was there is Hydrogen.
-*   **Too Strong:** If the metal grabs too tight, the $$CO_2$$ gets stuck. The surface gets clogged, and the reaction stops. This is the term define as "surface poisoning".
-*   **Just Right:** The metal holds onto $$CO_2$$ long enough to break it, but lets go of after the product form.
+*   **Too Weak:** If the metal doesn't hold onto the $$CO$$ strongly enough, they will just fly away and the main product will be $$CO$$.
+*   **Too Strong:** If the metal grabs too tight, the $$CO$$ gets stuck. The surface gets clogged by all the $$CO$$, preventing new $$CO_2$$ from entering. The reaction stops. This is the term define as "surface poisoning".
+*   **Just Right:** The metal holds onto $$CO$$ long enough to transform it into hydrocarbon, but lets go of after the product form.
 
 The goal of the research is to find a catalyst surface that has this perfect balance.
 
