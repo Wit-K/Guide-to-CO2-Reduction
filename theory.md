@@ -29,6 +29,9 @@ $$ CO_2 + H_2O + Energy (Electricity) \rightarrow Fuel + Oxygen $$
 
 Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It requires a significant amount of energy and a specific environment to break its bonds and form new ones. This is why we need an electrochemical cell.
 
+![Reaction Pathway](./assets/images/reaction_pathway.png)
+*Figure : The "Family Tree" of CO2 reduction products.*
+
 ---
 
 ## 2. Basic Electrochemistry
@@ -192,8 +195,8 @@ It is unique in the periodic table and the only metal known to make multi-carbon
 *   **Behavior:** Copper has just the right binding energy with the Carbon atom. This allows the carbon atoms to bond with other Carbon atoms without dettaching from the surface of the metal first.
 *   **Typical Products:** Methane ($$CH_4$$), Ethylene ($$C_2H_4$$), and Ethanol ($$C_2H_5OH$$).
 
-![Periodic Table of CO2 Reduction](./assets/images/periodic_table_improved.png)
-*Figure: Metals color-coded by their primary product.*
+![Periodic Table of CO2 Reduction](./assets/images/periodic_table.png)
+*Figure : Metals color-coded by their primary product.*
 
 ---
 
