@@ -58,6 +58,9 @@ The Working Electrode (Cathode) is the centerpiece of the experiment. It serves 
 1.  **Surface Morphology and Composition:** The roughness or nano-structure of the surface changes the local environment and the availability of reaction sites, often influencing the efficiency of the reaction. The purity of the metal is also critcal, and even trace of impurities can alter the product distribution.
 2.  **Pretreatment and Modification:** There are multiples available modification of the metal before running the experiment. This affects the reaction widely and often change what product are produced.
 
+![Polishing Motion](polishing.png)
+*Figure : The correct "Figure-8" motion for polishing electrodes to ensure an even surface.*
+
 ### Common Choices in Research
 In this field, the WE varies by a lot to each researchers analyzing different materials. However, the most common working electrode are metals:
 *   **Copper (Cu):** The most significant material in the field, as it is the only bulk metal capable of efficiently producing hydrocarbons (Ethylene, Ethanol).
@@ -153,6 +156,9 @@ If the gas flow fluctuates, the concentration of $CO_2$ at the electrode changes
 *   **Gas Supply:** Mostly used CO2 tank to supply gas in the system; however, user must be aware of its grade as lower grade can comes with impurities.
 *   **Electrical Control:** The most common device is the Potentiostat. It is a computer-controlled device that acts as both the power supply and the multimeter, automatically logging data.
 
+![Sparging vs Blanketing](sparging_vs_blanketing.png)
+*Figure : Ensure the gas tube goes into the liquid to fully saturate the electrolyte.*
+
 ---
 
 ## 9. Safety & Operational Hazards
@@ -187,7 +193,10 @@ While specific designs vary, the standard H-Cell experiment follows this logical
     *   **Cathodic Chamber:** Contains the Working Electrode (WE) and the Reference Electrode (RE). The RE is placed as close to the WE as possible to get an accurate reading.
     *   **Anodic Chamber:** Contains only the Counter Electrode (CE) to prevent contamination from Anodic side (eg. O2 gas generated.)
 
-  ---
+![Experimental Flow Chart](workflow.png)
+*Figure : The complete roadmap of a CO2 reduction experiment.*
+
+---
 
 ## Conclusion
 There is no universally "correct" $CO_2$ electrochemical setup. Valid designs are chosen based on research goals, constraints, and trade-offs. The best equipment is simply the setup that allows you to isolate the variable you are trying to study while minimizing sources of error like contamination or instability. Further information on the exact set up each experiment should be obtain from literature reviews and each consequence should be carefully considered before adjusting.
