@@ -34,15 +34,12 @@ graph TD
     classDef input fill:#f9f,stroke:#333,stroke-width:2px;
     classDef inter fill:#bbf,stroke:#333,stroke-width:2px;
     classDef product fill:#dfd,stroke:#333,stroke-width:2px;
-    %% The Tree
     Start((CO2 + H2O)):::input --> Path1{2 Electrons}
     Start --> Path2{> 2 Electrons}
-    %% 2 Electron Pathway
     Path1 -->|Weak Binding| Metals1[Au, Ag, Zn]
     Metals1 --> Prod1[Carbon Monoxide <br> CO]:::product
     Path1 -->|O-Binding| Metals2[Sn, Pb, In]
     Metals2 --> Prod2[Formate / Formic Acid <br> HCOO-]:::product
-    %% Deep Reduction Pathway
     Path2 -->|Intermediate Binding| Copper[Copper Cu]:::inter
     Copper --> Gas[Gas Phase]
     Copper --> Liquid[Liquid Phase]
