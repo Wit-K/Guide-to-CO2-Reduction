@@ -35,7 +35,7 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
 ---
 
 ## 2. Basic Electrochemistry
-Experiments in this field take place inside an "electrolytic cell". Unlike a battery (which creates electricity from chemicals), an electrolytic cell uses an external power source to force non-spontaneous chemical reactions to happen.
+Experiments in this field take place inside an "electrolytic cell". An electrolytic cell uses an external power source to force non-spontaneous chemical reactions to happen. Think of it as charging a battery, but instead of storing the energy inside the battery itself, we are storing the energy in the liquid fuel we create. The 'Cathode' is where we shove electrons in to build these fuel molecules.
 
 There are two sides of the reaction which can happen in electrochemstry:
 
@@ -53,77 +53,7 @@ The anode is the "electrode" connected to the positive terminal. This is where e
 
 ---
 
-## 3. Understanding Measurements and Variables
-In an electrochemical experiment, there are two main parameters we can alter or measure: Potential and Current. It is vital to understand the difference between the driving force and the reaction rate.
-
-### Potential (Voltage)
-Potential is the energy or basically, the push applied to the system. Every chemical reaction has its own minimum energy requirement to proceed.
-*   **Thermodynamic Potential:** This is the theoretical minimum voltage needed to start the reaction. For converting $$CO_2$$ to Carbon Monoxide, this is approximately -0.11 Volts.
-*   **Applied Potential:** This is the real potential applied in the real experiment, which is significantly more than the theoretical value. This is because real-world electrochemical reactions are hardly perfectly efficient and requires additional energy to overcome the theroretical minimum.
-
-### Current (Amperage)
-While voltage is the push, the current is the flow. Current measures the rate at which electrons are moving across the interface. Since the chemical reaction consumes electrons, the current tells you directly how fast the reaction is happening.
-*   **High Current:** A fast reaction rate.
-*   **Low Current:** A slow reaction rate.
-
-### Surface Area and Normalization
-A large piece of copper will naturally allow more current to pass than a thin copper wire, just because there is more space for the reaction to occur. This makes comparision unfair. So, to make fair comparisons between different experiments, we wil look at "Current Density" instead. This is the ratio of current by surface area of the electrode, telling us how active the material is regardless of its size.
-
----
-
-## 4. Common Misconception
-These are the common misconception you may have along exploring this new topic.
-
-**1. Where does the Hydrogen come from?**
-You will notice the equations have $$H^+$$ in them.
-($$ CO_2 + 2H^+ + 2e^- \rightarrow CO + H_2O $$)
-But if we are only pumping in $$CO_2$$ gas, where is the $$H^+$$ even coming from?
-*   **The Answer:** It comes from the water ($$H_2O$$) or the Bicarbonate ($$HCO_3^-$$) in the electrolyte. This is why the reaction must happen in a water-based solution. The electricity splits the water and provide the protons needed to form the coumpounds.
-
-**2. What does the product look like?**
-When we say "Fuel," don't expect liquid gasoline or diesel to drip right off the electrode.
-*   **Gas Products:** Carbon Monoxide ($$CO$$), Methane ($$CH_4$$), and Ethylene ($$C_2H_4$$) will appear as bubbles mixing with the unreacted $$CO_2$$ bubbles.
-*   **Liquid Products:** Formate ($$HCOO^-$$) and Ethanol ($$C_2H_5OH$$) will dissolve into the water. You won't be able to distinguishes them from water. You will have to test the liquid later to find out the what actually comes out.
-
----
-
-## 5. Thermodynamics and Kinetics
-Why does the reaction does not start exactly at the theoretical voltage?
-
-### The Energy Barrier
-Even if you apply enough energy to make the reaction possible, the reaction might still be too slow to measure. This is because molecules need to rearrange themselves, bonds need to break, and intermediates need to form.
-
-### Overpotential
-To overcome this slowness, we apply extra voltage. This extra voltage is the "Overpotential".
-*   If a catalyst is "good," it requires very little overpotential to reach a high current.
-*   If a catalyst is "bad," you must apply a massive voltage to get even a small current.
-
-In research, the goal is often to find a setup that produces the most product with the least amount of overpotential.
-
-![Energy Landscape](./assets/images/energy_landscape.png)
-*Figure : The Energy Landscape. The catalyst must help the molecule climb these energy "hills" to form new bonds.*
-
----
-
-## 6. Selectivity and the Competing Reaction
-The most difficult part of $$CO_2$$ reduction is not breaking the $$CO_2$$; it is avoiding the water.
-
-### The Hydrogen Problem
-Since our electrolyte is mostly water, there are billions of water molecules surrounding the electrode for every one CO2 molecule. Water can also accept electrons to form Hydrogen gas ($$H_2$$).
-$$ 2H^+ + 2e^- \rightarrow H_2 $$
-
-This is called the "Hydrogen Evolution Reaction (HER)". It is an annoying competing reaction that wastes electricity and hinders reactions that we actually want.
-
-### Selectivity (Faradaic Efficiency)
-We measure the efficiency using "Faradaic Efficiency (FE)". It represents the percentage of electrons that went into making the product you want against all the products produced (including Hydrogen).
-**Example:**
-*   **100% FE:** Every electron resulted in $$CO_2$$ reduction.
-*   **50% FE:** Half of the electron resulted in $$CO_2$$ reduction.
-*   **0% FE:** All electrons were wasted making Hydrogen gas.
-
----
-
-## 7. The Core Idea
+## 3. The Core Idea
 If we are applying electricity, why doesn't the CO2 just break apart on its own?
 
 ### The Stability Problem
@@ -146,35 +76,70 @@ The metal must bind to the $$CO$$ (the intermediate) with just the right amount 
 *   **Too Strong:** If the metal grabs too tight, the $$CO$$ gets stuck. The surface gets clogged by all the $$CO$$, preventing new $$CO_2$$ from entering. The reaction stops. This is the term define as "surface poisoning".
 *   **Just Right:** The metal holds onto $$CO$$ long enough to transform it into hydrocarbon, but lets go of after the product form.
 
+**Analogical Compairsion**
+Imagine the CO as a ball that you are trying to catch and throw and the catalyst as your hand
+*   **Too Weak:** Slippery hand. You catch the ball but it immediately falls out of your hand. Unsuccessful.
+*   **Too Strong:** You put superglue on your hand. You catch the ball perfectly, but can't throw it. The ball is stuck, and your hand is useless for catching the next one. Unsuccessful.
+*   **Just Right:** You catch the ball successfully and hold it tight just enough to throw it out. Successful
+
+
 The goal of the research is to find a catalyst surface that has this perfect balance.
 
 ---
 
-## 8. The Reaction Environment (pH Effects)
-To truly control the reaction, you must look beyond the metal and look at the liquid environment.
+## 4. Understanding Measurements and Variables
+In an electrochemical experiment, there are two main parameters we can alter or measure: Potential and Current. It is vital to understand the difference between the driving force and the reaction rate.
 
-### The "Local pH" Effect
-One of the most critical concepts in modern CO2 research is the difference between the Bulk pH (the liquid in the middle of the beaker) and the Local pH (the liquid touching the catalyst surface).
+### Potential (Voltage)
+Potential is the energy or basically, the push applied to the system. Every chemical reaction has its own minimum energy requirement to proceed.
+*   **Thermodynamic Potential:** This is the theoretical minimum voltage needed to start the reaction. For converting $$CO_2$$ to Carbon Monoxide, this is approximately -0.11 Volts.
+*   **Applied Potential:** This is the real potential applied in the real experiment, which is significantly more than the theoretical value. This is because real-world electrochemical reactions are hardly perfectly efficient and requires additional energy to overcome the theroretical minimum.
 
-**The Chemistry:**
-When CO2 is reduced, the reaction consumes protons ($H^+$) or generates hydroxide ($OH^-$):
-$$ CO_2 + H_2O + 2e^- \rightarrow CO + 2OH^- $$
+### Current (Amperage)
+While voltage is the push, the current is the flow. Current measures the rate at which electrons are moving across the interface. Since the chemical reaction consumes electrons, the current tells you directly how fast the reaction is happening.
+*   **High Current:** A fast reaction rate.
+*   **Low Current:** A slow reaction rate.
 
-This rapid production of $OH^-$ causes the pH near to the electrode to spike drastically (often rising to pH 10 or 11), even if the bulk solution remains neutral.
+### Surface Area and Normalization
+A large piece of copper will naturally allow more current to pass than a thin copper wire, just because there is more space for the reaction to occur. This makes comparision unfair. So, to make fair comparisons between different experiments, we wil look at "Current Density" instead. This is the ratio of current by surface area of the electrode, telling us how active the material is regardless of its size.
 
-### Why High pH is Good
-A high local pH is actually beneficial for two reasons:
-1.  **Suppresses Hydrogen:** The Hydrogen Evolution Reaction (HER) requires protons ($H^+$). By depleting protons near the surface, we starve the HER side-reaction.
-2.  **Favors C-C Coupling:** Advanced research suggests that a high local pH helps Carbon atoms stick together, promoting the formation of Ethylene and Ethanol over simple Methane.
+## 4. Thermodynamics and Kinetics
+Why does the reaction does not start exactly at the theoretical voltage?
 
-This is why we use buffers like Potassium Bicarbonate ($KHCO_3$). They are good at maintaining a neutral bulk pH while allowing the necessary local pH gradients to establish on the surface.
+### The Energy Barrier
+Even if you apply enough energy to make the reaction possible, the reaction might still be too slow to measure. This is because molecules need to rearrange themselves, bonds need to break, and intermediates need to form.
 
-![Optimization Map](./assets/images/optimization_heatmap.png)
-*Figure : Visualizing the complex relationship between Voltage, pH, and Efficiency.*
+### Overpotential
+To overcome this slowness, we apply extra voltage. This extra voltage is the "Overpotential".
+*   If a catalyst is "good," it requires very little overpotential to reach a high current.
+*   If a catalyst is "bad," you must apply a massive voltage to get even a small current.
+
+In research, the goal is often to find a setup that produces the most product with the least amount of overpotential.
+
+![Energy Landscape](./assets/images/energy_landscape.png)
+*Figure : The Energy Landscape. The catalyst must help the molecule climb these energy "hills" to form new bonds.*
 
 ---
 
-## 9. Catalyst materials
+## 5. Selectivity and the Competing Reaction
+The most difficult part of $$CO_2$$ reduction is not breaking the $$CO_2$$; it is avoiding the water.
+
+### The Hydrogen Problem
+Since our electrolyte is mostly water, there are billions of water molecules surrounding the electrode for every one CO2 molecule. Water can also accept electrons to form Hydrogen gas ($$H_2$$).
+$$ 2H^+ + 2e^- \rightarrow H_2 $$
+
+This is called the "Hydrogen Evolution Reaction (HER)". It is an annoying competing reaction that wastes electricity and hinders reactions that we actually want.
+
+### Selectivity (Faradaic Efficiency)
+We measure the efficiency using "Faradaic Efficiency (FE)". It represents the percentage of electrons that went into making the product you want against all the products produced (including Hydrogen).
+**Example:**
+*   **100% FE:** Every electron resulted in $$CO_2$$ reduction.
+*   **50% FE:** Half of the electron resulted in $$CO_2$$ reduction.
+*   **0% FE:** All electrons were wasted making Hydrogen gas.
+
+---
+
+## 6. Catalyst materials
 Not all metals act the same and they can often be categorized into three groups based on what they produce:
 
 ### Group 1: Hydrogen Producers
@@ -200,10 +165,51 @@ It is unique in the periodic table and the only metal known to make multi-carbon
 
 ---
 
-## 10. The Physical Limit
-Finally, we must understand the environment and its limit in real-world. $$CO_2$$ is a gas, but the reaction happens on the solid metal surface inside a liquid. For the reaction to work, $$CO_2$$ gas must dissolve into the water to reach the electrode.
+## 7. The Physical Limit
+We must understand the environment and its limit in real-world. $$CO_2$$ is a gas, but the reaction happens on the solid metal surface inside a liquid. For the reaction to work, $$CO_2$$ gas must dissolve into the water to reach the electrode.
 Some of the limits are:
 1.  **Solubility:** CO2 does not dissolve well in water: just around 33mM concentration at room temperature.
 2.  **Mass Transport:** As you run the reaction, you use up the CO2 near the metal surface. If new CO2 cannot diffuse in fast enough, the reaction stops and Hydrogen evolution takes over instead.
 
 This is why you will see instructions to bubble CO2 gas continuously into the solution. It keeps the water saturated with CO2, giving enough room for valuable reactions to happen. 
+
+---
+
+## Extra: Common Misconception (Under Reconstruction)
+These are the common misconception you may have along exploring this new topic.
+
+**1. Where does the Hydrogen come from?**
+You will notice the equations have $$H^+$$ in them.
+($$ CO_2 + 2H^+ + 2e^- \rightarrow CO + H_2O $$)
+But if we are only pumping in $$CO_2$$ gas, where is the $$H^+$$ even coming from?
+*   **The Answer:** It comes from the water ($$H_2O$$) or the Bicarbonate ($$HCO_3^-$$) in the electrolyte. This is why the reaction must happen in a water-based solution. The electricity splits the water and provide the protons needed to form the coumpounds.
+
+**2. What does the product look like?**
+When we say "Fuel," don't expect liquid gasoline or diesel to drip right off the electrode.
+*   **Gas Products:** Carbon Monoxide ($$CO$$), Methane ($$CH_4$$), and Ethylene ($$C_2H_4$$) will appear as bubbles mixing with the unreacted $$CO_2$$ bubbles.
+*   **Liquid Products:** Formate ($$HCOO^-$$) and Ethanol ($$C_2H_5OH$$) will dissolve into the water. You won't be able to distinguishes them from water. You will have to test the liquid later to find out the what actually comes out.
+
+---
+
+## Extra: The Reaction Environment (Under Reconstruction)
+To truly control the reaction, you must look beyond the metal and look at the liquid environment.
+
+### The "Local pH" Effect
+One of the most critical concepts in modern CO2 research is the difference between the Bulk pH (the liquid in the middle of the beaker) and the Local pH (the liquid touching the catalyst surface).
+
+**The Chemistry:**
+When CO2 is reduced, the reaction consumes protons ($H^+$) or generates hydroxide ($OH^-$):
+$$ CO_2 + H_2O + 2e^- \rightarrow CO + 2OH^- $$
+
+This rapid production of $OH^-$ causes the pH near to the electrode to spike drastically (often rising to pH 10 or 11), even if the bulk solution remains neutral.
+
+### Why High pH is Good
+A high local pH is actually beneficial for two reasons:
+1.  **Suppresses Hydrogen:** The Hydrogen Evolution Reaction (HER) requires protons ($H^+$). By depleting protons near the surface, we starve the HER side-reaction.
+2.  **Favors C-C Coupling:** Advanced research suggests that a high local pH helps Carbon atoms stick together, promoting the formation of Ethylene and Ethanol over simple Methane.
+
+This is why we use buffers like Potassium Bicarbonate ($KHCO_3$). They are good at maintaining a neutral bulk pH while allowing the necessary local pH gradients to establish on the surface.
+
+![Optimization Map](./assets/images/optimization_heatmap.png)
+*Figure : Visualizing the complex relationship between Voltage, pH, and Efficiency.*
+
