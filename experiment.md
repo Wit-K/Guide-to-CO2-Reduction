@@ -82,9 +82,6 @@ The Working Electrode (Cathode) is the centerpiece of the experiment. It serves 
 1.  **Surface Morphology and Composition:** The roughness or nano-structure of the surface changes the local environment and the availability of reaction sites, often influencing the efficiency of the reaction. The purity of the metal is also critcal, and even trace of impurities can alter the product distribution.
 2.  **Pretreatment and Modification:** There are multiples available modification of the metal before running the experiment. This affects the reaction widely and often change what product are produced.
 
-![Polishing Motion](./assets/images/polishing.png)
-*Figure : The correct "Figure-8" motion for polishing electrodes to ensure an even surface.*
-
 ##### Common Choices in Research
 In this field, the WE varies by a lot to each researchers analyzing different materials. However, the most common working electrode are metals:
 *   **Copper (Cu):** The most significant material in the field, as it is the only bulk metal capable of efficiently producing hydrocarbons (Ethylene, Ethanol).
@@ -160,7 +157,7 @@ It serves three main functions:
 3.  **Purity:** This is the most common source of error. Low-grade salts often contain trace amounts of Iron or Zinc, which will plate onto the electrode and ruining experiment.
 
 ##### Common Choices in Research
-*   **Potassium Bicarbonate ($KHCO_3$):** The standard for H-Cell experiments. Because it is chemically similar to dissolved $CO_2$, it naturally maintains a slightly-acidic pH which is ideal for many catalysts.
+*   **0.1M Potassium Bicarbonate ($KHCO_3$):** The standard for H-Cell experiments. Because it is chemically similar to dissolved $CO_2$, it naturally maintains a slightly-acidic pH which is ideal for many catalysts. It is recommended for beginners to use $KHCO_3$ first before considering changing to other advance electrolytes.
 *   **Potassium Hydroxide ($KOH$):** A alkaline electrolyte used in some Flow Cell reactors. It is not commonly used in H-Cell due to other better options.
 *   **Potassium Chloride ($KCl$):** A simple salt sometimes used for testing, though it lacks the buffering ability of bicarbonate.
 
@@ -183,26 +180,26 @@ If the gas flow fluctuates, the concentration of $CO_2$ at the electrode changes
 *   **Gas Supply:** Mostly used CO2 tank to supply gas in the system; however, user must be aware of its grade as lower grade can comes with impurities.
 *   **Electrical Control:** The most common device is the Potentiostat. It is a computer-controlled device that acts as both the power supply and the multimeter, automatically logging data.
 
-![Sparging vs Blanketing](./assets/images/sparging.png)
-*Figure : Ensure the gas tube goes into the liquid to fully saturate the electrolyte.*
-
 ---
 
 ## 3. Pre-Experiment Preparation
 Before you assemble the cell, you must prepare the materials.
 
 ### 3.1 Polishing the Electrode
-The copper surface must be atomically clean. Even a fingerprint can block the reaction.
-1.  **Sand:** Use fine-grit sandpaper (e.g., 2000 grit) to remove visible oxidation.
+The electrode surface must first be atomically clean.
+1.  **Sand:** Use fine-grit sandpaper to remove visible oxidation.
 2.  **Polish:** Place a polishing cloth on a flat surface. Add Alumina slurry ($0.05 \mu m$).
-3.  **The Figure-8:** Move the electrode in a "Figure-8" motion. Do not press too hard.
+3.  **The Figure-8:** Move the electrode in a "Figure-8" motion.
 4.  **Clean:** Rinse with Distilled Water.
-5.  **Sonicate (Crucial):** Place the electrode in a beaker of water/acetone and put it in an ultrasonic bath for 5 minutes. This vibrates off the microscopic dust left by the polishing.
+5.  **Sonicate:** Place the electrode in a beaker of water/acetone and put it in an ultrasonic bath for 5 minutes. This vibrates off the microscopic dust left by the polishing.
+
+![Polishing Motion](./assets/images/polishing.png)
+*Figure : The correct "Figure-8" motion for polishing electrodes to ensure an even surface.*
 
 ### 3.2 Membrane Hydration
 The Nafion membrane acts like a sponge. If it is dry, it is brittle and non-conductive.
-*   **The Golden Rule:** Never let the membrane dry out.
-*   **Activation:** Soak the membrane in your electrolyte ($0.1M \ KHCO_3$) or deionized water for at least 24 hours before use.
+*   **The Rule:** Never let the membrane dry out.
+*   **Activation:** Soak the membrane in your electrolyte or deionized water for at least 24 hours before use.
 *   **Storage:** Keep it in a sealed jar of water when not in use.
 
 ---
@@ -210,29 +207,36 @@ The Nafion membrane acts like a sponge. If it is dry, it is brittle and non-cond
 ## 4. Assembly & Wiring
 Once the parts are clean, assemble the H-Cell. Ensure the membrane is sandwiched tightly between the two chambers to prevent leaks.
 
-### 4.1 The Wiring (The "Traffic Light" System)
-Connecting the Potentiostat can be confusing because cable colors vary by brand (Biologic, Gamry, CH Instruments). However, the logic is always the same:
+### 4.1 The Wiring
+Connecting the Potentiostat can be confusing because cable colors vary by brand; however, the logic is always the same:
 
 | **Cable Role** | **Common Color** | **Connects To** |
 | :--- | :--- | :--- |
-| **Working (WE)** | Green or Blue | **The Copper Electrode.** This is where we measure the reduction. |
-| **Counter (CE)** | Red | **The Platinum Wire.** This completes the circuit. |
-| **Reference (RE)** | White | **The Ag/AgCl.** This measures the voltage. |
-| **Sense (S)** | (Often attached to WE) | Connect this to the **Working Electrode** as well to improve accuracy. |
+| **Working (WE)** | Green or Blue | The Working Electrode. This is where we measure the reaction. |
+| **Counter (CE)** | Red | Platinum Wire. This completes the circuit. |
+| **Reference (RE)** | White | The Ag/AgCl. This measures the voltage. |
+| **Sense (S)** | Often attached to WE | Connect this to Working Electrode as well to improve accuracy. |
 
-> **⚠️ Double Check:** If you swap the Counter and Reference cables, you can instantly destroy your Reference Electrode by forcing high current through it!
+> *Warning: If you swap the Counter and Reference cables, you can instantly destroy your Reference Electrode by forcing high current through it.**
 
 ---
 
 ## 5. The Start-Up Protocol
 You cannot simply turn on the voltage. You must first create the right environment.
 
-### 5.1 Purging (Removing the Oxygen)
-Air contains ~21% Oxygen. Oxygen is much easier to reduce than CO2. If any Oxygen remains in your water, the electricity will waste its energy turning Oxygen into Water instead of CO2 into fuel.
+### 5.1 Purging
+Air contains gases other than $CO_2$ that aren't inert. They can react and steal the electricity from your CO2RR, so we need to remove them first.
 
-1.  **Insert the Gas Tube:** Place the CO2 gas tube (sparger) directly **into the liquid** at the bottom of the cell.
-2.  **Bubble:** Let the CO2 bubble vigorously for **20-30 minutes**.
-3.  **The Blanket:** After 30 minutes, you can pull the tube up to the "headspace" (above the liquid) if you are measuring gas products, or leave it bubbling gently.
+1.  **Insert the Gas Tube:** Place the CO2 gas tube directly into the liquid at the bottom of the cell.
+2.  **Bubble:** Let the $CO_2$ bubble vigorously for 20-30 minutes before running the experiment. This ensures that the solutionus is saturated with $CO_2$ and every experiment is valid.
+3.  **Check:** Ensure that the gas isn't blanketting in the headspace and is sparging in the solution. Blanketting could starve your catalyst from receiving sufficient $CO_2$.
+4.  **Measure:** Measure the flow rate of the $CO_2$ for each test typically by using mass flow controller. This is crucial for further calculation for accurate result.
+
+![Sparging vs Blanketing](./assets/images/sparging.png)
+*Figure : Ensure the gas tube goes into the liquid to fully saturate the electrolyte.*
+
+![Experimental Flow Chart](./assets/images/workflow.png)
+*Figure : The complete roadmap of a $CO_2$ reduction experiment. Note that the product mesurement will be explained in the next page*
 
 ### 5.2 The Leak Check
 Before starting the electricity:
@@ -242,22 +246,7 @@ Before starting the electricity:
 
 ---
 
-## 10. General Assembly Concept
-While specific designs vary, the standard H-Cell experiment follows this logical arrangement:
 
-1.  **The Gas Path:**
-    *   The $CO_2$ source connects only to the Cathodic Chamber.
-    *   The gas is typically routed through a tube to the bottom of the chamber to create bubbles, saturating the liquid.
-    *   The chamber must have an exhaust vent to allow unreacted gas to escape, preventing build up of pressure.
-
-2.  **The Electrode Placement:**
-    *   **Cathodic Chamber:** Contains the Working Electrode (WE) and the Reference Electrode (RE). The RE is placed as close to the WE as possible to get an accurate reading.
-    *   **Anodic Chamber:** Contains only the Counter Electrode (CE) to prevent contamination from Anodic side (eg. O2 gas generated.)
-
-![Experimental Flow Chart](./assets/images/workflow.png)
-*Figure : The complete roadmap of a CO2 reduction experiment.*
-
----
 
 ## Conclusion
 There is no universally "correct" $CO_2$ electrochemical setup. Valid designs are chosen based on research goals, constraints, and trade-offs. The best equipment is simply the setup that allows you to isolate the variable you are trying to study while minimizing sources of error like contamination or instability. Further information on the exact set up each experiment should be obtain from literature reviews and each consequence should be carefully considered before adjusting.
