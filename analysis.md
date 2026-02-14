@@ -259,7 +259,7 @@ These are the first experiments you run to see if your catalyst is working. You 
 So while CV offer more data to interpret, LSV maybe suited to some experiment such as experiment focusing on steady state behavior.
 
 ![CV Graph](./assets/images/Cyclic.png)
-*Figure : A Cyclic Voltammetry (CV) scan.*
+*Figure : A Cyclic Voltammetry (CV) scan vs Ag/AgCl.*
 
 ### B. Chronoamperometry (CA)
 LSV and CV only last a few seconds. To measure products, you need to run the reaction for a longer period.
