@@ -16,6 +16,26 @@ Part2: Analysis and Break Down of each Critical Component in Common Design.
 
 ---
 
+## 9. Safety & Operational Hazards
+*Common protocols for handling gases and electricity.*
+
+*   **Carbon Monoxide (CO) Toxicity:**
+    *   *Risk:* The primary product of this reaction is CO, an odorless, colorless, and deadly gas.
+    *   *Protocol:* Experiments should be conducted in a fume hood or a well-ventilated space equipped with CO detector.
+*   **High-Pressure Cylinders:**
+    *   *Risk:* $CO_2$ tanks contain massive pressure. If it leaked or valve tear, it becomes a big projectile
+    *   *Protocol:* Cylinders should be chained/strapped to a wall or stable bench at all times. Not moving a tank without the safety cap screwed on.
+*   **Alkaline Electrolytes:**
+    *   *Risk:* Potassium Hydroxide ($KOH$) and Bicarbonate solutions can cause eye damage and skin irritation.
+    *   *Protocol:* Chemical goggles and nitrile gloves to prevent any accidents.
+*   **Electrical Safety in Wet Environments:**
+    *   *Risk:* Saltwater is highly conductive. Spills near the power supply can cause short circuits.
+    *   *Protocol:* Power supplies should be kept above the bench surface and ensure that all alligator clips are dry before turning on the voltage.
+ 
+Note that these are just some common safety and protocal when working with CO2 reduction. There are other several guidlines which should always be looked up and followed for each chemical and instruments.
+
+---
+
 ## 1. The Big Picture
 For 90% of high school and undergraduate research, the standard design is the "H-Type Electrolytic Cell".
 
@@ -32,73 +52,86 @@ If you put everything in one beaker, the oxygen produced in Anodic Chamber would
 
 ---
 
-## 2. Simple Anatomy of an H-Cell System
-Even though there are many different H-Cells from various manufacturer, most of them consists of 5 main components. Understanding their roles are necessary for designing a valid experiment.
+## 2. The Hardware Setup
+
+To perform CO2 reduction, you need a specific set of components arranged in a standard 3-Electrode System. This setup ensures we can control the voltage precisely while keeping the fuel products separate from the waste oxygen.
 
 ![H-Cell Schematic](./assets/images/h_cell_schematic.png)
-*Figure : Schematic of a standard 3-electrode H-Cell. Note the separation of Anode and Cathode.*
+*Figure : The standard H-Cell setup showing all main components.*
 
-### The Core Components in Simple Term
-1.  **The Working Electrode (WE):** The catalyst material where the CO2 reduction reaction occurs.
-2.  **The Counter Electrode (CE):** An inert and electrically conductive material that completes the electrical circuit.
-3.  **The Reference Electrode (RE):** A specialized and stable probe with known constant potential for benchmarking.
-4.  **The Membrane:** A selective barrier that isolates the two chambers.
-5.  **The Electrolyte:** The ionic solution that allows charge transfer.
+### Component Table
 
-All of these are crucial components in "three electrode system" commonly used in H-cell electrochemical experiments. It is called three electrode system as to its three electrode, which includes reference electrode that distinguishes it from the normal two electrode system studied in high school. 
+| **Component** | **Role** | **Standard Materials** |
+| :--- | :--- | :--- |
+| **Working Electrode (WE)** | This is the Cathode where CO2 reduction happens. | Copper Foil (Cu), Gold (Au), or Silver (Ag) |
+| **Counter Electrode (CE)** | This is the Anode that completes the circuit (usually making Oxygen). | Platinum (Pt) Mesh or Wire |
+| **Reference Electrode (RE)** | Measures the voltage accurately without passing current. | Ag/AgCl (Silver/Silver Chloride) |
+| **The H-Cell** | A glass vessel with two chambers to separate products. | Borosilicate Glass |
+| **Nafion Membrane** | Allows protons ($H^+$) to cross but stops fuel from mixing with oxygen. | Nafion 117 or 115 |
+| **Electrolyte** | Conducts ions and holds the dissolved CO2. | 0.1M $KHCO_3$ (Potassium Bicarbonate) |
 
 ---
 
-## 3. The Working Electrode (WE)
+### 2.1 The Three Electrodes
 
-### Role & Significance
+#### The Working Electrode (WE)
+
+##### Role & Significance
 The Working Electrode (Cathode) is the centerpiece of the experiment. It serves as the electron donor and the active site where the reduction reaction occurs. Connected to the negative terminal, most of the time, the Working Electrode is the catalyst. In electrochemistry, the material of the electrode dictates the entire reaction pathway. The specific atomic arrangement on the surface determines whether $CO_2$ is converted into Carbon Monoxide, Methane, or just Hydrogen gas. Therefore, the choice of the Working Electrode is the primary variable in any $$CO_2$$ reduction study.
 
-### Key Properties That Affect Results
+##### Key Properties That Affect Results
 1.  **Surface Morphology and Composition:** The roughness or nano-structure of the surface changes the local environment and the availability of reaction sites, often influencing the efficiency of the reaction. The purity of the metal is also critcal, and even trace of impurities can alter the product distribution.
 2.  **Pretreatment and Modification:** There are multiples available modification of the metal before running the experiment. This affects the reaction widely and often change what product are produced.
 
 ![Polishing Motion](./assets/images/polishing.png)
 *Figure : The correct "Figure-8" motion for polishing electrodes to ensure an even surface.*
 
-### Common Choices in Research
+##### Common Choices in Research
 In this field, the WE varies by a lot to each researchers analyzing different materials. However, the most common working electrode are metals:
 *   **Copper (Cu):** The most significant material in the field, as it is the only bulk metal capable of efficiently producing hydrocarbons (Ethylene, Ethanol).
 *   **Other Transition Metals:** Au, Zn and Ag are commonly used to produce CO. And Sn and Bi are commonly used to produce Formate
 These metals can undergoes several tuning and modifying as stated. The common example are: oxidizing metals to help increase its surface area and change the product distribution, replacing chunks of metal by their nano particles might improve their faradaic efficiency and supporting metals with structures like carbon could help in mass transport of $$CO_2$$.
+
 ---
 
-## 4. The Counter Electrode (CE)
+#### The Counter Electrode (CE)
 
-### Role & Significance
+##### Role & Significance
 The Counter Electrode (Anode) completes the electrical circuit. While the focus of the experiment is on the cathode side, the anode is necessary for the system to fully function. Connected to the positive terminal, the Counter Electrode balances the reaction. For every electron consumed by the $CO_2$ reduction at the cathode, an oxidation reaction must occur here (typically splitting water into Oxygen).
 
-### Key Properties That Affect Results
+##### Key Properties That Affect Results
 1.  **Chemical Inertness:** The material must withstand high oxidation potentials without corroding. If it degrades or dissolves during the experiment, metal ions can cross the cell and contaminate the Working Electrode, making the data invalid.
 2.  **Surface Area:** To ensure the Counter Electrode does not become a bottleneck, researchers ensure its surface area is significantly larger than that of the Working Electrode. This makes the test fair when compairing between Catalysts.
 
-### Common Choices in Research
+##### Common Choices in Research
 *   **Platinum (Pt):** The academic standard due to its exceptional stability and conductivity, usually comes in form of wire or mesh.
 *   **Graphite/Carbon:** A cost-effective alternative often used in educational settings, though it requires monitoring for degradation over long-term experiments.
 *   **Dimensionally Stable Anodes (DSA):** Industrial-grade oxides (like Iridium Oxide) designed specifically for high-current durability.
 
 ---
 
-## 5. The Reference Electrode (RE)
+#### The Reference Electrode (RE)
 
-### Role & Significance
+##### Role & Significance
 The Reference Electrode provides a stable, known voltage against which the Working Electrode is measured. In a standard 3-electrode setup, the Reference Electrode does not carry current. Its sole purpose is to sense the potential at the Working Electrode without interference from the Anode. Without a Reference Electrode, you will be measuring the voltage across the entire cell, which includes the wires and solution resistance, making it impossible to know exactly how much energy is being applied to the reaction itself.
 
-### Key Properties That Affect Results
+##### Key Properties That Affect Results
 1.  **Stability:** The potential of the reference must not change over time. If the reference move up or down by even 0.1V, the data becomes useless because you no longer know the true energy applied to the $CO_2$.
 2.  **Impedance:** It must have a low-resistance connection to the electrolyte to ensure fast and accurate reading by the potentiostat.
 
-### Common Choices in Research
+##### Common Choices in Research
 *   **Silver/Silver Chloride (Ag/AgCl):** The most common reference electrode for aqueous (water-based) experiments due to its stability and non-toxicity.
 *   **Saturated Calomel Electrode (SCE):** An older standard using Mercury, but now has largely phased out due to toxicity concerns.
 *   **Reversible Hydrogen Electrode (RHE):** This is the reference in theoryx. While researchers normally report data vs. RHE, they physically use an Ag/AgCl electrode in the lab and convert the numbers mathematically later.
 
 ---
+
+### 2.2 The Reaction Vessel
+*(detailed text for H-Cell, Membrane, and Electrolyte)*
+
+
+---
+
 
 ## 6. The Membrane
 
@@ -158,26 +191,6 @@ If the gas flow fluctuates, the concentration of $CO_2$ at the electrode changes
 
 ![Sparging vs Blanketing](./assets/images/sparging_vs_blanketing.png)
 *Figure : Ensure the gas tube goes into the liquid to fully saturate the electrolyte.*
-
----
-
-## 9. Safety & Operational Hazards
-*Common protocols for handling gases and electricity.*
-
-*   **Carbon Monoxide (CO) Toxicity:**
-    *   *Risk:* The primary product of this reaction is CO, an odorless, colorless, and deadly gas.
-    *   *Protocol:* Experiments should be conducted in a fume hood or a well-ventilated space equipped with CO detector.
-*   **High-Pressure Cylinders:**
-    *   *Risk:* $CO_2$ tanks contain massive pressure. If it leaked or valve tear, it becomes a big projectile
-    *   *Protocol:* Cylinders should be chained/strapped to a wall or stable bench at all times. Not moving a tank without the safety cap screwed on.
-*   **Alkaline Electrolytes:**
-    *   *Risk:* Potassium Hydroxide ($KOH$) and Bicarbonate solutions can cause eye damage and skin irritation.
-    *   *Protocol:* Chemical goggles and nitrile gloves to prevent any accidents.
-*   **Electrical Safety in Wet Environments:**
-    *   *Risk:* Saltwater is highly conductive. Spills near the power supply can cause short circuits.
-    *   *Protocol:* Power supplies should be kept above the bench surface and ensure that all alligator clips are dry before turning on the voltage.
- 
-Note that these are just some common safety and protocal when working with CO2 reduction. There are other several guidlines which should always be looked up and followed for each chemical and instruments.
 
 ---
 
