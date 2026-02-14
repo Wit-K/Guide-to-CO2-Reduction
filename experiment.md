@@ -183,7 +183,7 @@ If the gas flow fluctuates, the concentration of $CO_2$ at the electrode changes
 *   **Gas Supply:** Mostly used CO2 tank to supply gas in the system; however, user must be aware of its grade as lower grade can comes with impurities.
 *   **Electrical Control:** The most common device is the Potentiostat. It is a computer-controlled device that acts as both the power supply and the multimeter, automatically logging data.
 
-![Sparging vs Blanketing](./assets/images/sparging_vs_blanketing.png)
+![Sparging vs Blanketing](./assets/images/sparging.png)
 *Figure : Ensure the gas tube goes into the liquid to fully saturate the electrolyte.*
 
 ---
