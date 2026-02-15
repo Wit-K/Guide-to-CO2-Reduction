@@ -16,7 +16,9 @@
 
 ---
 
-## 1. The Three Pillars of Analysis
+## 1. The Big Picture
+
+### 1.1 Three Pillars of Analysis
 To evaluate the success of a CO2 reduction experiment, researchers focus on three primary performance metrics. Data collection is designed to answer these three questions:
 
 1.  **Activity (Speed):** *How fast is the reaction occurring?*
@@ -26,13 +28,9 @@ To evaluate the success of a CO2 reduction experiment, researchers focus on thre
     *   Electricity can create many different things, so we need to determine what percentage of the electrons actually went into the desired target product.
 
 3.  **Stability (Durability):** *How long does the catalyst last?*
-    *   A catalyst works very fast for the first 10 seconds but dies out afterward is useless. We analyze stability by monitoring how the Activity and Selectivity change over time.
-  
-These 3 pillars will be expanded later, but for now just keep in mind that we need these three things from the data that you will be collecting.
+    *   A catalyst works very fast for the first 10 seconds but dies out afterward is useless. We analyze stability by monitoring how the Activity and Selectivity change over time. 
 
----
-
-## 2. Data Collection
+### 1.2 Datas We Need to Collect
 A dataset typically requires the collection of three distinct metrics.
 
 ### A. Electrical Data
@@ -48,71 +46,11 @@ These data are usually automatically provided by the potentiostat or multimeter.
 
 ### C. Chemical Data
 *   **Product Amount ($n$):** The actual quantity of fuel produced, measured in Moles.
-*   This requires external detection methods which will be later discussed in Section 5.
+*   This requires external detection methods.
 
 ---
 
-## 3. Fundamental Constants & Stoichiometry
-To convert electrical charge (Coulombs) into chemical mass (Moles), two constants are required.
-
-### The Conversion Factor
-**Faraday’s Constant ($F$)** represents the charge of one mole of electrons.
-$$ F \approx 96,485 \ C/mol $$
-
-### The Stoichiometric Constant ($z$)
-Different products require different amounts of electrons to form. These values, denoted as $z$ (or $n$), will be used to calculate efficiency. Here are the table of some commonly found products from CO2 reduction reaction.
-
-| Product | Chemical Formula | Electrons Required ($z$) | Phase |
-| :--- | :--- | :---: | :--- |
-| **Hydrogen** | $H_2$ | **2** | Gas |
-| **Carbon Monoxide** | $CO$ | **2** | Gas |
-| **Formate** | $HCOO^-$ | **2** | Liquid |
-| **Methane** | $CH_4$ | **8** | Gas |
-| **Ethylene** | $C_2H_4$ | **12** | Gas |
-| **Ethanol** | $C_2H_5OH$ | **12** | Liquid |
-| **Propanol** | $C_3H_7OH$ | **18** | Liquid |
-
-The more electrons required, the more electricity used up per the same mole of product.
-
----
-
-## 4. The Core Metrics
-Once you have your raw data and your constants, you can calculate the two numbers that are actually report in a research paper: the current density and the faradaic efficiency.
-
-### A. Measuring Activity: Current Density ($j$)
-Raw current is misleading. Of course, a massive sheet of copper will pass more current than a tiny wire; therefore, to compare your catalyst fairly against other researchers, the surface area must be normallized.
-
-**The Formula:**
-$$ j = \frac{I}{A} $$
-
-*   **$j$:** Current Density ($mA/cm^2$)
-*   **$I$:** Current (mA)
-*   **$A$:** Surface Area of the electrode ($cm^2$)
-
-**Interpretation:**
-*   **High $j$:** The material is highly active; the reaction is fast.
-*   **Low $j$:** The material is sluggish; the reaction is slow.
-The number will further depends on type and category of catalyst which can be further compare with other work of same kind or the control
-
-### B. Measuring Selectivity: Faradaic Efficiency (FE)
-This is one of the critical if not the most critical calculation in $CO_2$ reduction. It tells you the percentage of electrons that were successfully used to create your desired product, versus those wasted on unwanted side reactions.
-
-**The Formula:**
-$$ FE = \frac{n \times z \times F}{Q} \times 100 $$
-
-*   **$n$:** Moles of product produced.
-*   **$z$:** Electrons required per molecule (from the Reference Table).
-*   **$F$:** Faraday’s Constant ($96,485 \ C/mol$).
-*   **$Q$:** Total Charge passed ($Current \times Time$).
-
-**Example:**
-If you ran 100 Coulombs of charge ($Q$) and produced a small amount of Methane, you plug the moles of Methane into $n$, use 8 for $z$, and calculate.
-*   **FE = 80%:** The catalyst is excellent.
-*   **FE = 1%:** The catalyst is mostly just making waste.
-
----
-
-## 4. The Collection Protocol
+## 2. The Data Collection Protocol
 Before diving into the experiment, you must establish a strict routine for when and how you collect data. Because all datas are different, they require different sampling strategies.
 
 ### A. The Geometric Surface Area ($A_{geo}$)
@@ -122,7 +60,7 @@ Before diving into the experiment, you must establish a strict routine for when 
     1.  Measure the width of your copper strip with digital calipers.
     2.  Mark the depth of immersion (how deep it goes into the water).
     3.  **The Formula:** $$ Area = Width \times Depth \times 2 $$
-    *   *Note:* 1. We multiply by 2 because the foil has two sides reacting with the liquid; however, you can also tape a non conductive tape to define your surface area. 2. This method does not account for microscopic roughness (ECSA). While advanced studies calculate "Specific Activity" using capacitance ($C_{dl}$), for high school and general engineering purposes, Geometric Area is the standard.
+    *   *Note: 1. We multiply by 2 because the foil has two sides reacting with the liquid; however, you can also tape a non conductive tape to define your surface area. 2. This method does not account for microscopic roughness (ECSA). While advanced studies calculate "Specific Activity" using capacitance ($C_{dl}$), for high school and general engineering purposes, Geometric Area is the standard.*
 
 ### B. Gas Sampling Strategy
 *   **Timing:** Every 15 to 20 minutes (e.g., T=20, T=40, T=60).
@@ -143,10 +81,47 @@ Before diving into the experiment, you must establish a strict routine for when 
 
 ---
 
-## 5. Product Detection
-The most common beinner's misconception is thinking that the we can tell what products we made from the current alone. But in truth, the machine doesn't know if those electrons made Methane, Carbon Monoxide, or just Hydrogen. To find the moles for your efficiency calculation, you need a separate detection method. To find the moles for the efficiency calculation, you must analyze both the gas coming out of the cell and the liquid electrolyte inside the cell.
+## 3. Electrical Data
+Countless of numbers collected from the instrument don't tell us the whole story; we need to connect the dots and interpret the whole reaction. To understand how a catalyst behaves, we plot current, voltage and time.
 
-### A. The Professional Standards
+### 3.1 The Sweep Techniques: LSV and CV
+These are the first experiments you run to see if your catalyst is working. You vary the voltage and measure the current output.
+
+**1. Linear Sweep Voltammetry (LSV)**
+*   **The Action:** The potentiostat scans the voltage in one direction (e.g., from 0V down to -2.0V).
+*   **The Result:** A graph where the current stays near zero until a specific voltage, then drastically shoots down. This is because a reaction has its own specific minimum for the reaction to proceed.
+*   **Onset Potential:** This is the voltage where the current starts to rise meaning the reaction turns on. A more positive onset potential is better as it can be inferred the reaction needs less energy to start. (Note that positive is less energy as we are considering the reduction reaction where we look at negative potentials)
+
+![LSV Graph](./assets/images/lsv_graph.png)
+*Figure : A Linear Sweep Voltammetry (LSV) scan. The "knee" of the curve indicates where the reaction turns on.*
+
+**2. Cyclic Voltammetry (CV)**
+*   **The Action:** The potentiostat scans the voltage down and then back up in a loop (0V $\rightarrow$ -2.0V $\rightarrow$ 0V).
+*   **The Result:** A supposedly Duck-shaped loop, but the shape can varies with the experiments and conditions.
+*   **The Difference:** While LSV just shows performance, CV is a diagnostic tool. The shape tells you about the capacitance (surface area) and reversibility. If the graph looks totally different in a few loop, the catalyst might be unstable. This is why in research, they often run the loop many times to ensure stability and reproducibility.
+
+So while CV offer more data to interpret, LSV maybe suited to some experiment such as experiment focusing on steady state behavior.
+
+![CV Graph](./assets/images/Cyclic.png)
+*Figure : A Cyclic Voltammetry (CV) scan vs Ag/AgCl.*
+
+### 3.2. Chronoamperometry (CA)
+LSV and CV only last a few seconds. To measure products, you need to run the reaction for a longer period.
+
+*   **The Action:** Hold the voltage constant (e.g. -1.0V) and record current over time.
+*   **The Graph:**
+    *   **X-Axis:** Time (Seconds)
+    *   **Y-Axis:** Current Density ($mA/cm^2$)
+*   **Interpretation:**
+    *   **Flat Line:** Stable catalyst.
+    *   **Declining Line:** The catalyst is unstable (e.g. being poisoned or falling off).
+
+---
+
+## 4. Product Detection
+The potentiostat itself doesn't know if the electrons made Methane, Carbon Monoxide, or just Hydrogen. To find the moles for your efficiency calculation, you need a separate detection method. To find the moles for the efficiency calculation, you must analyze both the gas coming out of the cell and the liquid electrolyte inside the cell.
+
+### 4.1. The Professional Standards
 If you read a paper in *Nature* or *Science*, they use separate instruments for each phase.
 
 **1. For Gas Products (e.g. $CO, CH_4, H_2, C_2H_4$):**
@@ -170,7 +145,7 @@ If you read a paper in *Nature* or *Science*, they use separate instruments for 
 ![Calibration Curve](./assets/images/calibration.png)
 *Figure 3: A standard calibration curve converting peak area into concentration.*
 
-### B. Resource-limited alternative settings
+### 4.2. Resource-limited alternative settings
 High school and undergraduate laboratories often lack access to chromatography or spectroscopy. In these scenarios, researchers can adapt classical chemical methods to gather useful, albeit less specific, data.
 
 **1. Volumetric Analysis**
@@ -190,25 +165,75 @@ Modern air quality monitoring technology has made specific gas detection more ac
 
 ---
 
-## 6. Case Study: A Real Calculation Walkthrough
+## 5. Calculating Performance
+
+### 5.1 The Two key Metrics
+Once you have your raw data, you can calculate the two numbers that are actually report in a research paper: the current density and the faradaic efficiency.
+
+#### A. Measuring Activity: Current Density ($j$)
+Raw current is misleading. Of course, a massive sheet of copper will pass more current than a tiny wire; therefore, to compare your catalyst fairly against other researchers, the surface area must be normallized.
+
+**The Formula:**
+$$ j = \frac{I}{A} $$
+
+*   **$j$:** Current Density ($mA/cm^2$)
+*   **$I$:** Current (mA)
+*   **$A$:** Surface Area of the electrode ($cm^2$)
+
+**Interpretation:**
+*   **High $j$:** The material is highly active; the reaction is fast.
+*   **Low $j$:** The material is sluggish; the reaction is slow.
+The number will further depends on type and category of catalyst which can be further compare with other work of same kind or the control
+
+#### B. Measuring Selectivity: Faradaic Efficiency (FE)
+This is one of the critical if not the most critical calculation in $CO_2$ reduction. It tells you the percentage of electrons that were successfully used to create your desired product, versus those wasted on unwanted side reactions.
+
+**The Formula:**
+$$ FE = \frac{n \times z \times F}{Q} \times 100 $$
+
+*   **$n$:** Moles of product produced.
+*   **$z$:** Electrons required per molecule (from the Reference Table below).
+*   **$F$:** Faraday’s Constant ($96,485 \ C/mol$).
+*   **$Q$:** Total Charge passed ($Current \times Time$).
+
+**Reference Table**
+
+| Product | Chemical Formula | Electrons Required ($z$) | Phase |
+| :--- | :--- | :---: | :--- |
+| **Hydrogen** | $H_2$ | **2** | Gas |
+| **Carbon Monoxide** | $CO$ | **2** | Gas |
+| **Formate** | $HCOO^-$ | **2** | Liquid |
+| **Methane** | $CH_4$ | **8** | Gas |
+| **Ethylene** | $C_2H_4$ | **12** | Gas |
+| **Ethanol** | $C_2H_5OH$ | **12** | Liquid |
+| **Propanol** | $C_3H_7OH$ | **18** | Liquid |
+
+**Example:**
+If you ran 100 Coulombs of charge ($Q$) and produced a small amount of Methane, you plug the moles of Methane into $n$, use 8 for $z$, and calculate.
+*   **FE = 80%:** The catalyst is excellent.
+*   **FE = 1%:** The catalyst is mostly just making waste.
+
+---
+
+### 5.2 Case Study: A Real Calculation Walkthrough
 Let's look at a hypothetical experiment to see how we go from raw numbers to a final percentage.
 
-### The Scenario
+#### The Scenario
 You are testing a Silver (Ag) catalyst to produce Carbon Monoxide (CO). You run the experiment for 30 minutes.
 
-### Step 1: Gather the Raw Data
+#### Step 1: Gather the Raw Data
 Here is what you measured in the lab:
 *   **Average Current ($I$):** 50 mA (milliamps)
 *   **Time ($t$):** 1800 seconds (30 mins)
 *   **Electrode Area ($A$):** 2.5 $cm^2$
 *   **Product Detected ($n$):** The GC tells you that you made 150 micromoles ($\mu mol$) of CO gas.
 
-### Step 2: Calculate Activity (Current Density)
+#### Step 2: Calculate Activity (Current Density)
 First, we normalize the current to see how fast the reaction ran per unit area.
 $$ j = \frac{I}{A} = \frac{50 \ mA}{2.5 \ cm^2} = \mathbf{20 \ mA/cm^2} $$
 *Result:* This is a decent reaction rate for a student setup.
 
-### Step 3: Calculate Selectivity (Faradaic Efficiency)
+#### Step 3: Calculate Selectivity (Faradaic Efficiency)
 Now, we find out what percentage of the electricity actually made the CO.
 
 **A. Calculate Total Electrical Charge ($Q_{total}$)**
@@ -229,7 +254,7 @@ $$ Q_{product} = 0.000150 \times 2 \times 96,485 = \mathbf{28.95 \ Coulombs} $$
 $$ FE = \frac{Q_{product}}{Q_{total}} \times 100 $$
 $$ FE = \frac{28.95}{90} \times 100 = \mathbf{32.1\%} $$
 
-### The Interpretation
+#### The Interpretation
 You have 32% Faradaic Efficiency for CO. And since Silver mostly makes CO and Hydrogen, the remaining 68% of the electrons likely went into making Hydrogen gas.
 
 ![Product Selectivity](./assets/images/fe_vs_voltage.png)
@@ -237,59 +262,7 @@ You have 32% Faradaic Efficiency for CO. And since Silver mostly makes CO and Hy
 
 ---
 
-## 7. Visualizing the Data in Graph
-Countless of numbers collected from the instrument don't tell us the whole story; we need to connect the dots and interpret the whole reaction. To understand how a catalyst behaves, we plot current, voltage and time.
-
-### A. The Sweep Techniques: LSV and CV
-These are the first experiments you run to see if your catalyst is working. You vary the voltage and measure the current output.
-
-**1. Linear Sweep Voltammetry (LSV)**
-*   **The Action:** The potentiostat scans the voltage in one direction (e.g., from 0V down to -2.0V).
-*   **The Result:** A graph where the current stays near zero until a specific voltage, then drastically shoots down. This is because a reaction has its own specific minimum for the reaction to proceed.
-*   **Onset Potential:** This is the voltage where the current starts to rise meaning the reaction turns on. A more positive onset potential is better as it can be inferred the reaction needs less energy to start. (Note that positive is less energy as we are considering the reduction reaction where we look at negative potentials)
-
-![LSV Graph](./assets/images/lsv_graph.png)
-*Figure : A Linear Sweep Voltammetry (LSV) scan. The "knee" of the curve indicates where the reaction turns on.*
-
-**2. Cyclic Voltammetry (CV)**
-*   **The Action:** The potentiostat scans the voltage down and then back up in a loop (0V $\rightarrow$ -2.0V $\rightarrow$ 0V).
-*   **The Result:** A supposedly Duck-shaped loop, but the shape can varies with the experiments and conditions.
-*   **The Difference:** While LSV just shows performance, CV is a diagnostic tool. The shape tells you about the capacitance (surface area) and reversibility. If the graph looks totally different in a few loop, the catalyst might be unstable. This is why in research, they often run the loop many times to ensure stability and reproducibility.
-
-So while CV offer more data to interpret, LSV maybe suited to some experiment such as experiment focusing on steady state behavior.
-
-![CV Graph](./assets/images/Cyclic.png)
-*Figure : A Cyclic Voltammetry (CV) scan vs Ag/AgCl.*
-
-### B. Chronoamperometry (CA)
-LSV and CV only last a few seconds. To measure products, you need to run the reaction for a longer period.
-
-*   **The Action:** Hold the voltage constant (e.g. -1.0V) and record current over time.
-*   **The Graph:**
-    *   **X-Axis:** Time (Seconds)
-    *   **Y-Axis:** Current Density ($mA/cm^2$)
-*   **Interpretation:**
-    *   **Flat Line:** Stable catalyst.
-    *   **Declining Line:** The catalyst is unstable (e.g. being poisoned or falling off).
-
-### C. Kinetic Analysis: The Tafel Plot
-While an LSV and CV show you when the reaction starts, a Tafel Plot tells you how hard it is to drive the reaction faster. It connects the extra energy you apply (Overpotential) to the speed you get out (Log Current).
-
-*   **The Graph**
-    *   **Y-Axis:** Overpotential ($\eta$) in Volts (How much extra push you are giving).
-    *   **X-Axis:** Logarithm of Current Density ($\log j$).
-    *   **The Slope (The "Tafel Slope"):** It is the most important number measured in mV/decade (millivolts needed to increase current by 10x).
-    *   **Small Slope (e.g., 30-40 mV/dec):** Excellent. A tiny increase in voltage gives a huge boost in current.
-    *   **Large Slope (e.g., 120 mV/dec):** Poor. You have to push very hard to get a small increase in speed.
-
-*Note: on how to do the tafel plot, please find guidelines on trusted resources such as electrochemistry textbooks and educational website* 
-
-![Tafel Plot](./assets/images/tafel_plot.png)
-*Figure : A Tafel Plot comparing two catalysts. The Blue line has a smaller slope, meaning it is kinetically faster and more efficient than the Red line.*
-
----
-
-## 8. Conclusion
+## 6. Summary
 Data analysis is something that is not only done at the end of the experiments but dictates what the next step in the experiment is as well. This is a simple workflow for the data collection and analysis in general study CO2 reduction reaction:
 
 1.  **Measuring the surface area:** Before starting, measure the Surface Area of your working electrode.
@@ -304,4 +277,21 @@ Data analysis is something that is not only done at the end of the experiments b
     *   Calculate Faradaic Efficiency ($FE$).
 6.  **Report:**
     *   The Current Density graph to show Activity.
-    *   The FE bar chart to show Selectivity.  
+    *   The FE bar chart to show Selectivity.
+  
+---
+
+### Bonus Kinetic Analysis: The Tafel Plot (Under Reconstruction)
+While an LSV and CV show you when the reaction starts, a Tafel Plot tells you how hard it is to drive the reaction faster. It connects the extra energy you apply (Overpotential) to the speed you get out (Log Current).
+
+*   **The Graph**
+    *   **Y-Axis:** Overpotential ($\eta$) in Volts (How much extra push you are giving).
+    *   **X-Axis:** Logarithm of Current Density ($\log j$).
+    *   **The Slope (The "Tafel Slope"):** It is the most important number measured in mV/decade (millivolts needed to increase current by 10x).
+    *   **Small Slope (e.g., 30-40 mV/dec):** Excellent. A tiny increase in voltage gives a huge boost in current.
+    *   **Large Slope (e.g., 120 mV/dec):** Poor. You have to push very hard to get a small increase in speed.
+
+*Note: on how to do the tafel plot, please find guidelines on trusted resources such as electrochemistry textbooks and educational website* 
+
+![Tafel Plot](./assets/images/tafel_plot.png)
+*Figure : A Tafel Plot comparing two catalysts. The Blue line has a smaller slope, meaning it is kinetically faster and more efficient than the Red line.*
