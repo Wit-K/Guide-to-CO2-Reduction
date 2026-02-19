@@ -16,6 +16,16 @@
 
 ---
 
+## Quick Check
+| Symptom | Possible Cause | Go To Section |
+| :--- | :--- | :--- |
+| Current is 0.00 A | Broken circuit or loose cable | Section 2 |
+| Current is fluctuating wildly | Trapped bubbles or loose connection | Section 3 |
+| Liquid level is changing | Membrane leak | Section 4 |
+| Data looks weird or drifted | Reference electrode issue | Section 3 |
+
+---
+
 ## 1. The Diagnostic Philosophy
 When an electrochemical experiment runs wild, it is rarely random: commonly associated with one or more uncontrolled factors. Successful troubleshooting depends on isolation and inspection of these variables.
 
@@ -86,7 +96,7 @@ The chemical reaction is not behaving as predicted.
     2.  Hydrodynamic turbulence.
     3.  Loose connections.
 *   **Suggestion/Diagnosis:**
-    If the oscillation is rhythmic, it often suggests bubble dynamics: bubbles growing and detaching from the electrode surface, changing the effective surface area. If the noise is random and sharp, it typically points to an air bubble trapped in the tip of the Reference Electrode, causing the potentiostat to lose its suppposedly constant reference voltage.
+    If the oscillation is rhythmic, it often suggests bubble dynamics: bubbles growing and detaching from the electrode surface, changing the effective surface area; this is actually normal and okay to continue. But, if the noise is random and sharp, it typically points to an air bubble trapped in the tip of the Reference Electrode, causing the potentiostat to lose its suppposedly constant reference voltage.
 
 ---
 
