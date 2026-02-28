@@ -1,6 +1,9 @@
 title: Beginner's Guide to CO2RR
 description: A comprehensive beginner-friendly guide to Electrochemical CO2 Reduction
+url: "https://wit-k.github.io"
+baseurl: "/Guide-to-CO2-Reduction" 
 theme: jekyll-theme-cayman
 markdown: kramdown
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
