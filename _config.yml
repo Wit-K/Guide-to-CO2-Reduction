@@ -7,3 +7,4 @@ markdown: kramdown
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+google_site_verification: <meta name="google-site-verification" content="ah28mJspExOlFQ4EJ7a6s3A4GzVnMpcdmzomSRGbgp8" />
