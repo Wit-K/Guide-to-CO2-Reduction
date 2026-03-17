@@ -319,6 +319,3 @@ While an LSV and CV show you when the reaction starts, a Tafel Plot tells you ho
     *   **Large Slope (e.g., 120 mV/dec):** Poor. You have to push very hard to get a small increase in speed.
 
 *Note: on how to do the tafel plot, please find guidelines on trusted resources such as electrochemistry textbooks and educational website* 
-
-![Tafel Plot](./assets/images/tafel_plot.png)
-*Figure : A Tafel Plot comparing two catalysts. The Blue line has a smaller slope, meaning it is kinetically faster and more efficient than the Red line.*
