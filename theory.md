@@ -198,7 +198,3 @@ A high local pH is actually beneficial for two reasons:
 2.  **Favors C-C Coupling:** Advanced research suggests that a high local pH helps Carbon atoms stick together, promoting the formation of Ethylene and Ethanol over simple Methane.
 
 This is why we use buffers like Potassium Bicarbonate ($KHCO_3$). They are good at maintaining a neutral bulk pH while allowing the necessary local pH gradients to establish on the surface.
-
-![Optimization Map](./assets/images/optimization_heatmap.png)
-*Figure : Visualizing the complex relationship between Voltage, pH, and Efficiency.*
-
