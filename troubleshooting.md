@@ -17,6 +17,7 @@
 ---
 
 ## Quick Check
+
 | Symptom | Possible Cause | Go To Section |
 | :--- | :--- | :--- |
 | Current is 0.00 A | Broken circuit or loose cable | Section 2 |
