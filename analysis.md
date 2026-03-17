@@ -139,18 +139,12 @@ If you read a paper in *Nature* or *Science*, they use separate instruments for 
 *   **How it works:** Use a syringe to take gas from the head space after running CA; then, inject the gas stream into a long column. Different gases move at different speeds, so the detector detects them at different time disinguising the gases.
 *   **Result:** Peaks showing how many micromoles of each gas were created.
 
-![GC Trace Schematic](./assets/images/TCD_FID.png)
-*Figure : Typical chromatograms showing separation of gases. Top: TCD detector for inorganic gases. Bottom: FID detector for hydrocarbons.*
-
 **2. For Liquid Products (e.g. Formate, Ethanol, Propanol):**
 *   **Instrument:** Nuclear Magnetic Resonance (NMR) or High-Performance Liquid Chromatography (HPLC).
 *   **How it works:** You take a small sample of your electrolyte water after the experiment.
     *   *NMR:* Uses magnetic fields to identify specific carbon-hydrogen bonds (e.g., distinguishing the $CH_3$ group in Ethanol from the $H-C$ bond in Formate).
     *   *HPLC:* Separates chemical compounds in the liquid based on how they stick to a filter column.
 *   **Result:** A concentration reading of the compounds found in the solution
-
-![NMR Spectrum](./assets/images/NMR.png)
-*Figure : An example 1H-NMR spectrum. Note the large water peak (suppressed) relative to the small product peaks.*
 
 ![Calibration Curve](./assets/images/calibration.png)
 *Figure 3: A standard calibration curve converting peak area into concentration.*
@@ -292,9 +286,6 @@ To report your final results, you combine the efficiencies and normalize the cur
     *(The remaining ~25.7% is likely Hydrogen evolution or resistive loss).*
 *   **Current Density ($j$):**
     $$ j = \frac{I_{total}}{\text{Area}} = \frac{10 \text{ mA}}{2 \text{ cm}^2} = 5 \text{ mA/cm}^2 $$
-    
-![Product Selectivity](./assets/images/fe_vs_voltage.png)
-*Figure : The "Kuhl Plot." This stacked chart shows how product selectivity changes as you increase voltage. Notice how Hydrogen (Grey) decreases as Methane (Blue) increases.*
 
 ---
 
