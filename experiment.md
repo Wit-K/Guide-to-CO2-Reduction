@@ -120,6 +120,10 @@ The Reference Electrode provides a stable, known voltage against which the Worki
 *   **Saturated Calomel Electrode (SCE):** An older standard using Mercury, but now has largely phased out due to toxicity concerns.
 *   **Reversible Hydrogen Electrode (RHE):** This is the reference in theoryx. While researchers normally report data vs. RHE, they physically use an Ag/AgCl electrode in the lab and convert the numbers mathematically later.
 
+Equation: E(RHE) = E(Ag/AgCl) + 0.197 V + (0.0591 V × pH)
+> * **E(Ag/AgCl):** The raw voltage number vs Ag/AgCl.
+> * **0.197 V:** The standard constant for a standard Ag/AgCl electrode at room temperature.
+> * **0.0591 V × pH:** Nernst equation factor: adjusts the voltage based on environment acidity.
 ---
 
 ### 2.2 The Reaction Vessel
