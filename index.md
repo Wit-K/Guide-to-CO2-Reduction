@@ -1,12 +1,12 @@
+---
+layout: default
+title: "Guide to CO2 Reduction | Home"
+description: "A complete wet-lab protocol for electrochemical CO2 reduction, designed for high school and undergraduate researchers."
+---
+
 <script type="text/javascript" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-
----
-layout: default
-title: Guide to CO2 Reduction | Home
-description: Step-by-step protocols for CO2 reduction experiments.
----
 
 # Electrochemical CO2 Reduction
 **A practical, beginner-friendly guide for starting research**
