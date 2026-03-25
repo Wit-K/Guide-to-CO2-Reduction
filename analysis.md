@@ -219,6 +219,141 @@ If you read a paper in *Nature* or *Science*, they use separate instruments for 
 ![Calibration Curve](./assets/images/calibration.png)
 *Figure 3: A standard calibration curve converting peak area into concentration.*
 
+<style>
+  .nmr-container {
+    background: #fdfdfd; border: 1px solid #e0e0e0; padding: 25px; border-radius: 8px;
+    max-width: 750px; margin: 40px auto; font-family: Arial, sans-serif; box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  }
+  .nmr-header { text-align: center; color: #333; margin-bottom: 10px; }
+  .nmr-svg-wrapper {
+    width: 100%; overflow-x: auto; background: #fff; border: 1px solid #ccc; border-radius: 4px; position: relative;
+  }
+  .peak-hotspot {
+    fill: rgba(33, 150, 243, 0.2); stroke: #2196f3; stroke-width: 1; stroke-dasharray: 4;
+    cursor: pointer; transition: all 0.3s ease;
+  }
+  .peak-hotspot:hover {
+    fill: rgba(33, 150, 243, 0.5); stroke-width: 2;
+  }
+  .nmr-info-panel {
+    background: #e3f2fd; border-left: 5px solid #1976d2; padding: 20px; margin-top: 20px;
+    border-radius: 4px; display: flex; flex-direction: column; min-height: 120px; justify-content: center;
+  }
+  .nmr-title { font-size: 20px; font-weight: bold; color: #0d47a1; margin: 0 0 10px 0; }
+  .nmr-desc { font-size: 15px; color: #424242; line-height: 1.6; margin: 0; }
+  
+  /* Blinking animation for instructions */
+  @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+  .pulse-text { animation: pulse 2s infinite; color: #d32f2f; font-weight: bold; text-align: center; margin-top: 10px; font-size: 14px;}
+</style>
+
+<div class="nmr-container">
+  <div class="nmr-header">
+    <h3 style="margin: 0;">Interactive ¹H NMR Spectrum (Liquid Products)</h3>
+    <p style="font-size: 14px; color: #666;">Standard 1D Proton NMR in D₂O solvent</p>
+  </div>
+  
+  <div class="nmr-svg-wrapper">
+    <svg viewBox="0 0 800 300" width="100%" height="300">
+      <!-- Gridlines -->
+      <line x1="0" y1="50" x2="800" y2="50" stroke="#f0f0f0" stroke-width="1"/>
+      <line x1="0" y1="100" x2="800" y2="100" stroke="#f0f0f0" stroke-width="1"/>
+      <line x1="0" y1="150" x2="800" y2="150" stroke="#f0f0f0" stroke-width="1"/>
+      <line x1="0" y1="200" x2="800" y2="200" stroke="#f0f0f0" stroke-width="1"/>
+
+      <!-- X Axis (0 to 10 ppm, standard NMR goes Right to Left) -->
+      <line x1="20" y1="250" x2="780" y2="250" stroke="#333" stroke-width="2"/>
+      
+      <!-- Axis Labels & Ticks (Every 1 ppm) -->
+      <g font-size="12" fill="#666" text-anchor="middle">
+        <line x1="40" y1="250" x2="40" y2="255" stroke="#333"/><text x="40" y="270">10</text>
+        <line x1="114" y1="250" x2="114" y2="255" stroke="#333"/><text x="114" y="270">9</text>
+        <line x1="188" y1="250" x2="188" y2="255" stroke="#333"/><text x="188" y="270">8</text>
+        <line x1="262" y1="250" x2="262" y2="255" stroke="#333"/><text x="262" y="270">7</text>
+        <line x1="336" y1="250" x2="336" y2="255" stroke="#333"/><text x="336" y="270">6</text>
+        <line x1="410" y1="250" x2="410" y2="255" stroke="#333"/><text x="410" y="270">5</text>
+        <line x1="484" y1="250" x2="484" y2="255" stroke="#333"/><text x="484" y="270">4</text>
+        <line x1="558" y1="250" x2="558" y2="255" stroke="#333"/><text x="558" y="270">3</text>
+        <line x1="632" y1="250" x2="632" y2="255" stroke="#333"/><text x="632" y="270">2</text>
+        <line x1="706" y1="250" x2="706" y2="255" stroke="#333"/><text x="706" y="270">1</text>
+        <line x1="780" y1="250" x2="780" y2="255" stroke="#333"/><text x="780" y="270">0</text>
+        <text x="410" y="290" font-weight="bold" fill="#333">Chemical Shift (ppm)</text>
+      </g>
+
+      <!-- Simulated NMR Spectrum Curve -->
+      <polyline points="
+        20,248 140,248 
+        150,248 155,50 160,248 
+        370,248 
+        415,248 425,120 435,248 
+        520,248 
+        530,248 533,100 536,248 
+        625,248 
+        636,248 639,150 642,248 
+        680,248 
+        690,248 693,190 696,248 
+        700,248 703,140 706,248 
+        710,248 713,190 716,248 
+        770,248 778,180 782,248 790,248
+      " fill="none" stroke="#2e7d32" stroke-width="2.5" stroke-linejoin="round"/>
+
+      <!-- Interactive Hotspots (Clickable Areas) -->
+      <!-- Formate ~8.44 ppm -->
+      <rect class="peak-hotspot" x="140" y="30" width="30" height="220" onclick="showPeak('formate')"/>
+      <text x="155" y="20" font-size="12" fill="#1976d2" font-weight="bold" text-anchor="middle" pointer-events="none">8.44</text>
+
+      <!-- Water/HDO ~4.79 ppm -->
+      <rect class="peak-hotspot" x="410" y="100" width="40" height="150" onclick="showPeak('water')"/>
+      <text x="430" y="90" font-size="12" fill="#1976d2" font-weight="bold" text-anchor="middle" pointer-events="none">4.79</text>
+
+      <!-- Methanol ~3.34 ppm -->
+      <rect class="peak-hotspot" x="518" y="80" width="30" height="170" onclick="showPeak('methanol')"/>
+      <text x="533" y="70" font-size="12" fill="#1976d2" font-weight="bold" text-anchor="middle" pointer-events="none">3.34</text>
+
+      <!-- Acetate ~1.90 ppm -->
+      <rect class="peak-hotspot" x="624" y="130" width="30" height="120" onclick="showPeak('acetate')"/>
+      <text x="639" y="120" font-size="12" fill="#1976d2" font-weight="bold" text-anchor="middle" pointer-events="none">1.90</text>
+
+      <!-- Ethanol ~1.17 ppm -->
+      <rect class="peak-hotspot" x="680" y="120" width="45" height="130" onclick="showPeak('ethanol')"/>
+      <text x="703" y="110" font-size="12" fill="#1976d2" font-weight="bold" text-anchor="middle" pointer-events="none">1.17</text>
+
+      <!-- TMS Standard ~0.00 ppm -->
+      <rect class="peak-hotspot" x="765" y="160" width="30" height="90" onclick="showPeak('tms')"/>
+      <text x="780" y="150" font-size="12" fill="#1976d2" font-weight="bold" text-anchor="middle" pointer-events="none">0.00</text>
+
+    </svg>
+  </div>
+  
+  <div class="pulse-text">👆 Click the highlighted boxes over the peaks! 👆</div>
+
+  <div class="nmr-info-panel" id="nmr-info">
+    <h3 class="nmr-title">Awaiting Selection...</h3>
+    <p class="nmr-desc">Click any of the highlighted peaks on the spectrum above to identify the molecule and understand its signature.</p>
+  </div>
+</div>
+
+<script>
+  const peakData = {
+    formate: { title: "8.44 ppm : Formate (HCOO⁻)", text: "<strong>Shape: Singlet.</strong> Formate is the most common liquid product in CO₂ reduction. Because it only has one proton attached to carbon, and no neighboring protons, it appears as a single sharp peak extremely far to the left." },
+    water: { title: "4.79 ppm : Residual Water (HDO)", text: "<strong>Shape: Broad Singlet.</strong> Since you run experiments in water, you mix your sample with D₂O (Heavy Water) for NMR. This massive peak is the trace H₂O left over. Often, researchers use 'Water Suppression' techniques to shrink this peak so it doesn't hide other products." },
+    methanol: { title: "3.34 ppm : Methanol (CH₃OH)", text: "<strong>Shape: Singlet.</strong> The three protons on the methyl group are identical and have no neighboring protons on adjacent carbons, so they show up as one distinct singlet." },
+    acetate: { title: "1.90 ppm : Acetate (CH₃COO⁻)", text: "<strong>Shape: Singlet.</strong> A C₂ product! The three protons on the CH₃ group appear here. Acetate is often found alongside Ethanol when using Copper catalysts." },
+    ethanol: { title: "1.17 ppm : Ethanol (CH₃CH₂OH) - Methyl Group", text: "<strong>Shape: Triplet.</strong> This is the famous 'triplet' peak. The CH₃ group is next to a CH₂ group (which has 2 protons). Using the 'n+1 rule' (2+1=3), it splits into three little peaks! <em>(Note: Ethanol also has a quartet peak around 3.65 ppm, not pictured here).</em>" },
+    tms: { title: "0.00 ppm : Internal Standard (DSS / TMS)", text: "<strong>Shape: Singlet.</strong> This is your anchor. A known chemical (like DSS or TMS) is added to the tube to define exactly where 'Zero' is, ensuring all your other peaks are aligned correctly." }
+  };
+
+  function showPeak(peakId) {
+    const infoPanel = document.getElementById('nmr-info');
+    infoPanel.style.opacity = 0;
+    setTimeout(() => {
+      document.querySelector('.nmr-title').innerHTML = peakData[peakId].title;
+      document.querySelector('.nmr-desc').innerHTML = peakData[peakId].text;
+      infoPanel.style.opacity = 1;
+    }, 150);
+  }
+</script>
+
 ### 4.2. Resource-limited alternative settings
 High school and undergraduate laboratories often lack access to chromatography or spectroscopy. In these scenarios, researchers can adapt classical chemical methods to gather useful, albeit less specific, data.
 
