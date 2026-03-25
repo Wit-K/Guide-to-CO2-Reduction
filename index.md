@@ -1,9 +1,3 @@
----
-layout: default
-title: Guide to CO2 Reduction
-description: A comprehensive beginner-friendly guide to Electrochemical CO2 Reduction
----
-
 <script type="text/javascript" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
