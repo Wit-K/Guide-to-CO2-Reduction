@@ -218,6 +218,82 @@ The metal must bind to the $$CO$$ (the intermediate) with just the right amount 
 ![The Volcano Plot](./assets/images/volcano_plot)
 *Figure : The Volcano Plot. Copper sits near the peak, making it the most versatile catalyst for hydrocarbons.*
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div style="width: 100%; max-width: 650px; margin: 30px auto;">
+  <canvas id="volcanoPlot"></canvas>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const ctx = document.getElementById('volcanoPlot').getContext('2d');
+  
+  const dataPoints =[
+    {x: -0.2, y: 30, label: 'Au (Gold)', product: 'CO'},
+    {x: -0.4, y: 50, label: 'Ag (Silver)', product: 'CO'},
+    {x: -0.8, y: 95, label: 'Cu (Copper)', product: 'Hydrocarbons'},
+    {x: -1.4, y: 20, label: 'Ni (Nickel)', product: 'H₂ (Poisoned)'},
+    {x: -1.7, y: 10, label: 'Pt (Platinum)', product: 'H₂ (Poisoned)'}
+  ];
+
+  new Chart(ctx, {
+    data: {
+      datasets:[
+        {
+          type: 'scatter',
+          label: 'Catalyst Metals',
+          data: dataPoints,
+          backgroundColor: function(context) {
+            const lbl = context.raw?.label;
+            if(lbl?.includes('Cu')) return '#4caf50'; // Green for Cu
+            if(lbl?.includes('Au') || lbl?.includes('Ag')) return '#2196f3'; // Blue for CO
+            return '#f44336'; // Red for H2
+          },
+          pointRadius: 8,
+          pointHoverRadius: 11,
+          order: 1
+        },
+        {
+          type: 'line',
+          label: 'Theoretical Volcano Curve',
+          data:[
+            {x: -0.1, y: 15}, {x: -0.4, y: 50}, {x: -0.8, y: 100}, {x: -1.4, y: 25}, {x: -1.9, y: 5}
+          ],
+          borderColor: 'rgba(0,0,0,0.3)',
+          borderDash: [5, 5],
+          fill: false,
+          pointRadius: 0,
+          tension: 0.4,
+          order: 2
+        }
+      ]
+    },
+    options: {
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              if (context.datasetIndex === 1) return null; // Hide tooltip for the curve
+              const pt = context.raw;
+              return `${pt.label} | Primary Product: ${pt.product} | Binding Energy: ${pt.x} eV`;
+            }
+          }
+        },
+        title: {
+          display: true,
+          text: 'Interactive Volcano Plot for CO₂ Reduction',
+          font: { size: 16 }
+        }
+      },
+      scales: {
+        x: { title: { display: true, text: 'CO Binding Energy (eV) [Weak ➔ Strong]' } },
+        y: { title: { display: true, text: 'Catalytic Activity' }, beginAtZero: true }
+      }
+    }
+  });
+});
+</script>
+<p align="center"><em>Hover over the data points to see the exact binding energy and the resulting primary product.</em></p>
+
 *   **Too Weak:** If the metal doesn't hold onto the $$CO$$ strongly enough, they will just fly away and the main product will be $$CO$$.
 *   **Too Strong:** If the metal grabs too tight, the $$CO$$ gets stuck. The surface gets clogged by all the $$CO$$, preventing new $$CO_2$$ from entering. The reaction stops. This is the term define as "surface poisoning".
 *   **Just Right:** The metal holds onto $$CO$$ long enough to transform it into hydrocarbon, but lets go of after the product form.
