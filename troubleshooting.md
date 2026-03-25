@@ -132,18 +132,6 @@
   startWizard();
 </script>
 
----
-
-## 1. The Diagnostic Philosophy
-When an electrochemical experiment runs wild, it is rarely random: commonly associated with one or more uncontrolled factors. Successful troubleshooting depends on isolation and inspection of these variables.
-
-The root of the problems often stems from these:
-1.  **The Physics:** Is the electrical path complete?
-2.  **The Chemistry:** Is the reaction environment proper?
-3.  **The Analysis:** Is the math or calibration correct?
-
----
-
 <style>
   .noise-container { max-width: 650px; margin: 30px auto; background: #fff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; border: 1px solid #ddd; }
   .noise-tabs { display: flex; background: #f1f1f1; border-bottom: 2px solid #ccc; }
@@ -210,6 +198,18 @@ The root of the problems often stems from these:
     evt.currentTarget.className += " active";
   }
 </script>
+
+---
+
+## 1. The Diagnostic Philosophy
+When an electrochemical experiment runs wild, it is rarely random: commonly associated with one or more uncontrolled factors. Successful troubleshooting depends on isolation and inspection of these variables.
+
+The root of the problems often stems from these:
+1.  **The Physics:** Is the electrical path complete?
+2.  **The Chemistry:** Is the reaction environment proper?
+3.  **The Analysis:** Is the math or calibration correct?
+
+---
 
 ## 2. Category A: Electrical Anomalies
 These issues pop up immediately upon starting the experiment and are generally related to charge movement.
