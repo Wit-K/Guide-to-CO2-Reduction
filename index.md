@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Guide to CO2 Reduction | Home"
-description: "A complete wet-lab protocol for electrochemical CO2 reduction, designed for high school and undergraduate researchers."
+title: Beginner's Guide to CO2RR
+description: A comprehensive beginner-friendly guide to Electrochemical CO2 Reduction
 ---
 
 <script type="text/javascript" async
