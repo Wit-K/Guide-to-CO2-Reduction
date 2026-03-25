@@ -57,6 +57,83 @@ To perform CO2 reduction, you need a specific set of components arranged in a st
 
 ![H-Cell Schematic](./assets/images/h_cell_schematic.png)
 *Figure : The standard H-Cell setup showing all main components.*
+<style>
+  .hcell-container {
+    display: flex; flex-wrap: wrap; gap: 20px; margin: 30px 0;
+    background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef;
+  }
+  .hcell-svg { flex: 1; min-width: 300px; }
+  .hcell-info {
+    flex: 1; min-width: 250px; background: white; padding: 20px;
+    border-radius: 8px; border: 1px solid #ccc; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: opacity 0.2s ease;
+  }
+  .hotspot { cursor: pointer; transition: 0.2s; }
+  .hotspot:hover { opacity: 0.6; filter: drop-shadow(0 0 5px rgba(0,0,0,0.4)); }
+</style>
+
+<div class="hcell-container">
+  <div class="hcell-svg">
+    <svg viewBox="0 0 400 300" width="100%" height="100%">
+      <!-- Liquid -->
+      <path d="M 50 150 L 50 250 A 20 20 0 0 0 70 270 L 150 270 A 20 20 0 0 0 170 250 L 170 200 L 230 200 L 230 250 A 20 20 0 0 0 250 270 L 330 270 A 20 20 0 0 0 350 250 L 350 150 Z" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+      
+      <!-- Glassware (H-Cell) -->
+      <path d="M 50 80 L 50 250 A 20 20 0 0 0 70 270 L 150 270 A 20 20 0 0 0 170 250 L 170 200 L 230 200 L 230 250 A 20 20 0 0 0 250 270 L 330 270 A 20 20 0 0 0 350 250 L 350 80 M 170 150 L 170 80 M 230 150 L 230 80" fill="none" stroke="#9e9e9e" stroke-width="4" stroke-linecap="round"/>
+      
+      <!-- Bridge / Membrane -->
+      <line class="hotspot" x1="200" y1="150" x2="200" y2="200" stroke="#ff9800" stroke-width="8" onclick="showInfo('membrane')"/>
+      <text x="185" y="220" font-size="12" fill="#ff9800" font-weight="bold" pointer-events="none">Membrane</text>
+
+      <!-- Working Electrode (WE) -->
+      <rect class="hotspot" x="70" y="60" width="15" height="150" fill="#795548" stroke="#5d4037" stroke-width="2" onclick="showInfo('we')"/>
+      <text x="60" y="50" font-size="12" fill="#795548" font-weight="bold">WE (Cathode)</text>
+
+      <!-- Reference Electrode (RE) -->
+      <rect class="hotspot" x="120" y="60" width="10" height="120" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="2" onclick="showInfo('re')"/>
+      <text x="110" y="50" font-size="12" fill="#616161" font-weight="bold">RE (Ag/AgCl)</text>
+
+      <!-- Bubbler -->
+      <path class="hotspot" d="M 95 60 L 95 240 L 110 240 L 110 220 L 105 220 L 105 60 Z" fill="#b3e5fc" stroke="#0288d1" stroke-width="2" onclick="showInfo('bubbler')"/>
+      <circle cx="102" cy="250" r="3" fill="#0288d1"/><circle cx="95" cy="260" r="4" fill="#0288d1"/><circle cx="110" cy="255" r="2.5" fill="#0288d1"/>
+      <text x="80" y="35" font-size="12" fill="#0288d1" font-weight="bold">CO₂ Gas</text>
+
+      <!-- Counter Electrode (CE) -->
+      <rect class="hotspot" x="290" y="60" width="10" height="150" fill="#9e9e9e" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
+      <line class="hotspot" x1="285" y1="180" x2="315" y2="180" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
+      <line class="hotspot" x1="285" y1="190" x2="315" y2="190" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
+      <line class="hotspot" x1="285" y1="200" x2="315" y2="200" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
+      <text x="270" y="50" font-size="12" fill="#424242" font-weight="bold">CE (Anode - Pt)</text>
+      
+      <!-- Instructions -->
+      <text x="200" y="290" font-size="14" fill="#d32f2f" font-style="italic" text-anchor="middle" font-weight="bold">👆 Click the components above!</text>
+    </svg>
+  </div>
+  <div class="hcell-info" id="hcell-info-panel">
+    <h3 style="margin-top:0;">Interactive H-Cell</h3>
+    <p>Welcome to the standard H-Type Electrolytic Cell. This is the workhorse of CO₂ reduction research.</p>
+    <p><strong>👈 Click on any part of the diagram to the left</strong> (the electrodes, the membrane, or the bubbler) to learn about its role in the setup.</p>
+  </div>
+</div>
+
+<script>
+  const infoPanel = document.getElementById('hcell-info-panel');
+  const hcellData = {
+    we: { title: "Working Electrode (WE)", text: "<strong>Role:</strong> The Cathode. This is where the magic happens! CO₂ is reduced here. Connected to the negative terminal.<br><br><strong>Materials:</strong> Usually a catalyst like Copper (Cu), Gold (Au), or Silver (Ag)." },
+    ce: { title: "Counter Electrode (CE)", text: "<strong>Role:</strong> The Anode. It completes the electrical circuit. While CO₂ is reduced on the left, water is oxidized to Oxygen gas (O₂) here.<br><br><strong>Materials:</strong> Needs to be highly stable so it doesn't dissolve. Platinum (Pt) mesh or wire is the standard." },
+    re: { title: "Reference Electrode (RE)", text: "<strong>Role:</strong> The Voltage Sensor. It measures the potential applied to the Working Electrode without passing current itself. It's placed as close to the WE as possible.<br><br><strong>Materials:</strong> Silver/Silver Chloride (Ag/AgCl) is standard for water-based electrolytes." },
+    membrane: { title: "Ion Exchange Membrane", text: "<strong>Role:</strong> The Traffic Controller. It allows positive ions (like H⁺ or K⁺) to cross the bridge to complete the circuit, but blocks liquid and gases.<br><br><strong>Why?</strong> If oxygen from the anode crossed over, it would ruin the CO₂ reaction. Nafion 117 is the most common material." },
+    bubbler: { title: "CO₂ Gas Bubbler", text: "<strong>Role:</strong> The Reactant Supply. Delivers a constant flow of CO₂ gas into the liquid.<br><br><strong>Pro-Tip:</strong> You must bubble the gas for 20-30 minutes *before* turning on the electricity to purge out ambient oxygen and saturate the electrolyte." }
+  };
+
+  function showInfo(part) {
+    infoPanel.style.opacity = 0;
+    setTimeout(() => {
+      infoPanel.innerHTML = `<h3 style="margin-top:0; color: #1976d2;">${hcellData[part].title}</h3><p style="font-size:15px; line-height:1.6;">${hcellData[part].text}</p>`;
+      infoPanel.style.opacity = 1;
+    }, 150);
+  }
+</script>
 
 ### Component Table
 
@@ -224,6 +301,109 @@ Connecting the Potentiostat can be confusing because cable colors vary by brand;
 | **Sense (S)** | Often attached to WE | Connect this to Working Electrode as well to improve accuracy. |
 
 > *Warning: If you swap the Counter and Reference cables, you can instantly destroy your Reference Electrode by forcing high current through it.**
+
+<style>
+  .game-container {
+    background: #2b2b2b; color: #f8f8f2; padding: 25px; border-radius: 8px; font-family: 'Courier New', Courier, monospace;
+    max-width: 650px; margin: 30px auto; text-align: center; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border: 2px solid #444;
+  }
+  .potentiostat-header { background: #444; border: 2px solid #666; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+  .cable-labels { display: flex; justify-content: space-around; margin-top: 10px; font-weight: bold; }
+  .cable-green { color: #8bc34a; }
+  .cable-red { color: #ff5252; }
+  .cable-white { color: #ffffff; }
+  
+  .electrode-row { display: flex; justify-content: space-between; align-items: center; margin: 15px 0; padding: 12px; background: #3c3c3c; border-radius: 5px; }
+  .electrode-name { font-weight: bold; font-size: 16px; text-align: left; width: 60%; }
+  select.cable-select { padding: 8px; font-size: 14px; border-radius: 4px; border: 1px solid #ccc; cursor: pointer; width: 35%; font-weight: bold; }
+  
+  .turn-on-btn {
+    background: #ff9800; color: white; border: none; padding: 15px 24px; font-size: 18px; font-weight: bold;
+    border-radius: 5px; cursor: pointer; transition: 0.2s; margin-top: 15px; width: 100%; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .turn-on-btn:hover { background: #e68a00; transform: scale(1.02); }
+  
+  #game-feedback { margin-top: 20px; font-weight: bold; min-height: 50px; padding: 15px; border-radius: 5px; display: none; font-size: 16px; }
+  .feedback-success { background: #4caf50; color: white; border: 2px solid #388e3c; }
+  .feedback-error { background: #f44336; color: white; border: 2px solid #d32f2f; animation: shake 0.4s; }
+  @keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(-8px); } 50% { transform: translateX(8px); } 75% { transform: translateX(-8px); } 100% { transform: translateX(0); } }
+</style>
+
+<div class="game-container">
+  <div class="potentiostat-header">
+    <h3 style="margin: 0; color: #ddd; letter-spacing: 2px;">POTENTIOSTAT CONTROLLER</h3>
+    <div class="cable-labels">
+      <span class="cable-green">■ GREEN (Working)</span>
+      <span class="cable-red">■ RED (Counter)</span>
+      <span class="cable-white">■ WHITE (Reference)</span>
+    </div>
+  </div>
+  
+  <p style="margin-bottom: 20px; font-size: 15px;"><em>Mini-Game: Connect the correct cables to the electrodes below before turning on the power!</em></p>
+  
+  <div class="electrode-row">
+    <span class="electrode-name">1. Copper Foil (Cathode)</span>
+    <select class="cable-select" id="sel-we">
+      <option value="none">Select...</option>
+      <option value="green">Green Cable</option>
+      <option value="red">Red Cable</option>
+      <option value="white">White Cable</option>
+    </select>
+  </div>
+  
+  <div class="electrode-row">
+    <span class="electrode-name">2. Platinum Mesh (Anode)</span>
+    <select class="cable-select" id="sel-ce">
+      <option value="none">Select...</option>
+      <option value="green">Green Cable</option>
+      <option value="red">Red Cable</option>
+      <option value="white">White Cable</option>
+    </select>
+  </div>
+  
+  <div class="electrode-row">
+    <span class="electrode-name">3. Ag/AgCl Sensor</span>
+    <select class="cable-select" id="sel-re">
+      <option value="none">Select...</option>
+      <option value="green">Green Cable</option>
+      <option value="red">Red Cable</option>
+      <option value="white">White Cable</option>
+    </select>
+  </div>
+  
+  <button class="turn-on-btn" onclick="checkWiring()">⚡ Turn On Power ⚡</button>
+  
+  <div id="game-feedback"></div>
+</div>
+
+<script>
+  function checkWiring() {
+    const we = document.getElementById('sel-we').value;
+    const ce = document.getElementById('sel-ce').value;
+    const re = document.getElementById('sel-re').value;
+    const feedback = document.getElementById('game-feedback');
+    
+    feedback.style.display = 'block';
+    feedback.className = '';
+    
+    if (we === 'none' || ce === 'none' || re === 'none') {
+      feedback.classList.add('feedback-error');
+      feedback.innerHTML = "⚠️ Incomplete Circuit! Connect all three cables.";
+      return;
+    }
+    
+    if (we === 'green' && ce === 'red' && re === 'white') {
+      feedback.classList.add('feedback-success');
+      feedback.innerHTML = "✅ SUCCESS! The circuit is complete, stable, and recording perfect data.";
+    } else if (ce === 'white' && re === 'red') {
+      feedback.classList.add('feedback-error');
+      feedback.innerHTML = "💥 CRITICAL ERROR! You swapped Counter and Reference! High current just blasted through your sensitive Ag/AgCl sensor. You destroyed it! (Cost: $150)";
+    } else {
+      feedback.classList.add('feedback-error');
+      feedback.innerHTML = "❌ OVERLOAD. Incorrect wiring detected. The potentiostat safety triggered and shut off the power to prevent damage.";
+    }
+  }
+</script>
 
 ---
 
