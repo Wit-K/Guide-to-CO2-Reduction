@@ -21,19 +21,19 @@ This guide aims to bridge that gap. Its goal is to organize concepts, design log
 
 ## Main Index Sections
 
-### [1. Foundations & Theory](./theory)
+### [1. Foundations & Theory](./theory.html)
 Key electrochemical concepts explained from the root with intuition and context. Connecting equations to real-world experiments and understanding its reaction mechanisms.
 
-### [2. Experimental Design](./experiment)
+### [2. Experimental Design](./experiment.html)
 A guide to the hardware. Identifying the correct electrochemical cell, electrode and electrolyte for different experiments.
 
-### [3. Data Collection, Analysis & Interpretation](./analysis)
+### [3. Data Collection, Analysis & Interpretation](./analysis.html)
 How to read typical results, avoid common mistakes, and understand what conclusions can be made.
 
-### [4. Common Problems & Troubleshooting](./troubleshooting)
+### [4. Common Problems & Troubleshooting](./troubleshooting.html)
 Conceptual and experimental issues beginners frequently encounter, and how to reason through them.
 
-### [5. Curated Resources](./resources)
+### [5. Curated Resources](./resources.html)
 Papers, textbooks, and reviews annotated with guidance on how to approach them as a beginner.
 
 ---
