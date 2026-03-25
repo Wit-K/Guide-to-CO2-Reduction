@@ -2,6 +2,12 @@
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
+---
+layout: default
+title: Guide to CO2 Reduction | Home
+description: Step-by-step protocols for CO2 reduction experiments.
+---
+
 # Electrochemical CO2 Reduction
 **A practical, beginner-friendly guide for starting research**
 
