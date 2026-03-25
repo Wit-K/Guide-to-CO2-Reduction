@@ -304,6 +304,59 @@ Imagine the CO as a ball that you are trying to catch and throw and the catalyst
 *   **Too Strong:** You put superglue on your hand. You catch the ball perfectly, but can't throw it. The ball is stuck, and your hand is useless for catching the next one. Unsuccessful.
 *   **Just Right:** You catch the ball successfully and hold it tight just enough to throw it out. Successful
 
+<div style="border: 1px solid #ccc; padding: 20px; border-radius: 8px; text-align: center; margin: 30px 0; background-color: #f9f9f9; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h4 style="margin-top: 0;">Interactive Binding Energy: The "Goldilocks" Principle</h4>
+    <div style="height: 180px; position: relative; background: #e0f7fa; border-radius: 8px; overflow: hidden; margin-bottom: 20px;" id="animation-box">
+        <!-- Metal Surface -->
+        <div style="position: absolute; bottom: 0; width: 100%; height: 40px; background: #9e9e9e; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">Metal Catalyst Surface</div>
+        
+        <!-- Molecules -->
+        <div id="co-molecule-1" style="position: absolute; top: 10px; left: 45%; width: 40px; height: 40px; background: #ff5722; color: white; border-radius: 50%; line-height: 40px; font-size: 14px; font-weight: bold; transition: all 0.6s ease;">CO</div>
+        <div id="co-molecule-2" style="position: absolute; top: 10px; left: 55%; width: 40px; height: 40px; background: #ff5722; color: white; border-radius: 50%; line-height: 40px; font-size: 14px; font-weight: bold; transition: all 0.6s ease; opacity: 0;">CO</div>
+    </div>
+    
+    <input type="range" id="binding-slider" min="1" max="3" value="2" style="width: 80%; cursor: pointer;">
+    <div style="display: flex; justify-content: space-between; width: 80%; margin: 5px auto 15px auto; font-weight: bold; font-size: 14px;">
+        <span style="color: #2196f3;">Weak</span>
+        <span style="color: #4caf50;">Just Right</span>
+        <span style="color: #f44336;">Strong</span>
+    </div>
+    <div id="slider-description" style="font-size: 16px; min-height: 50px; background: white; padding: 10px; border-radius: 5px; border: 1px solid #ddd;"></div>
+</div>
+
+<script>
+    const slider = document.getElementById('binding-slider');
+    const mol1 = document.getElementById('co-molecule-1');
+    const mol2 = document.getElementById('co-molecule-2');
+    const desc = document.getElementById('slider-description');
+
+    function updateAnimation() {
+        const val = slider.value;
+        if (val == 1) { 
+            // Weak
+            mol1.style.top = '20px'; mol1.style.left = '80%'; mol1.style.transform = 'rotate(45deg)';
+            mol1.innerHTML = 'CO'; mol1.style.background = '#2196f3';
+            mol2.style.opacity = '0';
+            desc.innerHTML = "<strong>Too Weak:</strong> CO lands but immediately flies away. The main product is simply <strong>CO gas</strong>.";
+        } else if (val == 2) { 
+            // Just right
+            mol1.style.top = '100px'; mol1.style.left = '42%'; mol1.style.transform = 'rotate(0deg)';
+            mol1.innerHTML = 'C'; mol1.style.background = '#4caf50';
+            mol2.style.top = '100px'; mol2.style.left = '52%'; mol2.style.opacity = '1';
+            mol2.innerHTML = 'C'; mol2.style.background = '#4caf50';
+            desc.innerHTML = "<strong>Just Right:</strong> CO sticks long enough to bond with another Carbon. The metal lets go once formed. Result: <strong>Ethylene (C₂H₄)</strong>.";
+        } else if (val == 3) { 
+            // Strong
+            mol1.style.top = '105px'; mol1.style.left = '35%'; mol1.style.transform = 'rotate(0deg)';
+            mol1.innerHTML = 'CO'; mol1.style.background = '#f44336';
+            mol2.style.top = '105px'; mol2.style.left = '55%'; mol2.style.opacity = '1';
+            mol2.innerHTML = 'CO'; mol2.style.background = '#f44336';
+            desc.innerHTML = "<strong>Too Strong:</strong> CO gets permanently stuck. New CO₂ is blocked from entering. Result: <strong>Catalyst Poisoning / Hydrogen Evolution</strong>.";
+        }
+    }
+    slider.addEventListener('input', updateAnimation);
+    updateAnimation(); // trigger on load
+</script>
 
 The goal of the research is to find a catalyst surface that has this perfect balance.
 
@@ -388,6 +441,102 @@ It is unique in the periodic table and the only metal known to make multi-carbon
 
 ![Periodic Table of CO2 Reduction](./assets/images/periodic_table.png)
 *Figure : Metals color-coded by their primary product.*
+<style>
+  .ptable-container { text-align: center; margin: 30px 0; font-family: Arial, sans-serif; background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef;}
+  .ptable-buttons button { padding: 10px 15px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; color: white; transition: 0.2s;}
+  .ptable-buttons button:hover { opacity: 0.8; }
+  .btn-h2 { background-color: #f44336; }
+  .btn-co { background-color: #2196f3; }
+  .btn-hc { background-color: #4caf50; }
+  .btn-reset { background-color: #6c757d; }
+  
+  .ptable-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 5px;
+    max-width: 600px;
+    margin: 20px auto 0 auto;
+  }
+  .ptable-element {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: help;
+  }
+  /* Element Categories */
+  .cat-h2 { background-color: #ffcdd2; border: 2px solid #f44336; }
+  .cat-co { background-color: #bbdefb; border: 2px solid #2196f3; }
+  .cat-hc { background-color: #c8e6c9; border: 2px solid #4caf50; }
+  
+  /* Dimmed state for non-highlighted */
+  .dimmed { opacity: 0.15; filter: grayscale(100%); }
+</style>
+
+<div class="ptable-container">
+  <h4 style="margin-top: 0;">Interactive Periodic Table of CO₂ Reduction</h4>
+  <p style="font-size: 14px; margin-bottom: 15px;">Click a group below to highlight the respective metals.</p>
+  
+  <div class="ptable-buttons">
+    <button class="btn-h2" onclick="highlightGroup('h2')">Group 1 (H₂ Producers)</button>
+    <button class="btn-co" onclick="highlightGroup('co')">Group 2 (CO / Formate)</button>
+    <button class="btn-hc" onclick="highlightGroup('hc')">Group 3 (Hydrocarbons)</button>
+    <button class="btn-reset" onclick="highlightGroup('all')">Show All</button>
+  </div>
+  
+  <!-- Simplified d-block & p-block Grid -->
+  <div class="ptable-grid" id="ptable">
+    <!-- Row 1 -->
+    <div class="ptable-element cat-h2" title="Titanium (Hydrogen)">Ti</div>
+    <div class="ptable-element">V</div><div class="ptable-element">Cr</div><div class="ptable-element">Mn</div>
+    <div class="ptable-element cat-h2" title="Iron (Hydrogen)">Fe</div>
+    <div class="ptable-element cat-h2" title="Cobalt (Hydrogen)">Co</div>
+    <div class="ptable-element cat-h2" title="Nickel (Hydrogen)">Ni</div>
+    <div class="ptable-element cat-hc" title="Copper (Hydrocarbons!)">Cu</div>
+    <div class="ptable-element cat-co" title="Zinc (CO/Formate)">Zn</div>
+    <div class="ptable-element cat-co" title="Gallium (CO/Formate)">Ga</div>
+    <div class="ptable-element">Ge</div><div class="ptable-element">As</div>
+    <!-- Row 2 -->
+    <div class="ptable-element">Zr</div><div class="ptable-element">Nb</div><div class="ptable-element">Mo</div><div class="ptable-element">Tc</div>
+    <div class="ptable-element cat-h2" title="Ruthenium (Hydrogen)">Ru</div>
+    <div class="ptable-element cat-h2" title="Rhodium (Hydrogen)">Rh</div>
+    <div class="ptable-element cat-h2" title="Palladium (Hydrogen)">Pd</div>
+    <div class="ptable-element cat-co" title="Silver (CO)">Ag</div>
+    <div class="ptable-element cat-co" title="Cadmium (CO/Formate)">Cd</div>
+    <div class="ptable-element cat-co" title="Indium (Formate)">In</div>
+    <div class="ptable-element cat-co" title="Tin (Formate)">Sn</div>
+    <div class="ptable-element">Sb</div>
+    <!-- Row 3 -->
+    <div class="ptable-element">Hf</div><div class="ptable-element">Ta</div><div class="ptable-element">W</div><div class="ptable-element">Re</div>
+    <div class="ptable-element cat-h2" title="Osmium (Hydrogen)">Os</div>
+    <div class="ptable-element cat-h2" title="Iridium (Hydrogen)">Ir</div>
+    <div class="ptable-element cat-h2" title="Platinum (Hydrogen)">Pt</div>
+    <div class="ptable-element cat-co" title="Gold (CO)">Au</div>
+    <div class="ptable-element cat-co" title="Mercury (CO/Formate)">Hg</div>
+    <div class="ptable-element cat-co" title="Thallium (CO/Formate)">Tl</div>
+    <div class="ptable-element cat-co" title="Lead (Formate)">Pb</div>
+    <div class="ptable-element cat-co" title="Bismuth (Formate)">Bi</div>
+  </div>
+</div>
+
+<script>
+  function highlightGroup(group) {
+    const elements = document.querySelectorAll('.ptable-element');
+    elements.forEach(el => {
+      el.classList.remove('dimmed'); 
+      if (group === 'all') return;
+      if (!el.classList.contains('cat-' + group)) {
+        el.classList.add('dimmed');
+      }
+    });
+  }
+</script>
 
 ---
 
