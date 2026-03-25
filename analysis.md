@@ -98,6 +98,76 @@ LSV is the standard method to determine how fast your reaction is occurring and 
 ![LSV Graph](./assets/images/lsv_graph.png)
 *Figure : A Linear Sweep Voltammetry (LSV) scan. The "knee" of the curve indicates where the reaction turns on.*
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div style="width: 100%; max-width: 700px; margin: 30px auto; background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+  <h4 style="margin-top: 0; text-align: center;">Interactive LSV: Argon Baseline vs. CO₂ Scan</h4>
+  <p style="text-align: center; font-size: 14px; color: #666;">
+    <em>💡 <strong>Interactive:</strong> Click the colored boxes in the legend below to toggle the curves on and off!</em>
+  </p>
+  <canvas id="lsvChart"></canvas>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const ctxLSV = document.getElementById('lsvChart').getContext('2d');
+  
+  // Simulated Data arrays
+  const voltages =[-0.2, -0.3, -0.4, -0.5, -0.6, -0.7, -0.8, -0.9, -1.0, -1.1, -1.2, -1.3, -1.4];
+  const argonCurrent =[0, 0, -0.1, -0.2, -0.3, -0.5, -0.8, -1.5, -3.0, -6.0, -12.0, -22.0, -35.0]; // Only HER at high potentials
+  const co2Current =[0, -0.1, -0.3, -1.0, -3.5, -7.0, -12.0, -18.0, -25.0, -33.0, -42.0, -52.0, -65.0]; // CO2RR starts earlier
+  
+  new Chart(ctxLSV, {
+    type: 'line',
+    data: {
+      labels: voltages,
+      datasets:[
+        {
+          label: 'Argon Baseline (Blank)',
+          data: argonCurrent,
+          borderColor: '#9e9e9e',
+          backgroundColor: 'rgba(158, 158, 158, 0.2)',
+          borderWidth: 3,
+          tension: 0.4,
+          fill: true
+        },
+        {
+          label: 'CO₂ Saturated Scan',
+          data: co2Current,
+          borderColor: '#4caf50',
+          backgroundColor: 'rgba(76, 175, 80, 0.2)',
+          borderWidth: 3,
+          tension: 0.4,
+          fill: true
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return `${context.dataset.label}: ${context.raw} mA/cm²`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'Applied Potential (V vs. RHE)', font: {weight: 'bold'} },
+          reverse: true // Standard electrochemical plotting (negative to the right)
+        },
+        y: {
+          title: { display: true, text: 'Current Density (mA/cm²)', font: {weight: 'bold'} },
+          suggestedMax: 5
+        }
+      }
+    }
+  });
+});
+</script>
+
 ---
 
 ### 3.2 Cyclic Voltammetry (CV)
@@ -286,6 +356,107 @@ To report your final results, you combine the efficiencies and normalize the cur
     *(The remaining ~25.7% is likely Hydrogen evolution or resistive loss).*
 *   **Current Density ($j$):**
     $$ j = \frac{I_{total}}{\text{Area}} = \frac{10 \text{ mA}}{2 \text{ cm}^2} = 5 \text{ mA/cm}^2 $$
+
+<style>
+  .calc-container {
+    background: #e3f2fd; border: 2px solid #2196f3; padding: 25px; border-radius: 8px;
+    max-width: 650px; margin: 40px auto; font-family: Arial, sans-serif;
+  }
+  .calc-header { text-align: center; color: #0d47a1; margin-bottom: 20px; }
+  .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+  .input-group { display: flex; flex-direction: column; }
+  .input-group label { font-weight: bold; font-size: 14px; margin-bottom: 5px; color: #1565c0; }
+  .input-group input { padding: 10px; border: 1px solid #90caf9; border-radius: 5px; font-size: 16px; }
+  
+  .result-box {
+    background: #ffffff; border: 2px dashed #4caf50; padding: 20px; text-align: center;
+    border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+  .result-val { font-size: 32px; font-weight: bold; color: #2e7d32; margin: 10px 0; }
+  .result-sub { font-size: 16px; color: #555; }
+</style>
+
+<div class="calc-container">
+  <div class="calc-header">
+    <h3 style="margin: 0;">⚡ Live Faradaic Efficiency Calculator ⚡</h3>
+    <p style="margin: 5px 0 0 0; font-size: 14px;">Tweak the lab parameters to see how it affects your results!</p>
+  </div>
+
+  <div class="input-grid">
+    <div class="input-group">
+      <label for="calc-current">Total Current (mA)</label>
+      <input type="number" id="calc-current" value="10" step="1" oninput="calculateFE()">
+    </div>
+    <div class="input-group">
+      <label for="calc-area">Electrode Area (cm²)</label>
+      <input type="number" id="calc-area" value="1.0" step="0.1" oninput="calculateFE()">
+    </div>
+    <div class="input-group">
+      <label for="calc-ppm">GC Measurement: CO (ppm)</label>
+      <input type="number" id="calc-ppm" value="2000" step="100" oninput="calculateFE()">
+    </div>
+    <div class="input-group">
+      <label for="calc-flow">CO₂ Flow Rate (sccm)</label>
+      <input type="number" id="calc-flow" value="20" step="5" oninput="calculateFE()">
+    </div>
+  </div>
+
+  <div class="result-box">
+    <div style="display: flex; justify-content: space-around;">
+      <div>
+        <div class="result-sub">Current Density</div>
+        <div class="result-val" id="out-cd">10.0 <span style="font-size: 18px;">mA/cm²</span></div>
+      </div>
+      <div>
+        <div class="result-sub">Faradaic Efficiency (CO)</div>
+        <div class="result-val" id="out-fe">52.6 <span style="font-size: 18px;">%</span></div>
+      </div>
+    </div>
+    <div id="calc-warning" style="color: #d32f2f; font-weight: bold; margin-top: 15px; display: none;">
+      ⚠️ Warning: FE is over 100%. Check your inputs (or you just won a Nobel Prize).
+    </div>
+  </div>
+</div>
+
+<script>
+  function calculateFE() {
+    // 1. Get inputs
+    const current_mA = parseFloat(document.getElementById('calc-current').value);
+    const area = parseFloat(document.getElementById('calc-area').value);
+    const ppm = parseFloat(document.getElementById('calc-ppm').value);
+    const flow_sccm = parseFloat(document.getElementById('calc-flow').value); // mL/min
+
+    if(!current_mA || !area || !ppm || !flow_sccm) return; // Prevent NaN on empty
+
+    // 2. Current Density calculation
+    const currentDensity = (current_mA / area).toFixed(1);
+    document.getElementById('out-cd').innerHTML = `${currentDensity} <span style="font-size: 18px;">mA/cm²</span>`;
+
+    // 3. Faradaic Efficiency calculation (Standard Gas Flow Math)
+    // Molar volume of gas at 25°C, 1 atm is ~24.45 L/mol (24450 mL/mol)
+    // Faraday constant = 96485 C/mol, n = 2 electrons for CO
+    const moles_per_min = (ppm / 1000000) * (flow_sccm / 24450);
+    const moles_per_sec = moles_per_min / 60;
+    
+    const partial_current_A = moles_per_sec * 2 * 96485; // I = n * F * (mol/s)
+    const partial_current_mA = partial_current_A * 1000;
+    
+    let fe = (partial_current_mA / current_mA) * 100;
+    
+    // 4. Update UI
+    document.getElementById('out-fe').innerHTML = `${fe.toFixed(1)} <span style="font-size: 18px;">%</span>`;
+    
+    // Fun Easter egg / Error check
+    if(fe > 100) {
+      document.getElementById('calc-warning').style.display = 'block';
+    } else {
+      document.getElementById('calc-warning').style.display = 'none';
+    }
+  }
+  
+  // Initialize on load
+  calculateFE();
+</script>
 
 ---
 
