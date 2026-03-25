@@ -175,7 +175,7 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
     </div>
   </div>
 </div>
-<p align="center"><em>Interactive Figure: Hover over any product to view its properties and real-world value.</em></p>
+
 *Interactive Figure : The "Family Tree" of CO2 reduction products.*
 
 ---
