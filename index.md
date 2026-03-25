@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Guide to CO2 Reduction | Home"
+title: Guide to CO2 Reduction
 description: A comprehensive beginner-friendly guide to Electrochemical CO2 Reduction
 ---
 
