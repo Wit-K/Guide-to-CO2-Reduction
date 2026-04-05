@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Guide to CO2 Reduction"
+title: "CO2RR Guide: A Beginner's Guide to CO2 Reduction"
 canonical: "https://Wit-K.github.io/Guide-to-CO2-Reduction/"
 description: "A comprehensive beginner-friendly guide to Electrochemical CO2 Reduction"
 ---
