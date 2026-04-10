@@ -1,3 +1,9 @@
+---
+layout: default
+title: "CO2RR Experimental Setup: H-Cells & Electrodes"
+description: "A step-by-step beginner guide to setting up a CO2 reduction experiment. Learn how to wire a potentiostat and build an H-cell."
+---
+
 <script>
   MathJax = {
     tex: {
