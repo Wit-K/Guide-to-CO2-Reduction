@@ -1,3 +1,9 @@
+---
+layout: default
+title: "CO2RR Data Analysis: LSV, NMR, and Faradaic Efficiency"
+description: "Learn how to analyze CO2 reduction data. Interactive guides on calculating Faradaic Efficiency, reading NMR spectra, and understanding LSV graphs."
+---
+
 <script>
   MathJax = {
     tex: {
