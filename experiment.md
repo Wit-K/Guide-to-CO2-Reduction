@@ -364,7 +364,7 @@ The electrode surface must first be atomically clean.
 4.  **Clean:** Rinse with Distilled Water.
 5.  **Sonicate:** Place the electrode in a beaker of water/acetone and put it in an ultrasonic bath for 5 minutes. This vibrates off the microscopic dust left by the polishing.
 
-![Polishing Motion](./assets/images/polishing.png){: width="50%" }
+![Polishing Motion](./assets/images/polishing.png){: style="display:block; margin-left:auto; margin-right:auto; width:50%;" }
 
 *Figure : The correct "Figure-8" motion for polishing electrodes to ensure an even surface.*
 
@@ -638,7 +638,8 @@ Air contains gases other than $CO_2$ that aren't inert. They can react and steal
 3.  **Check:** Ensure that the gas isn't blanketting in the headspace and is sparging in the solution. Blanketting could starve your catalyst from receiving sufficient $CO_2$.
 4.  **Measure:** Measure the flow rate of the $CO_2$ for each test typically by using mass flow controller. This is crucial for further calculation for accurate result.
 
-![Sparging vs Blanketing](./assets/images/sparging.png)
+![Sparging vs Blanketing](./assets/images/sparging.png){: style="display:block; margin-left:auto; margin-right:auto; width:50%;" }
+
 *Figure : Ensure the gas tube goes into the liquid to fully saturate the electrolyte.*
 
 ### 5.2 The Leak Check
