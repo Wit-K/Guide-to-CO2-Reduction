@@ -74,7 +74,7 @@ description: "Learn the foundational theory of CO2RR, including the CO2 reductio
 <h4>Table of Contents</h4>
 
 * TOC
-{:toc}
+{:toc toc_levels="2..2"}
 
 </div>
 
