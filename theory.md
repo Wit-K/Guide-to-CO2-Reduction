@@ -838,23 +838,3 @@ Some of the limits are:
 This is why you will see instructions to bubble $CO_2$ gas continuously into the solution. It keeps the water saturated with $CO_2$, giving enough room for valuable reactions to happen. 
 
 ---
-
-
-## Extra: The Reaction Environment (Under Reconstruction)
-To truly control the reaction, you must look beyond the metal and look at the liquid environment.
-
-### The "Local pH" Effect
-One of the most critical concepts in modern CO2 research is the difference between the Bulk pH (the liquid in the middle of the beaker) and the Local pH (the liquid touching the catalyst surface).
-
-**The Chemistry:**
-When CO2 is reduced, the reaction consumes protons ($H^+$) or generates hydroxide ($OH^-$):
-$$ CO_2 + H_2O + 2e^- \rightarrow CO + 2OH^- $$
-
-This rapid production of $OH^-$ causes the pH near to the electrode to spike drastically (often rising to pH 10 or 11), even if the bulk solution remains neutral.
-
-### Why High pH is Good
-A high local pH is actually beneficial for two reasons:
-1.  **Suppresses Hydrogen:** The Hydrogen Evolution Reaction (HER) requires protons ($H^+$). By depleting protons near the surface, we starve the HER side-reaction.
-2.  **Favors C-C Coupling:** Advanced research suggests that a high local pH helps Carbon atoms stick together, promoting the formation of Ethylene and Ethanol over simple Methane.
-
-This is why we use buffers like Potassium Bicarbonate ($KHCO_3$). They are good at maintaining a neutral bulk pH while allowing the necessary local pH gradients to establish on the surface.
