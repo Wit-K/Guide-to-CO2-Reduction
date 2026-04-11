@@ -365,6 +365,7 @@ The electrode surface must first be atomically clean.
 5.  **Sonicate:** Place the electrode in a beaker of water/acetone and put it in an ultrasonic bath for 5 minutes. This vibrates off the microscopic dust left by the polishing.
 
 ![Polishing Motion](./assets/images/polishing.png){: width="50%" }
+
 *Figure : The correct "Figure-8" motion for polishing electrodes to ensure an even surface.*
 
 ### 3.2 Membrane Hydration
@@ -383,9 +384,9 @@ Connecting the Potentiostat can be confusing because cable colors vary by brand;
 
 | **Cable Role** | **Common Color** | **Connects To** |
 | :--- | :--- | :--- |
-| **Working (WE)** | Green or Blue | The Working Electrode. This is where we measure the reaction. |
-| **Counter (CE)** | Red | Platinum Wire. This completes the circuit. |
-| **Reference (RE)** | White | The Ag/AgCl. This measures the voltage. |
+| **Working (WE)** | Red | The Working Electrode. This is where we measure the reaction. |
+| **Counter (CE)** | Black | Platinum Wire. This completes the circuit. |
+| **Reference (RE)** | Blue | The Ag/AgCl. This measures the voltage. |
 | **Sense (S)** | Often attached to WE | Connect this to Working Electrode as well to improve accuracy. |
 
 > *Warning: If you swap the Counter and Reference cables, you can instantly destroy your Reference Electrode by forcing high current through it.**
@@ -430,7 +431,7 @@ Connecting the Potentiostat can be confusing because cable colors vary by brand;
     filter: brightness(0.85);
   }
   .node-active {
-    stroke: #3b82f6;
+    stroke: #eab308; /* Yellow highlight when selected */
     stroke-width: 4px;
   }
   .wire-line {
@@ -492,17 +493,17 @@ Connecting the Potentiostat can be confusing because cable colors vary by brand;
     <text x="300" y="50" font-size="16" fill="white" font-weight="bold" text-anchor="middle" pointer-events="none">Potentiostat Output</text>
     
     <!-- Potentiostat Terminals -->
-    <!-- Green (WE) -->
-    <circle cx="200" cy="100" r="15" fill="#22c55e" class="node terminal" id="term-green" onclick="selectTerminal('green', 200, 100)" />
-    <text x="200" y="80" font-size="12" fill="white" text-anchor="middle" pointer-events="none">Green</text>
+    <!-- Red (WE) -->
+    <circle cx="200" cy="100" r="15" fill="#ef4444" class="node terminal" id="term-red" onclick="selectTerminal('red', 200, 100)" />
+    <text x="200" y="80" font-size="12" fill="white" text-anchor="middle" pointer-events="none">Red</text>
     
-    <!-- Red (CE) -->
-    <circle cx="300" cy="100" r="15" fill="#ef4444" class="node terminal" id="term-red" onclick="selectTerminal('red', 300, 100)" />
-    <text x="300" y="80" font-size="12" fill="white" text-anchor="middle" pointer-events="none">Red</text>
+    <!-- Black (CE) -->
+    <circle cx="300" cy="100" r="15" fill="#1e293b" class="node terminal" id="term-black" onclick="selectTerminal('black', 300, 100)" />
+    <text x="300" y="80" font-size="12" fill="white" text-anchor="middle" pointer-events="none">Black</text>
     
-    <!-- White (RE) -->
-    <circle cx="400" cy="100" r="15" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" class="node terminal" id="term-white" onclick="selectTerminal('white', 400, 100)" />
-    <text x="400" y="80" font-size="12" fill="white" text-anchor="middle" pointer-events="none">White</text>
+    <!-- Blue (RE) -->
+    <circle cx="400" cy="100" r="15" fill="#3b82f6" class="node terminal" id="term-blue" onclick="selectTerminal('blue', 400, 100)" />
+    <text x="400" y="80" font-size="12" fill="white" text-anchor="middle" pointer-events="none">Blue</text>
 
     <!-- Electrodes -->
     <!-- Ag/AgCl (RE) -->
@@ -531,8 +532,8 @@ Connecting the Potentiostat can be confusing because cable colors vary by brand;
 
 <script>
   let activeTerminal = null;
-  const connections = { green: null, red: null, white: null };
-  const wireColors = { green: '#22c55e', red: '#ef4444', white: '#94a3b8' }; // Gray used for white wire visibility
+  const connections = { red: null, black: null, blue: null };
+  const wireColors = { red: '#ef4444', black: '#1e293b', blue: '#3b82f6' };
   
   function selectTerminal(color, x, y) {
     // Clear previous active state
@@ -560,11 +561,11 @@ Connecting the Potentiostat can be confusing because cable colors vary by brand;
     layer.innerHTML = ''; // Clear existing wires
 
     // Terminal coords
-    const tCoords = { green:[200, 100], red: [300, 100], white:[400, 100] };
+    const tCoords = { red: [200, 100], black:[300, 100], blue: [400, 100] };
     // Electrode coords
-    const eCoords = { re: [110, 300], we: [300, 300], ce: [490, 300] };
+    const eCoords = { re: [110, 300], we:[300, 300], ce: [490, 300] };
 
-    for (const [color, elecId] of Object.entries(connections)) {
+    for (const[color, elecId] of Object.entries(connections)) {
       if (elecId) {
         const x1 = tCoords[color][0];
         const y1 = tCoords[color][1];
@@ -584,9 +585,9 @@ Connecting the Potentiostat can be confusing because cable colors vary by brand;
   }
 
   function resetWiring() {
-    connections.green = null;
     connections.red = null;
-    connections.white = null;
+    connections.black = null;
+    connections.blue = null;
     activeTerminal = null;
     document.querySelectorAll('.terminal').forEach(el => el.classList.remove('node-active'));
     renderWires();
@@ -600,9 +601,10 @@ Connecting the Potentiostat can be confusing because cable colors vary by brand;
     feedback.style.display = 'block';
     feedback.className = '';
 
-    const we = connections.green;
-    const ce = connections.red;
-    const re = connections.white;
+    // Correct mapping: Red = WE, Black = CE, Blue = RE
+    const we = connections.red;
+    const ce = connections.black;
+    const re = connections.blue;
 
     if (!we || !ce || !re) {
       feedback.classList.add('feedback-error');
