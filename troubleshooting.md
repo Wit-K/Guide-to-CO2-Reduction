@@ -121,7 +121,7 @@ description: "Having trouble with your CO2 reduction setup? Use our interactive 
   <div class="wizard-result" id="wizard-result">
     <h3 style="margin-top:0; color: #2e7d32;" id="res-title">Diagnosis</h3>
     <p id="res-text" style="font-size: 16px; line-height: 1.5;"></p>
-    <button class="restart-btn" onclick="startWizard()">🔄 Start Over</button>
+    <button class="restart-btn" onclick="startWizard()">Start Over</button>
   </div>
 </div>
 
@@ -221,8 +221,8 @@ description: "Having trouble with your CO2 reduction setup? Use our interactive 
 
 <div class="noise-container">
   <div class="noise-tabs">
-    <div class="noise-tab active" onclick="openNoiseTab(event, 'jagged')">📈 The "Jagged" Line</div>
-    <div class="noise-tab" onclick="openNoiseTab(event, 'decay')">📉 The Decaying Curve</div>
+    <div class="noise-tab active" onclick="openNoiseTab(event, 'jagged')">The Jagged Line</div>
+    <div class="noise-tab" onclick="openNoiseTab(event, 'decay')">The Decaying Curve</div>
     <div class="noise-tab" onclick="openNoiseTab(event, 'flat')">➖ The Flat Line</div>
   </div>
 
