@@ -248,9 +248,9 @@ This is where the metal electrode comes into play. The reaction does not happen 
 
 ### The "Goldilocks" Zone
 The metal must bind to the $$CO$$ (the intermediate) with just the right amount of force for it to create products efficeintly. Scientists are trying to find or design a material that is just right.
-
-![The Volcano Plot](./assets/images/volcano_plot)
-*Figure : The Volcano Plot. Copper sits near the peak, making it the most versatile catalyst for hydrocarbons.*
+*   **Too Weak:** If the metal doesn't hold onto the $$CO$$ strongly enough, they will just fly away and the main product will be $$CO$$.
+*   **Too Strong:** If the metal grabs too tight, the $$CO$$ gets stuck. The surface gets clogged by all the $$CO$$, preventing new $$CO_2$$ from entering. The reaction stops. This is the term define as "surface poisoning".
+*   **Just Right:** The metal holds onto $$CO$$ long enough to transform it into hydrocarbon, but lets go of after the product form.
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <div style="width: 100%; max-width: 650px; margin: 30px auto;">
@@ -327,16 +327,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <p align="center"><em>Hover over the data points to see the exact binding energy and the resulting primary product.</em></p>
-
-*   **Too Weak:** If the metal doesn't hold onto the $$CO$$ strongly enough, they will just fly away and the main product will be $$CO$$.
-*   **Too Strong:** If the metal grabs too tight, the $$CO$$ gets stuck. The surface gets clogged by all the $$CO$$, preventing new $$CO_2$$ from entering. The reaction stops. This is the term define as "surface poisoning".
-*   **Just Right:** The metal holds onto $$CO$$ long enough to transform it into hydrocarbon, but lets go of after the product form.
-
-**Analogical Compairsion**
-Imagine the CO as a ball that you are trying to catch and throw and the catalyst as your hand
-*   **Too Weak:** Slippery hand. You catch the ball but it immediately falls out of your hand. Unsuccessful.
-*   **Too Strong:** You put superglue on your hand. You catch the ball perfectly, but can't throw it. The ball is stuck, and your hand is useless for catching the next one. Unsuccessful.
-*   **Just Right:** You catch the ball successfully and hold it tight just enough to throw it out. Successful
 
 <div style="border: 1px solid #ccc; padding: 20px; border-radius: 8px; text-align: center; margin: 30px 0; background-color: #f9f9f9; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
     <h4 style="margin-top: 0;">Interactive Binding Energy: The "Goldilocks" Principle</h4>
