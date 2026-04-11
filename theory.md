@@ -418,6 +418,208 @@ In research, the goal is often to find a setup that produces the most product wi
 ![Energy Landscape](./assets/images/energy_landscape.png)
 *Figure : The Energy Landscape. The catalyst must help the molecule climb these energy "hills" to form new bonds.*
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+  .energy-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    overflow: hidden;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .energy-header {
+    background: #1e293b;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+  }
+  .energy-header h3 { margin: 0; font-size: 1.25rem; color: #f8fafc; }
+  .chart-wrapper {
+    padding: 20px;
+    height: 350px;
+    position: relative;
+  }
+  .stepper-panel {
+    background: #f8fafc;
+    border-top: 2px solid #e2e8f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .stepper-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .step-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .step-btn:hover { background: #2563eb; }
+  .step-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
+  .step-indicator {
+    font-weight: bold;
+    color: #475569;
+  }
+  .explanation-box {
+    background: white;
+    border-left: 4px solid #3b82f6;
+    padding: 15px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #334155;
+    min-height: 80px;
+  }
+  .highlight-gold { color: #d97706; font-weight: bold; }
+  .highlight-copper { color: #dc2626; font-weight: bold; }
+</style>
+
+<div class="energy-container">
+  <div class="energy-header">
+    <h3>Interactive Energy Landscape: Why Copper Works and Gold Gets Stuck</h3>
+  </div>
+  
+  <div class="chart-wrapper">
+    <canvas id="energyChart"></canvas>
+  </div>
+  
+  <div class="stepper-panel">
+    <div class="explanation-box" id="step-explanation">
+      <strong>Start:</strong> We begin with CO₂ gas. We set this energy level to 0.0 eV as our baseline starting line. Click "Next Step" to apply voltage and start the reaction!
+    </div>
+    
+    <div class="stepper-controls">
+      <button class="step-btn" id="btn-prev" onclick="changeStep(-1)" disabled>⬅️ Previous Step</button>
+      <div class="step-indicator" id="step-counter">Step 0 of 4</div>
+      <button class="step-btn" id="btn-next" onclick="changeStep(1)">Next Step ➡️</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const ctx = document.getElementById('energyChart').getContext('2d');
+  
+  // Full DFT Data from your image
+  const labels =['CO₂', '*COOH', '*CO', '*CHO', 'CH₄'];
+  const dataGold =[0, 1.2, -0.1, 2.5, 2.0];
+  const dataCopper =[0, 0.5, -0.2, 0.3, -0.8];
+  
+  let currentStep = 0;
+  
+  // Explanations for each step
+  const explanations =[
+    "<strong>Start (CO₂):</strong> We begin with CO₂ gas. We set this energy level to 0.0 eV as our baseline starting line. Click 'Next Step' to apply voltage and push the molecules onto the catalyst!",
+    "<strong>Step 1 (*COOH):</strong> The first electron and proton are added. <span class='highlight-copper'>Copper</span> forms this intermediate easily (+0.5 eV). <span class='highlight-gold'>Gold</span> requires a much higher 'hill' (+1.2 eV). Higher energy hills mean more <em>Overpotential</em> is needed.",
+    "<strong>Step 2 (*CO):</strong> Water leaves, leaving Carbon Monoxide (*CO) attached to the metal. Both metals drop in energy here. For <span class='highlight-gold'>Gold</span>, it is highly likely the CO just detaches right now and floats away as a final gas product!",
+    "<strong>Step 3 (*CHO) - 🚨 The Hard Barrier:</strong> To continue toward Methane, we must add another hydrogen. <span class='highlight-copper'>Copper</span> needs a tiny bump to +0.3 eV. <span class='highlight-gold'>Gold</span> faces a massive cliff up to +2.5 eV! To force Gold over this cliff, you would need an absurd Overpotential—so high that you'd just accidentally split water into H₂ gas instead. This is why Gold gets 'stuck'.",
+    "<strong>Step 4 (CH₄):</strong> Once <span class='highlight-copper'>Copper</span> gets past the *CHO barrier, it's a downhill energy slide! The reaction easily adds the remaining protons and electrons until Methane (CH₄) is formed and releases from the surface."
+  ];
+
+  // Initialize Chart
+  const energyChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets:[
+        {
+          label: 'Gold (Stuck at CO)',
+          data:[0, null, null, null, null], // Starts at step 0
+          borderColor: '#f59e0b',
+          backgroundColor: '#f59e0b',
+          borderWidth: 4,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          tension: 0.1 // Slight curve for aesthetics
+        },
+        {
+          label: 'Copper (Makes Methane)',
+          data: [0, null, null, null, null], // Starts at step 0
+          borderColor: '#ef4444',
+          backgroundColor: '#ef4444',
+          borderWidth: 4,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          tension: 0.1
+        },
+        {
+          label: 'Baseline (0 eV)',
+          data: [0, 0, 0, 0, 0],
+          borderColor: '#94a3b8',
+          borderWidth: 2,
+          borderDash: [5, 5],
+          pointRadius: 0,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        tooltip: {
+          callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.raw} eV` }
+        }
+      },
+      scales: {
+        y: {
+          title: { display: true, text: 'Free Energy (ΔG) in eV', font: { weight: 'bold' } },
+          min: -1.0,
+          max: 3.0
+        },
+        x: {
+          title: { display: true, text: 'Reaction Intermediates', font: { weight: 'bold' } }
+        }
+      }
+    }
+  });
+
+  // Expose function to global scope for buttons
+  window.changeStep = function(direction) {
+    currentStep += direction;
+    
+    // Bounds checking
+    if(currentStep < 0) currentStep = 0;
+    if(currentStep > 4) currentStep = 4;
+    
+    // Update Button States
+    document.getElementById('btn-prev').disabled = (currentStep === 0);
+    document.getElementById('btn-next').disabled = (currentStep === 4);
+    
+    // Update Text
+    document.getElementById('step-counter').innerText = `Step ${currentStep} of 4`;
+    
+    // Animate text change
+    const textBox = document.getElementById('step-explanation');
+    textBox.style.opacity = 0;
+    setTimeout(() => {
+      textBox.innerHTML = explanations[currentStep];
+      textBox.style.opacity = 1;
+    }, 200);
+
+    // Update Chart Data (Slices array up to current step)
+    const newGoldData = dataGold.map((val, idx) => idx <= currentStep ? val : null);
+    const newCopperData = dataCopper.map((val, idx) => idx <= currentStep ? val : null);
+    
+    energyChart.data.datasets[0].data = newGoldData;
+    energyChart.data.datasets[1].data = newCopperData;
+    energyChart.update();
+  };
+});
+</script>
+
 ---
 
 ## 5. Selectivity and the Competing Reaction
