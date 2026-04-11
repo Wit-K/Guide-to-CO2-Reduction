@@ -38,19 +38,22 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
 <style>
   .tree-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Horizontal flow */
     align-items: center;
+    justify-content: center;
     gap: 20px;
     margin: 40px 0;
     font-family: system-ui, -apple-system, sans-serif;
   }
-  .tree-row {
+  
+  /* Replaced tree-row with tree-column to stack the products vertically in each phase */
+  .tree-column {
     display: flex;
+    flex-direction: column;
     gap: 20px;
     justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
   }
+
   .tree-node {
     position: relative;
     padding: 15px 25px;
@@ -63,13 +66,16 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
     text-align: center;
     transition: all 0.2s ease;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    min-width: 140px; /* Keeps nodes looking uniform */
   }
+
   .tree-node:hover {
     background: #3b82f6;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
+
   .node-tooltip {
     visibility: hidden;
     width: 240px;
@@ -90,7 +96,7 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
     line-height: 1.5;
     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
   }
-  /* Little triangle pointer for tooltip */
+
   .node-tooltip::after {
     content: "";
     position: absolute;
@@ -101,11 +107,13 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
     border-style: solid;
     border-color: #1f2937 transparent transparent transparent;
   }
+
   .tree-node:hover .node-tooltip {
     visibility: visible;
     opacity: 1;
     bottom: 140%;
   }
+
   .tooltip-title {
     font-weight: bold;
     font-size: 1rem;
@@ -115,14 +123,31 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
     display: block;
     color: #60a5fa;
   }
+
   .tree-arrow {
-    font-size: 24px;
-    color: #9ca3af;
+    font-size: 45px; /* Much larger arrow */
+    color: #94a3b8;  /* Professional blue-gray tint */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+  /* Automatically adjust for mobile phones so it doesn't break off the screen */
+  @media (max-width: 768px) {
+    .tree-container {
+      flex-direction: column;
+    }
+    .tree-arrow {
+      transform: rotate(90deg); /* Turn horizontal arrows downward on mobile */
+      margin: 10px 0;
+    }
   }
 </style>
 
 <div class="tree-container">
-  <div class="tree-row">
+  <!-- First Stage: Starting Material -->
+  <div class="tree-column">
     <div class="tree-node">CO₂ (Carbon Dioxide)
       <div class="node-tooltip">
         <span class="tooltip-title">Carbon Dioxide (CO₂)</span>
@@ -131,9 +156,11 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
     </div>
   </div>
   
-  <div class="tree-arrow">⬇️</div>
+  <!-- Massive Right Arrow -->
+  <div class="tree-arrow">➔</div>
   
-  <div class="tree-row">
+  <!-- Second Stage: 2-Electron Products -->
+  <div class="tree-column">
     <div class="tree-node">CO (Carbon Monoxide)
       <div class="node-tooltip">
         <span class="tooltip-title">Carbon Monoxide (CO)</span>
@@ -152,9 +179,11 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
     </div>
   </div>
   
-  <div class="tree-arrow">⬇️</div>
+  <!-- Massive Right Arrow -->
+  <div class="tree-arrow">➔</div>
   
-  <div class="tree-row">
+  <!-- Third Stage: >2 Electron Products -->
+  <div class="tree-column">
     <div class="tree-node">CH₄ (Methane)
       <div class="node-tooltip">
         <span class="tooltip-title">Methane (CH₄)</span>
@@ -181,7 +210,6 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
     </div>
   </div>
 </div>
-
 *Interactive Figure : The "Family Tree" of CO2 reduction products.*
 
 ---
