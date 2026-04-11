@@ -18,7 +18,6 @@ description: "Learn the foundational theory of CO2RR, including the CO2 reductio
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
-<!-- 2. Table of Contents Styling & HTML (The new stuff!) -->
 <style>
   .toc-box {
     background: #f8fafc;
@@ -70,12 +69,14 @@ description: "Learn the foundational theory of CO2RR, including the CO2 reductio
   }
 </style>
 
-<div class="toc-box">
-  <h4>Table of Contents</h4>
-  * TOC
-  {:toc}
-</div>
+<!-- Paste this part exactly where you want the Table of Contents to appear! -->
+<div class="toc-box" markdown="1">
+<h4>Table of Contents</h4>
 
+* TOC
+{:toc}
+
+</div>
 
 # Foundations & Theory
 *Part 1: The Electrochemical Basics*
