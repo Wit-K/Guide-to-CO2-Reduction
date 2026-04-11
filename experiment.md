@@ -223,6 +223,268 @@ To perform CO2 reduction, you need a specific set of components arranged in a st
   }
 </script>
 
+<style>
+  .inspector-container {
+    display: flex;
+    max-width: 850px;
+    margin: 40px auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    overflow: hidden;
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 550px;
+  }
+  .inspector-sidebar {
+    width: 32%;
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+  }
+  .inspector-menu-header {
+    padding: 20px;
+    background: #1e293b;
+    color: #f8fafc;
+    font-weight: bold;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .inspector-tab {
+    padding: 16px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .inspector-tab:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+  }
+  .inspector-tab.active {
+    background: #ffffff;
+    color: #3b82f6;
+    border-left: 4px solid #3b82f6;
+    font-weight: 600;
+  }
+  .tab-arrow {
+    color: #cbd5e1;
+    font-weight: bold;
+  }
+  .inspector-tab.active .tab-arrow {
+    color: #3b82f6;
+  }
+  .inspector-content {
+    width: 68%;
+    padding: 35px;
+    overflow-y: auto;
+    background: #ffffff;
+    transition: opacity 0.2s ease-in-out;
+  }
+  .content-title {
+    font-size: 1.5rem;
+    color: #0f172a;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+    font-weight: bold;
+  }
+  .content-section {
+    margin-bottom: 30px;
+  }
+  .section-heading {
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  /* Uses a standard unicode square instead of an emoji */
+  .section-heading::before {
+    content: "■"; 
+    color: #3b82f6;
+    font-size: 0.7rem;
+  }
+  .section-text {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+  }
+  .section-list {
+    margin-top: 10px;
+    padding-left: 20px;
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .section-list li {
+    margin-bottom: 10px;
+  }
+  .section-list strong {
+    color: #1e293b;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .inspector-container { flex-direction: column; }
+    .inspector-sidebar { width: 100%; border-right: none; border-bottom: 2px solid #e2e8f0; }
+    .inspector-content { width: 100%; padding: 20px; }
+  }
+</style>
+
+<div class="inspector-container">
+  <div class="inspector-sidebar">
+    <div class="inspector-menu-header">Hardware Modules</div>
+    <div class="inspector-tab active" onclick="loadComponent('we', this)">Working Electrode (WE) <span class="tab-arrow">›</span></div>
+    <div class="inspector-tab" onclick="loadComponent('ce', this)">Counter Electrode (CE) <span class="tab-arrow">›</span></div>
+    <div class="inspector-tab" onclick="loadComponent('re', this)">Reference Electrode (RE) <span class="tab-arrow">›</span></div>
+    <div class="inspector-tab" onclick="loadComponent('membrane', this)">Ion Exchange Membrane <span class="tab-arrow">›</span></div>
+    <div class="inspector-tab" onclick="loadComponent('electrolyte', this)">Electrolyte Solution <span class="tab-arrow">›</span></div>
+    <div class="inspector-tab" onclick="loadComponent('external', this)">External Systems <span class="tab-arrow">›</span></div>
+  </div>
+  
+  <div class="inspector-content" id="inspector-display">
+    <!-- Dynamic content renders here via JavaScript -->
+  </div>
+</div>
+
+<script>
+  const componentData = {
+    we: {
+      title: "Working Electrode (WE)",
+      role: "The Working Electrode (Cathode) is the centerpiece of the experiment. It serves as the electron donor and the active site where the reduction reaction occurs. Connected to the negative terminal, the Working Electrode is usually the catalyst itself. In electrochemistry, the material of the electrode dictates the entire reaction pathway. The specific atomic arrangement on the surface determines whether CO₂ is converted into Carbon Monoxide, Methane, or Hydrogen gas. Therefore, the choice of the Working Electrode is the primary variable in any CO₂ reduction study.",
+      properties:[
+        "<strong>Surface Morphology and Composition:</strong> The roughness or nano-structure of the surface changes the local environment and the availability of reaction sites, often influencing the efficiency of the reaction. The purity of the metal is also critical, as even trace impurities can alter the product distribution.",
+        "<strong>Pretreatment and Modification:</strong> There are multiple available modifications for the metal before running the experiment. These affect the reaction widely and change the specific products that are synthesized."
+      ],
+      choices:[
+        "<strong>Copper (Cu):</strong> The most significant material in the field, as it is the only bulk metal capable of efficiently producing hydrocarbons (Ethylene, Ethanol).",
+        "<strong>Other Transition Metals:</strong> Au, Zn, and Ag are commonly used to produce CO. Sn and Bi are commonly used to produce Formate.",
+        "<em>Note:</em> These metals undergo several tuning modifications, such as oxidizing the metals to increase surface area, replacing bulk metals with nanoparticles, and supporting metals with structures like carbon to aid in mass transport."
+      ]
+    },
+    ce: {
+      title: "Counter Electrode (CE)",
+      role: "The Counter Electrode (Anode) completes the electrical circuit. While the focus of the experiment is on the cathode side, the anode is necessary for the system to fully function. Connected to the positive terminal, the Counter Electrode balances the reaction. For every electron consumed by the CO₂ reduction at the cathode, an oxidation reaction must occur here (typically splitting water into Oxygen gas).",
+      properties:[
+        "<strong>Chemical Inertness:</strong> The material must withstand high oxidation potentials without corroding. If it degrades or dissolves during the experiment, metal ions can cross the cell and contaminate the Working Electrode, rendering the data invalid.",
+        "<strong>Surface Area:</strong> To ensure the Counter Electrode does not become a bottleneck, researchers verify that its surface area is significantly larger than that of the Working Electrode. This establishes a fair test when comparing between different catalysts."
+      ],
+      choices:[
+        "<strong>Platinum (Pt):</strong> The academic standard due to its exceptional stability and conductivity. It usually comes in the form of a wire or mesh.",
+        "<strong>Graphite/Carbon:</strong> A cost-effective alternative often used in educational settings, though it requires constant monitoring for degradation over long-term experiments.",
+        "<strong>Dimensionally Stable Anodes (DSA):</strong> Industrial-grade oxides (such as Iridium Oxide) designed specifically for high-current durability."
+      ]
+    },
+    re: {
+      title: "Reference Electrode (RE)",
+      role: "The Reference Electrode provides a stable, known voltage against which the Working Electrode is measured. In a standard 3-electrode setup, the Reference Electrode does not carry current. Its sole purpose is to sense the potential at the Working Electrode without interference from the Anode. Without a Reference Electrode, the recorded voltage reflects the entire cell, which includes wire and solution resistance, making it impossible to determine the true energy applied to the reaction.",
+      properties:[
+        "<strong>Stability:</strong> The potential of the reference must not change over time. If the reference shifts by even 0.1V, the data becomes invalid because the true energy applied to the CO₂ is no longer known.",
+        "<strong>Impedance:</strong> It requires a low-resistance connection to the electrolyte to ensure fast and accurate reading by the potentiostat."
+      ],
+      choices:[
+        "<strong>Silver/Silver Chloride (Ag/AgCl):</strong> The most common reference electrode for aqueous (water-based) experiments due to its stability and non-toxicity.",
+        "<strong>Saturated Calomel Electrode (SCE):</strong> An older standard utilizing Mercury, which has largely been phased out due to toxicity concerns.",
+        "<strong>Reversible Hydrogen Electrode (RHE):</strong> The standard reference in theoretical literature. While researchers report data vs. RHE, they physically use an Ag/AgCl electrode in the lab and convert the figures later using the Nernst equation: <em>E(RHE) = E(Ag/AgCl) + 0.197 V + (0.0591 V × pH)</em>."
+      ]
+    },
+    membrane: {
+      title: "Ion Exchange Membrane",
+      role: "The Membrane is the physical barrier located inside the bridge of the H-Cell, separating the Cathodic chamber from the Anodic chamber. The membrane serves two key functions: it must block chemicals while simultaneously allowing electricity to flow. It prevents gases produced at the Anode from migrating to the Cathode, while allowing ions to pass through freely to complete the electrical circuit.",
+      properties:[
+        "<strong>Ionic Conductivity:</strong> Dictates how easily ions flow through the material. High resistance leads to a large voltage drop across the cell, referred to as the IR drop.",
+        "<strong>Gas Crossover:</strong> The capacity to halt gas bubbles. If O₂ crosses the membrane, it can re-oxidize the products, creating invalid experimental results."
+      ],
+      choices:[
+        "<strong>Nafion (Cation Exchange Membrane):</strong> The industry standard, specifically Nafion 117 or 212. It allows positive ions (H⁺) to pass but strictly blocks negative ions and gases.",
+        "<strong>Anion Exchange Membranes (AEM):</strong> Membranes designed to allow negative ions (OH⁻ or HCO₃⁻) to pass. These are frequently utilized in alkaline electrolytes.",
+        "<strong>Salt Bridges / Glass Frits:</strong> The classic laboratory alternative. While they exhibit higher electrical resistance than Nafion, they are cost-effective and sufficient for fundamental studies where high current density is not the objective."
+      ]
+    },
+    electrolyte: {
+      title: "Electrolyte Solution",
+      role: "The electrolyte is the conductive liquid that fills the cell chambers. It serves three main functions: closing the circuit between the Anode and Cathode, providing the protons (H⁺) or water molecules (H₂O) required to bond with the Carbon, and acting as a pH buffer to keep the reaction environment stable as carbonic acid forms in the solution.",
+      properties:[
+        "<strong>Conductivity:</strong> Higher salt concentrations reduce electrical resistance, ensuring less energy is wasted as heat.",
+        "<strong>Buffering Capacity:</strong> If the local pH at the electrode surface fluctuates too drastically, the reaction may switch from producing CO to producing Hydrogen gas.",
+        "<strong>Purity:</strong> This is a highly common source of error. Low-grade salts often contain trace amounts of Iron or Zinc, which will deposit onto the electrode and compromise the experiment."
+      ],
+      choices:[
+        "<strong>0.1M Potassium Bicarbonate (KHCO₃):</strong> The standard for H-Cell experiments. Because it is chemically similar to dissolved CO₂, it naturally maintains a slightly-acidic pH which is optimal for a variety of catalysts.",
+        "<strong>Potassium Hydroxide (KOH):</strong> An alkaline electrolyte used in specific Flow Cell reactors. It is rarely used in standard H-Cells due to the availability of better alternatives.",
+        "<strong>Potassium Chloride (KCl):</strong> A basic salt sometimes used for preliminary testing, though it lacks the buffering capacity of bicarbonate."
+      ]
+    },
+    external: {
+      title: "External Control & Supply Systems",
+      role: "The cell alone cannot operate independently. The experiment requires external hardware to deliver reactants, control the energy input, and collect analytical data. This category involves two distinct components: the Gas Feed (delivering the CO₂ reactant) and the Electronic Feed (delivering and measuring electricity). Absolute stability in these external systems is mandatory for generating consistent data.",
+      properties:[
+        "<strong>Mass Transport:</strong> The CO₂ must be delivered at a constant rate. In professional laboratories, this flow is regulated down to the standard cubic centimeter per minute (sccm).",
+        "<strong>Voltage Compliance:</strong> The power source must possess the capacity to maintain the set voltage even as the internal resistance of the cell fluctuates during the experiment."
+      ],
+      choices:[
+        "<strong>Gas Supply:</strong> A standard CO₂ cylinder is used to supply gas to the system. Researchers must ensure high-purity grades are used, as lower grades contain harmful impurities.",
+        "<strong>Electrical Control:</strong> The standard device is the Potentiostat. This computer-controlled instrument acts as both the power supply and the multimeter, executing automated data logging."
+      ]
+    }
+  };
+
+  function loadComponent(key, element) {
+    // Update menu styling
+    document.querySelectorAll('.inspector-tab').forEach(tab => tab.classList.remove('active'));
+    element.classList.add('active');
+
+    const data = componentData[key];
+    const display = document.getElementById('inspector-display');
+    
+    // Construct HTML lists
+    let propHtml = '';
+    data.properties.forEach(p => { propHtml += `<li>${p}</li>`; });
+
+    let choiceHtml = '';
+    data.choices.forEach(c => { choiceHtml += `<li>${c}</li>`; });
+
+    // Fade animation
+    display.style.opacity = 0;
+    setTimeout(() => {
+      display.innerHTML = `
+        <div class="content-title">${data.title}</div>
+        
+        <div class="content-section">
+          <div class="section-heading">Role & Significance</div>
+          <div class="section-text">${data.role}</div>
+        </div>
+
+        <div class="content-section">
+          <div class="section-heading">Key Properties</div>
+          <ul class="section-list">${propHtml}</ul>
+        </div>
+
+        <div class="content-section">
+          <div class="section-heading">Common Choices in Research</div>
+          <ul class="section-list">${choiceHtml}</ul>
+        </div>
+      `;
+      display.style.opacity = 1;
+    }, 200);
+  }
+
+  // Initialize the first tab on load
+  document.addEventListener("DOMContentLoaded", () => {
+    loadComponent('we', document.querySelector('.inspector-tab'));
+  });
+</script>
+
 ### Component Table
 
 | **Component** | **Role** | **Standard Materials** |
