@@ -129,16 +129,15 @@ If you put everything in one beaker, the oxygen produced in Anodic Chamber would
 ## 2. The Hardware Setup
 To perform CO2 reduction, you need a specific set of components arranged in a standard 3-Electrode System. This setup ensures we can control the voltage precisely while keeping the fuel products separate from the waste oxygen.
 
-![H-Cell Schematic](./assets/images/h_cell_schematic.png)
-*Figure : The standard H-Cell setup showing all main components.*
 <style>
   .hcell-container {
     display: flex; flex-wrap: wrap; gap: 20px; margin: 30px 0;
     background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef;
+    align-items: center; /* Keeps everything vertically centered */
   }
-  .hcell-svg { flex: 1; min-width: 300px; }
+  .hcell-svg { flex: 1.8; min-width: 350px; } /* Makes the SVG take up more room */
   .hcell-info {
-    flex: 1; min-width: 250px; background: white; padding: 20px;
+    flex: 1; min-width: 220px; background: white; padding: 15px 20px;
     border-radius: 8px; border: 1px solid #ccc; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     transition: opacity 0.2s ease;
   }
@@ -148,45 +147,60 @@ To perform CO2 reduction, you need a specific set of components arranged in a st
 
 <div class="hcell-container">
   <div class="hcell-svg">
-    <svg viewBox="0 0 400 300" width="100%" height="100%">
+    <!-- Viewbox adjusted to give more breathing room on all sides -->
+    <svg viewBox="0 -10 420 330" width="100%" height="100%">
+      
       <!-- Liquid -->
-      <path d="M 50 150 L 50 250 A 20 20 0 0 0 70 270 L 150 270 A 20 20 0 0 0 170 250 L 170 200 L 230 200 L 230 250 A 20 20 0 0 0 250 270 L 330 270 A 20 20 0 0 0 350 250 L 350 150 Z" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+      <path d="M 30 160 L 30 260 A 20 20 0 0 0 50 280 L 150 280 A 20 20 0 0 0 170 260 L 170 210 L 250 210 L 250 260 A 20 20 0 0 0 270 280 L 370 280 A 20 20 0 0 0 390 260 L 390 160 Z" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
       
       <!-- Glassware (H-Cell) -->
-      <path d="M 50 80 L 50 250 A 20 20 0 0 0 70 270 L 150 270 A 20 20 0 0 0 170 250 L 170 200 L 230 200 L 230 250 A 20 20 0 0 0 250 270 L 330 270 A 20 20 0 0 0 350 250 L 350 80 M 170 150 L 170 80 M 230 150 L 230 80" fill="none" stroke="#9e9e9e" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 30 90 L 30 260 A 20 20 0 0 0 50 280 L 150 280 A 20 20 0 0 0 170 260 L 170 210 L 250 210 L 250 260 A 20 20 0 0 0 270 280 L 370 280 A 20 20 0 0 0 390 260 L 390 90 M 170 160 L 170 90 M 250 160 L 250 90" fill="none" stroke="#9e9e9e" stroke-width="4" stroke-linecap="round"/>
       
       <!-- Bridge / Membrane -->
-      <line class="hotspot" x1="200" y1="150" x2="200" y2="200" stroke="#ff9800" stroke-width="8" onclick="showInfo('membrane')"/>
-      <text x="185" y="220" font-size="12" fill="#ff9800" font-weight="bold" pointer-events="none">Membrane</text>
+      <line class="hotspot" x1="210" y1="160" x2="210" y2="210" stroke="#ff9800" stroke-width="8" onclick="showInfo('membrane')"/>
+      <text x="210" y="235" font-size="12" fill="#ff9800" font-weight="bold" text-anchor="middle" pointer-events="none">Membrane</text>
 
       <!-- Working Electrode (WE) -->
-      <rect class="hotspot" x="70" y="60" width="15" height="150" fill="#795548" stroke="#5d4037" stroke-width="2" onclick="showInfo('we')"/>
-      <text x="60" y="50" font-size="12" fill="#795548" font-weight="bold">WE (Cathode)</text>
+      <rect class="hotspot" x="55" y="70" width="15" height="150" fill="#795548" stroke="#5d4037" stroke-width="2" onclick="showInfo('we')"/>
+      <text x="62.5" y="40" font-size="12" fill="#795548" font-weight="bold" text-anchor="middle">
+        <tspan x="62.5" dy="0">WE</tspan>
+        <tspan x="62.5" dy="14">(Cathode)</tspan>
+      </text>
 
       <!-- Reference Electrode (RE) -->
-      <rect class="hotspot" x="120" y="60" width="10" height="120" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="2" onclick="showInfo('re')"/>
-      <text x="110" y="50" font-size="12" fill="#616161" font-weight="bold">RE (Ag/AgCl)</text>
+      <rect class="hotspot" x="140" y="70" width="10" height="120" fill="#e0e0e0" stroke="#9e9e9e" stroke-width="2" onclick="showInfo('re')"/>
+      <text x="145" y="40" font-size="12" fill="#616161" font-weight="bold" text-anchor="middle">
+        <tspan x="145" dy="0">RE</tspan>
+        <tspan x="145" dy="14">(Ag/AgCl)</tspan>
+      </text>
 
       <!-- Bubbler -->
-      <path class="hotspot" d="M 95 60 L 95 240 L 110 240 L 110 220 L 105 220 L 105 60 Z" fill="#b3e5fc" stroke="#0288d1" stroke-width="2" onclick="showInfo('bubbler')"/>
-      <circle cx="102" cy="250" r="3" fill="#0288d1"/><circle cx="95" cy="260" r="4" fill="#0288d1"/><circle cx="110" cy="255" r="2.5" fill="#0288d1"/>
-      <text x="80" y="35" font-size="12" fill="#0288d1" font-weight="bold">CO₂ Gas</text>
+      <path class="hotspot" d="M 95 70 L 95 250 L 115 250 L 115 230 L 105 230 L 105 70 Z" fill="#b3e5fc" stroke="#0288d1" stroke-width="2" onclick="showInfo('bubbler')"/>
+      <circle cx="102" cy="260" r="3" fill="#0288d1"/><circle cx="95" cy="270" r="4" fill="#0288d1"/><circle cx="110" cy="265" r="2.5" fill="#0288d1"/>
+      <text x="105" y="20" font-size="12" fill="#0288d1" font-weight="bold" text-anchor="middle">
+        <tspan x="105" dy="0">CO₂</tspan>
+        <tspan x="105" dy="14">Gas</tspan>
+      </text>
 
       <!-- Counter Electrode (CE) -->
-      <rect class="hotspot" x="290" y="60" width="10" height="150" fill="#9e9e9e" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
-      <line class="hotspot" x1="285" y1="180" x2="315" y2="180" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
-      <line class="hotspot" x1="285" y1="190" x2="315" y2="190" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
-      <line class="hotspot" x1="285" y1="200" x2="315" y2="200" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
-      <text x="270" y="50" font-size="12" fill="#424242" font-weight="bold">CE (Anode - Pt)</text>
+      <rect class="hotspot" x="315" y="70" width="10" height="150" fill="#9e9e9e" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
+      <line class="hotspot" x1="305" y1="190" x2="335" y2="190" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
+      <line class="hotspot" x1="305" y1="200" x2="335" y2="200" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
+      <line class="hotspot" x1="305" y1="210" x2="335" y2="210" stroke="#616161" stroke-width="2" onclick="showInfo('ce')"/>
+      <text x="320" y="40" font-size="12" fill="#424242" font-weight="bold" text-anchor="middle">
+        <tspan x="320" dy="0">CE</tspan>
+        <tspan x="320" dy="14">(Anode - Pt)</tspan>
+      </text>
       
       <!-- Instructions -->
-      <text x="200" y="290" font-size="14" fill="#d32f2f" font-style="italic" text-anchor="middle" font-weight="bold">👆 Click the components above!</text>
+      <text x="210" y="310" font-size="14" fill="#d32f2f" font-style="italic" text-anchor="middle" font-weight="bold">👆 Click the components above!</text>
     </svg>
   </div>
+  
   <div class="hcell-info" id="hcell-info-panel">
-    <h3 style="margin-top:0;">Interactive H-Cell</h3>
-    <p>Welcome to the standard H-Type Electrolytic Cell. This is the workhorse of CO₂ reduction research.</p>
-    <p><strong>👈 Click on any part of the diagram to the left</strong> (the electrodes, the membrane, or the bubbler) to learn about its role in the setup.</p>
+    <h3 style="margin-top:0; font-size: 1.1rem; color: #1976d2;">Interactive H-Cell</h3>
+    <p style="font-size: 13px; line-height: 1.5; color: #444;">Welcome to the standard H-Type Electrolytic Cell. This is the workhorse of CO₂ reduction research.</p>
+    <p style="font-size: 13px; line-height: 1.5; color: #444;"><strong>👈 Click on any part of the diagram</strong> (electrodes, membrane, bubbler) to learn its role.</p>
   </div>
 </div>
 
@@ -194,16 +208,16 @@ To perform CO2 reduction, you need a specific set of components arranged in a st
   const infoPanel = document.getElementById('hcell-info-panel');
   const hcellData = {
     we: { title: "Working Electrode (WE)", text: "<strong>Role:</strong> The Cathode. This is where the magic happens! CO₂ is reduced here. Connected to the negative terminal.<br><br><strong>Materials:</strong> Usually a catalyst like Copper (Cu), Gold (Au), or Silver (Ag)." },
-    ce: { title: "Counter Electrode (CE)", text: "<strong>Role:</strong> The Anode. It completes the electrical circuit. While CO₂ is reduced on the left, water is oxidized to Oxygen gas (O₂) here.<br><br><strong>Materials:</strong> Needs to be highly stable so it doesn't dissolve. Platinum (Pt) mesh or wire is the standard." },
-    re: { title: "Reference Electrode (RE)", text: "<strong>Role:</strong> The Voltage Sensor. It measures the potential applied to the Working Electrode without passing current itself. It's placed as close to the WE as possible.<br><br><strong>Materials:</strong> Silver/Silver Chloride (Ag/AgCl) is standard for water-based electrolytes." },
-    membrane: { title: "Ion Exchange Membrane", text: "<strong>Role:</strong> The Traffic Controller. It allows positive ions (like H⁺ or K⁺) to cross the bridge to complete the circuit, but blocks liquid and gases.<br><br><strong>Why?</strong> If oxygen from the anode crossed over, it would ruin the CO₂ reaction. Nafion 117 is the most common material." },
-    bubbler: { title: "CO₂ Gas Bubbler", text: "<strong>Role:</strong> The Reactant Supply. Delivers a constant flow of CO₂ gas into the liquid.<br><br><strong>Pro-Tip:</strong> You must bubble the gas for 20-30 minutes *before* turning on the electricity to purge out ambient oxygen and saturate the electrolyte." }
+    ce: { title: "Counter Electrode (CE)", text: "<strong>Role:</strong> The Anode. It completes the electrical circuit. Water is oxidized to Oxygen gas (O₂) here.<br><br><strong>Materials:</strong> Needs to be highly stable so it doesn't dissolve. Platinum (Pt) mesh or wire is the standard." },
+    re: { title: "Reference Electrode (RE)", text: "<strong>Role:</strong> Voltage Sensor. It measures the potential applied to the Working Electrode without passing current itself.<br><br><strong>Materials:</strong> Silver/Silver Chloride (Ag/AgCl) is standard for water-based electrolytes." },
+    membrane: { title: "Ion Exchange Membrane", text: "<strong>Role:</strong> Traffic Controller. Allows positive ions (like H⁺ or K⁺) to cross the bridge but blocks gases.<br><br><strong>Why?</strong> If oxygen from the anode crossed over, it would ruin the reaction. Nafion 117 is standard." },
+    bubbler: { title: "CO₂ Gas Bubbler", text: "<strong>Role:</strong> Reactant Supply. Delivers a constant flow of CO₂ gas into the liquid.<br><br><strong>Pro-Tip:</strong> You must bubble the gas for 20-30 minutes <em>before</em> turning on electricity to purge out ambient oxygen." }
   };
 
   function showInfo(part) {
     infoPanel.style.opacity = 0;
     setTimeout(() => {
-      infoPanel.innerHTML = `<h3 style="margin-top:0; color: #1976d2;">${hcellData[part].title}</h3><p style="font-size:15px; line-height:1.6;">${hcellData[part].text}</p>`;
+      infoPanel.innerHTML = `<h3 style="margin-top:0; font-size: 1.15rem; color: #1976d2; margin-bottom: 10px;">${hcellData[part].title}</h3><p style="font-size: 13px; line-height: 1.5; color: #444;">${hcellData[part].text}</p>`;
       infoPanel.style.opacity = 1;
     }, 150);
   }
