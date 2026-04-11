@@ -687,15 +687,3 @@ Data analysis is something that is not only done at the end of the experiments b
     *   The FE bar chart to show Selectivity.
   
 ---
-
-### Bonus Kinetic Analysis: The Tafel Plot (Under Reconstruction)
-While an LSV and CV show you when the reaction starts, a Tafel Plot tells you how hard it is to drive the reaction faster. It connects the extra energy you apply (Overpotential) to the speed you get out (Log Current).
-
-*   **The Graph**
-    *   **Y-Axis:** Overpotential ($\eta$) in Volts (How much extra push you are giving).
-    *   **X-Axis:** Logarithm of Current Density ($\log j$).
-    *   **The Slope (The "Tafel Slope"):** It is the most important number measured in mV/decade (millivolts needed to increase current by 10x).
-    *   **Small Slope (e.g., 30-40 mV/dec):** Excellent. A tiny increase in voltage gives a huge boost in current.
-    *   **Large Slope (e.g., 120 mV/dec):** Poor. You have to push very hard to get a small increase in speed.
-
-*Note: on how to do the tafel plot, please find guidelines on trusted resources such as electrochemistry textbooks and educational website* 
