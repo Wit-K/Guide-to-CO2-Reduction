@@ -17,6 +17,74 @@ description: "Learn how to analyze CO2 reduction data. Interactive guides on cal
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
+<style>
+  .toc-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #3b82f6;
+    border-radius: 8px;
+    padding: 20px 25px;
+    margin: 30px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .toc-box h4 {
+    margin-top: 0;
+    color: #1e3a8a;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  .toc-box ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .toc-box li {
+    margin-bottom: 8px;
+  }
+  .toc-box a {
+    text-decoration: none;
+    color: #3b82f6;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .toc-box a:hover {
+    color: #1e40af;
+    text-decoration: underline;
+  }
+
+/* Style the ## headings (Second Level) so they look nice */
+  .toc-box ul ul {
+    display: block; /* Make sure these are visible! */
+    padding-left: 20px;
+    font-size: 0.95em;
+    margin-top: 5px;
+    border-left: 2px solid #e2e8f0;
+    margin-left: 5px;
+  }
+  .toc-box ul ul a {
+    color: #475569;
+    font-weight: normal;
+  }
+  .toc-box ul ul a:hover {
+    color: #3b82f6;
+  }
+
+  /* Completely hide the ### headings (Third Level) and deeper */
+  .toc-box ul ul ul {
+    display: none;
+  }
+</style>
+
+<!-- Paste this part exactly where you want the Table of Contents to appear! -->
+<div class="toc-box" markdown="1">
+<h4>Table of Contents</h4>
+
+* TOC
+{:toc}
+
+</div>
+
 # Data Collection, Analysis & Interpretation
 *Part 3: From Raw Data to Chemical Insight*
 
