@@ -364,7 +364,7 @@ The electrode surface must first be atomically clean.
 4.  **Clean:** Rinse with Distilled Water.
 5.  **Sonicate:** Place the electrode in a beaker of water/acetone and put it in an ultrasonic bath for 5 minutes. This vibrates off the microscopic dust left by the polishing.
 
-![Polishing Motion](./assets/images/polishing.png)
+![Polishing Motion](./assets/images/polishing.png){: width="50%" }
 *Figure : The correct "Figure-8" motion for polishing electrodes to ensure an even surface.*
 
 ### 3.2 Membrane Hydration
@@ -391,104 +391,234 @@ Connecting the Potentiostat can be confusing because cable colors vary by brand;
 > *Warning: If you swap the Counter and Reference cables, you can instantly destroy your Reference Electrode by forcing high current through it.**
 
 <style>
-  .game-container {
-    background: #2b2b2b; color: #f8f8f2; padding: 25px; border-radius: 8px; font-family: 'Courier New', Courier, monospace;
-    max-width: 650px; margin: 30px auto; text-align: center; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border: 2px solid #444;
+  .wiring-container {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    font-family: system-ui, -apple-system, sans-serif;
+    max-width: 700px;
+    margin: 30px auto;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
   }
-  .potentiostat-header { background: #444; border: 2px solid #666; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
-  .cable-labels { display: flex; justify-content: space-around; margin-top: 10px; font-weight: bold; }
-  .cable-green { color: #8bc34a; }
-  .cable-red { color: #ff5252; }
-  .cable-white { color: #ffffff; }
-  
-  .electrode-row { display: flex; justify-content: space-between; align-items: center; margin: 15px 0; padding: 12px; background: #3c3c3c; border-radius: 5px; }
-  .electrode-name { font-weight: bold; font-size: 16px; text-align: left; width: 60%; }
-  select.cable-select { padding: 8px; font-size: 14px; border-radius: 4px; border: 1px solid #ccc; cursor: pointer; width: 35%; font-weight: bold; }
-  
-  .turn-on-btn {
-    background: #ff9800; color: white; border: none; padding: 15px 24px; font-size: 18px; font-weight: bold;
-    border-radius: 5px; cursor: pointer; transition: 0.2s; margin-top: 15px; width: 100%; text-transform: uppercase; letter-spacing: 1px;
+  .wiring-header {
+    color: #1e293b;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
   }
-  .turn-on-btn:hover { background: #e68a00; transform: scale(1.02); }
-  
-  #game-feedback { margin-top: 20px; font-weight: bold; min-height: 50px; padding: 15px; border-radius: 5px; display: none; font-size: 16px; }
-  .feedback-success { background: #4caf50; color: white; border: 2px solid #388e3c; }
-  .feedback-error { background: #f44336; color: white; border: 2px solid #d32f2f; animation: shake 0.4s; }
-  @keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(-8px); } 50% { transform: translateX(8px); } 75% { transform: translateX(-8px); } 100% { transform: translateX(0); } }
+  .wiring-instructions {
+    color: #475569;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  .wiring-svg {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    user-select: none;
+  }
+  .node {
+    cursor: pointer;
+    transition: filter 0.2s;
+  }
+  .node:hover {
+    filter: brightness(0.85);
+  }
+  .node-active {
+    stroke: #3b82f6;
+    stroke-width: 4px;
+  }
+  .wire-line {
+    stroke-width: 4px;
+    stroke-linecap: round;
+    pointer-events: none;
+  }
+  .verify-btn {
+    background: #334155;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.2s;
+  }
+  .verify-btn:hover { background: #1e293b; }
+  .reset-btn {
+    background: #e2e8f0;
+    color: #334155;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 10px;
+    transition: background 0.2s;
+  }
+  .reset-btn:hover { background: #cbd5e1; }
+  #wiring-feedback {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    display: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    line-height: 1.5;
+  }
+  .feedback-success { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+  .feedback-error { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
 </style>
 
-<div class="game-container">
-  <div class="potentiostat-header">
-    <h3 style="margin: 0; color: #ddd; letter-spacing: 2px;">POTENTIOSTAT CONTROLLER</h3>
-    <div class="cable-labels">
-      <span class="cable-green">■ GREEN (Working)</span>
-      <span class="cable-red">■ RED (Counter)</span>
-      <span class="cable-white">■ WHITE (Reference)</span>
-    </div>
+<div class="wiring-container">
+  <div class="wiring-header">Potentiostat Wiring Configuration</div>
+  <div class="wiring-instructions">Click a colored potentiostat terminal, then click the corresponding electrode below to establish a connection.</div>
+  
+  <svg class="wiring-svg" viewBox="0 0 600 400" id="wiring-canvas">
+    <!-- Dynamic Wires will be injected here -->
+    <g id="wire-layer"></g>
+
+    <!-- Potentiostat Box -->
+    <rect x="150" y="20" width="300" height="80" rx="8" fill="#475569" />
+    <text x="300" y="50" font-size="16" fill="white" font-weight="bold" text-anchor="middle" pointer-events="none">Potentiostat Output</text>
+    
+    <!-- Potentiostat Terminals -->
+    <!-- Green (WE) -->
+    <circle cx="200" cy="100" r="15" fill="#22c55e" class="node terminal" id="term-green" onclick="selectTerminal('green', 200, 100)" />
+    <text x="200" y="80" font-size="12" fill="white" text-anchor="middle" pointer-events="none">Green</text>
+    
+    <!-- Red (CE) -->
+    <circle cx="300" cy="100" r="15" fill="#ef4444" class="node terminal" id="term-red" onclick="selectTerminal('red', 300, 100)" />
+    <text x="300" y="80" font-size="12" fill="white" text-anchor="middle" pointer-events="none">Red</text>
+    
+    <!-- White (RE) -->
+    <circle cx="400" cy="100" r="15" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2" class="node terminal" id="term-white" onclick="selectTerminal('white', 400, 100)" />
+    <text x="400" y="80" font-size="12" fill="white" text-anchor="middle" pointer-events="none">White</text>
+
+    <!-- Electrodes -->
+    <!-- Ag/AgCl (RE) -->
+    <rect x="50" y="300" width="120" height="60" rx="4" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" class="node electrode" id="elec-re" onclick="selectElectrode('re', 110, 300)" />
+    <text x="110" y="325" font-size="14" fill="#334155" font-weight="bold" text-anchor="middle" pointer-events="none">Ag/AgCl Sensor</text>
+    <text x="110" y="345" font-size="12" fill="#64748b" text-anchor="middle" pointer-events="none">Reference</text>
+
+    <!-- Copper Foil (WE) -->
+    <rect x="240" y="300" width="120" height="60" rx="4" fill="#b45309" stroke="#78350f" stroke-width="2" class="node electrode" id="elec-we" onclick="selectElectrode('we', 300, 300)" />
+    <text x="300" y="325" font-size="14" fill="white" font-weight="bold" text-anchor="middle" pointer-events="none">Copper Foil</text>
+    <text x="300" y="345" font-size="12" fill="#fde68a" text-anchor="middle" pointer-events="none">Cathode</text>
+
+    <!-- Platinum Mesh (CE) -->
+    <rect x="430" y="300" width="120" height="60" rx="4" fill="#94a3b8" stroke="#475569" stroke-width="2" class="node electrode" id="elec-ce" onclick="selectElectrode('ce', 490, 300)" />
+    <text x="490" y="325" font-size="14" fill="white" font-weight="bold" text-anchor="middle" pointer-events="none">Platinum Mesh</text>
+    <text x="490" y="345" font-size="12" fill="#e2e8f0" text-anchor="middle" pointer-events="none">Anode</text>
+  </svg>
+
+  <div>
+    <button class="verify-btn" onclick="verifyCircuit()">Verify Circuit</button>
+    <button class="reset-btn" onclick="resetWiring()">Reset</button>
   </div>
   
-  <p style="margin-bottom: 20px; font-size: 15px;"><em>Mini-Game: Connect the correct cables to the electrodes below before turning on the power!</em></p>
-  
-  <div class="electrode-row">
-    <span class="electrode-name">1. Copper Foil (Cathode)</span>
-    <select class="cable-select" id="sel-we">
-      <option value="none">Select...</option>
-      <option value="green">Green Cable</option>
-      <option value="red">Red Cable</option>
-      <option value="white">White Cable</option>
-    </select>
-  </div>
-  
-  <div class="electrode-row">
-    <span class="electrode-name">2. Platinum Mesh (Anode)</span>
-    <select class="cable-select" id="sel-ce">
-      <option value="none">Select...</option>
-      <option value="green">Green Cable</option>
-      <option value="red">Red Cable</option>
-      <option value="white">White Cable</option>
-    </select>
-  </div>
-  
-  <div class="electrode-row">
-    <span class="electrode-name">3. Ag/AgCl Sensor</span>
-    <select class="cable-select" id="sel-re">
-      <option value="none">Select...</option>
-      <option value="green">Green Cable</option>
-      <option value="red">Red Cable</option>
-      <option value="white">White Cable</option>
-    </select>
-  </div>
-  
-  <button class="turn-on-btn" onclick="checkWiring()">⚡ Turn On Power ⚡</button>
-  
-  <div id="game-feedback"></div>
+  <div id="wiring-feedback"></div>
 </div>
 
 <script>
-  function checkWiring() {
-    const we = document.getElementById('sel-we').value;
-    const ce = document.getElementById('sel-ce').value;
-    const re = document.getElementById('sel-re').value;
-    const feedback = document.getElementById('game-feedback');
+  let activeTerminal = null;
+  const connections = { green: null, red: null, white: null };
+  const wireColors = { green: '#22c55e', red: '#ef4444', white: '#94a3b8' }; // Gray used for white wire visibility
+  
+  function selectTerminal(color, x, y) {
+    // Clear previous active state
+    document.querySelectorAll('.terminal').forEach(el => el.classList.remove('node-active'));
     
+    activeTerminal = { color: color, x: x, y: y };
+    document.getElementById('term-' + color).classList.add('node-active');
+  }
+
+  function selectElectrode(elecId, x, y) {
+    if (!activeTerminal) return;
+
+    const color = activeTerminal.color;
+    connections[color] = elecId;
+
+    renderWires();
+    
+    // Reset active terminal
+    document.querySelectorAll('.terminal').forEach(el => el.classList.remove('node-active'));
+    activeTerminal = null;
+  }
+
+  function renderWires() {
+    const layer = document.getElementById('wire-layer');
+    layer.innerHTML = ''; // Clear existing wires
+
+    // Terminal coords
+    const tCoords = { green:[200, 100], red: [300, 100], white:[400, 100] };
+    // Electrode coords
+    const eCoords = { re: [110, 300], we: [300, 300], ce: [490, 300] };
+
+    for (const [color, elecId] of Object.entries(connections)) {
+      if (elecId) {
+        const x1 = tCoords[color][0];
+        const y1 = tCoords[color][1];
+        const x2 = eCoords[elecId][0];
+        const y2 = eCoords[elecId][1];
+
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', x1);
+        line.setAttribute('y1', y1);
+        line.setAttribute('x2', x2);
+        line.setAttribute('y2', y2);
+        line.setAttribute('stroke', wireColors[color]);
+        line.setAttribute('class', 'wire-line');
+        layer.appendChild(line);
+      }
+    }
+  }
+
+  function resetWiring() {
+    connections.green = null;
+    connections.red = null;
+    connections.white = null;
+    activeTerminal = null;
+    document.querySelectorAll('.terminal').forEach(el => el.classList.remove('node-active'));
+    renderWires();
+    const feedback = document.getElementById('wiring-feedback');
+    feedback.style.display = 'none';
+    feedback.className = '';
+  }
+
+  function verifyCircuit() {
+    const feedback = document.getElementById('wiring-feedback');
     feedback.style.display = 'block';
     feedback.className = '';
-    
-    if (we === 'none' || ce === 'none' || re === 'none') {
+
+    const we = connections.green;
+    const ce = connections.red;
+    const re = connections.white;
+
+    if (!we || !ce || !re) {
       feedback.classList.add('feedback-error');
-      feedback.innerHTML = "⚠️ Incomplete Circuit! Connect all three cables.";
+      feedback.innerHTML = "Incomplete circuit. Please ensure all three cables are connected to an electrode.";
       return;
     }
-    
-    if (we === 'green' && ce === 'red' && re === 'white') {
+
+    if (we === 'we' && ce === 'ce' && re === 're') {
       feedback.classList.add('feedback-success');
-      feedback.innerHTML = "✅ SUCCESS! The circuit is complete, stable, and recording perfect data.";
-    } else if (ce === 'white' && re === 'red') {
+      feedback.innerHTML = "Circuit verified. The wiring configuration is correct. The potentiostat is ready for operation.";
+    } else if (ce === 're' || re === 'ce') {
       feedback.classList.add('feedback-error');
-      feedback.innerHTML = "💥 CRITICAL ERROR! You swapped Counter and Reference! High current just blasted through your sensitive Ag/AgCl sensor. You destroyed it! (Cost: $150)";
+      feedback.innerHTML = "Critical error. The Counter and Reference cables are inverted. This configuration forces high current through the sensitive Ag/AgCl sensor, resulting in permanent damage to the electrode.";
     } else {
       feedback.classList.add('feedback-error');
-      feedback.innerHTML = "❌ OVERLOAD. Incorrect wiring detected. The potentiostat safety triggered and shut off the power to prevent damage.";
+      feedback.innerHTML = "Incorrect configuration. The current setup will not yield valid electrochemical data. Please review the standard 3-electrode wiring protocol and try again.";
     }
   }
 </script>
