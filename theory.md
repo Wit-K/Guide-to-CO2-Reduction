@@ -252,6 +252,8 @@ The metal must bind to the $$CO$$ (the intermediate) with just the right amount 
 *   **Too Strong:** If the metal grabs too tight, the $$CO$$ gets stuck. The surface gets clogged by all the $$CO$$, preventing new $$CO_2$$ from entering. The reaction stops. This is the term define as "surface poisoning".
 *   **Just Right:** The metal holds onto $$CO$$ long enough to transform it into hydrocarbon, but lets go of after the product form.
 
+The goal of the research is to find a catalyst surface that has this perfect balance.
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <div style="width: 100%; max-width: 650px; margin: 30px auto;">
   <canvas id="volcanoPlot"></canvas>
@@ -381,8 +383,6 @@ document.addEventListener("DOMContentLoaded", function() {
     slider.addEventListener('input', updateAnimation);
     updateAnimation(); // trigger on load
 </script>
-
-The goal of the research is to find a catalyst surface that has this perfect balance.
 
 ---
 
