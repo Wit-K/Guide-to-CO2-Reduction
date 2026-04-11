@@ -169,7 +169,7 @@ LSV is the standard method to determine how fast your reaction is occurring and 
 1.  **Onset Potential:** Look at the specific voltage where the current starts to drop sharply. A less negative onset potential is better. For example, if Catalyst A starts reacting at -0.5V and Catalyst B starts at -0.8V, Catalyst A is more energy efficient.
 2.  **Argon vs. CO2 Baseline:** To prove your catalyst is actually reducing CO2 and not just splitting water, you should run one LSV in an inert gas like Argon or Nitrogen first. Then, run a second LSV in CO2. If the CO2 line shows significantly more current than the Argon line, your catalyst is active for CO2 reduction.
 
-![LSV Graph](./assets/images/lsv_graph.png){: style="display:block; margin-left:auto; margin-right:auto; width:50%;" }
+![LSV Graph](./assets/images/lsv_graph.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
 
 *Figure : A Linear Sweep Voltammetry (LSV) scan. The "knee" of the curve indicates where the reaction turns on.*
 
@@ -256,7 +256,7 @@ CV is used to diagnose the health and surface properties of your electrode. Unli
 1.  **Stability Check:** Compare the loop of the 1st cycle with the loop of the 50th cycle. Ideally, they should overlap perfectly. If the loops are shrinking or shifting position, it means your catalyst is unstable, falling off the electrode, or getting poisoned by contaminants.
 2.  **Double Layer Capacitance:** Look at the width or thickness of the loop in the middle region where it is relatively flat. A wider loop generally indicates a higher electrochemical surface area. This suggests your electrode has a rougher surface, which often provides more active sites for the reaction to take place.
 
-![CV Graph](./assets/images/Cyclic.png){: style="display:block; margin-left:auto; margin-right:auto; width:50%;" }
+![CV Graph](./assets/images/Cyclic.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
 
 *Figure : A Cyclic Voltammetry (CV) scan vs Ag/AgCl.*
 
@@ -292,7 +292,7 @@ If you read a paper in *Nature* or *Science*, they use separate instruments for 
     *   *HPLC:* Separates chemical compounds in the liquid based on how they stick to a filter column.
 *   **Result:** A concentration reading of the compounds found in the solution
 
-![Calibration Curve](./assets/images/calibration.png){: style="display:block; margin-left:auto; margin-right:auto; width:50%;" }
+![Calibration Curve](./assets/images/calibration.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
 
 *Figure 3: A standard calibration curve converting peak area into concentration.*
 
