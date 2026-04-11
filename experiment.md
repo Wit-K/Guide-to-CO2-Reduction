@@ -641,9 +641,6 @@ Air contains gases other than $CO_2$ that aren't inert. They can react and steal
 ![Sparging vs Blanketing](./assets/images/sparging.png)
 *Figure : Ensure the gas tube goes into the liquid to fully saturate the electrolyte.*
 
-![Experimental Flow Chart](./assets/images/workflow.png)
-*Figure : The complete roadmap of a $CO_2$ reduction experiment. Note that the product mesurement will be explained in the next page*
-
 ### 5.2 The Leak Check
 Before starting the electricity:
 1.  Close the cell outlet.
@@ -651,8 +648,6 @@ Before starting the electricity:
 3.  If you see bubbles growing on the outside, you have a gas leak. Tighten the clamps.
 
 ---
-
-
 
 ## Conclusion
 There is no universally "correct" $CO_2$ electrochemical setup. Valid designs are chosen based on research goals, constraints, and trade-offs. The best equipment is simply the setup that allows you to isolate the variable you are trying to study while minimizing sources of error like contamination or instability. Further information on the exact set up each experiment should be obtain from literature reviews and each consequence should be carefully considered before adjusting.
