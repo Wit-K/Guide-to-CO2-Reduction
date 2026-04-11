@@ -312,7 +312,7 @@ These issues pop up immediately upon starting the experiment and are generally r
 ## 3. Category B: Electrochemical Performance
 The chemical reaction is not behaving as predicted.
 
-![Stability Troubleshooting](./assets/images/stability_troubleshooting.png)
+![Stability Troubleshooting](./assets/images/stability_troubleshooting.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
 *Figure : Diagnostic Stability Plots. Green = Healthy. Orange = Poisoned (decaying). Red = Noise (bubbles/loose wire).*
 
 ### Issue: Catalyst Deactivation
@@ -325,7 +325,7 @@ The chemical reaction is not behaving as predicted.
 *   **Suggestion/Diagnosis:**
     Most often, this indicates electrolyte contamination. Trace organic compounds from plastic tubing or unwashed glassware may clog the active sites of the catalyst. If the decay is erratic, gas bubbles may be sticking to the electrode surface, thereby, blocking the liquid from touching the metal.
 
-![Pourbaix Diagram](./assets/images/pourbaix_diagram.png)
+![Pourbaix Diagram](./assets/images/pourbaix_diagram.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
 *Figure : Simplified Pourbaix Diagram for Copper. To prevent your electrode from dissolving (Corrosion), you must keep your voltage and pH in the yellow "Immunity" region.*
 
 ### Issue: Selectivity Loss
