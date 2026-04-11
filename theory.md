@@ -415,9 +415,6 @@ To overcome this slowness, we apply extra voltage. This extra voltage is the "Ov
 
 In research, the goal is often to find a setup that produces the most product with the least amount of overpotential.
 
-![Energy Landscape](./assets/images/energy_landscape.png)
-*Figure : The Energy Landscape. The catalyst must help the molecule climb these energy "hills" to form new bonds.*
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
@@ -501,9 +498,9 @@ In research, the goal is often to find a setup that produces the most product wi
     </div>
     
     <div class="stepper-controls">
-      <button class="step-btn" id="btn-prev" onclick="changeStep(-1)" disabled>⬅️ Previous Step</button>
+      <button class="step-btn" id="btn-prev" onclick="changeStep(-1)" disabled>Previous Step</button>
       <div class="step-indicator" id="step-counter">Step 0 of 4</div>
-      <button class="step-btn" id="btn-next" onclick="changeStep(1)">Next Step ➡️</button>
+      <button class="step-btn" id="btn-next" onclick="changeStep(1)">Next Step</button>
     </div>
   </div>
 </div>
@@ -521,11 +518,11 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Explanations for each step
   const explanations =[
-    "<strong>Start (CO₂):</strong> We begin with CO₂ gas. We set this energy level to 0.0 eV as our baseline starting line. Click 'Next Step' to apply voltage and push the molecules onto the catalyst!",
-    "<strong>Step 1 (*COOH):</strong> The first electron and proton are added. <span class='highlight-copper'>Copper</span> forms this intermediate easily (+0.5 eV). <span class='highlight-gold'>Gold</span> requires a much higher 'hill' (+1.2 eV). Higher energy hills mean more <em>Overpotential</em> is needed.",
-    "<strong>Step 2 (*CO):</strong> Water leaves, leaving Carbon Monoxide (*CO) attached to the metal. Both metals drop in energy here. For <span class='highlight-gold'>Gold</span>, it is highly likely the CO just detaches right now and floats away as a final gas product!",
-    "<strong>Step 3 (*CHO) - 🚨 The Hard Barrier:</strong> To continue toward Methane, we must add another hydrogen. <span class='highlight-copper'>Copper</span> needs a tiny bump to +0.3 eV. <span class='highlight-gold'>Gold</span> faces a massive cliff up to +2.5 eV! To force Gold over this cliff, you would need an absurd Overpotential—so high that you'd just accidentally split water into H₂ gas instead. This is why Gold gets 'stuck'.",
-    "<strong>Step 4 (CH₄):</strong> Once <span class='highlight-copper'>Copper</span> gets past the *CHO barrier, it's a downhill energy slide! The reaction easily adds the remaining protons and electrons until Methane (CH₄) is formed and releases from the surface."
+    "<strong>Start (CO₂):</strong> We begin with CO₂ gas. We set this energy level to 0.0 eV as our baseline starting line.",
+    "<strong>Step 1 (*COOH):</strong> The first electron and proton are added. <span class='highlight-copper'>Copper</span> forms this intermediate easily (+0.5 eV). <span class='highlight-gold'>Gold</span> requires a much higher energy (+1.2 eV). Higher energy means more <em>Overpotential</em> is needed.",
+    "<strong>Step 2 (*CO):</strong> Water leaves, leaving Carbon Monoxide (*CO) attached to the metal. Both metals drop in energy here. For <span class='highlight-gold'>Gold</span>, it is highly likely the CO just detaches floats away as a final gas product.",
+    "<strong>Step 3 (*CHO) - To continue toward Methane, we must add another hydrogen. <span class='highlight-copper'>Copper</span> needs a tiny bump to +0.3 eV. <span class='highlight-gold'>Gold</span> faces a large energy barrier up to +2.5 eV. To force Gold over this, you would need an absurdly high Overpotential that water will likely be split into H₂ gas instead. This is why Gold gets stuck.",
+    "<strong>Step 4 (CH₄):</strong> Once <span class='highlight-copper'>Copper</span> gets past the *CHO barrier, the reaction easily adds the remaining protons and electrons until Methane (CH₄) is formed and releases from the surface."
   ];
 
   // Initialize Chart
