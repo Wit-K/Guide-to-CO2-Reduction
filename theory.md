@@ -4,6 +4,7 @@ title: "CO2RR Theory: The Fundamentals of CO2 Reduction"
 description: "Learn the foundational theory of CO2RR, including the CO2 reduction reaction pathways, the volcano plot, and choosing the right metal catalyst."
 ---
 
+
 <script>
   MathJax = {
     tex: {
@@ -70,10 +71,11 @@ description: "Learn the foundational theory of CO2RR, including the CO2 reductio
 </style>
 
 <div class="toc-box">
-  <h4>📑 Table of Contents</h4>
+  <h4>Table of Contents</h4>
   * TOC
   {:toc}
 </div>
+
 
 # Foundations & Theory
 *Part 1: The Electrochemical Basics*
