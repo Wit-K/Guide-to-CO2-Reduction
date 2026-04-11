@@ -53,19 +53,9 @@ description: "Learn the foundational theory of CO2RR, including the CO2 reductio
     color: #1e40af;
     text-decoration: underline;
   }
+
   .toc-box ul ul {
-    padding-left: 20px;
-    font-size: 0.95em;
-    margin-top: 5px;
-    border-left: 2px solid #e2e8f0;
-    margin-left: 5px;
-  }
-  .toc-box ul ul a {
-    color: #64748b;
-    font-weight: normal;
-  }
-  .toc-box ul ul a:hover {
-    color: #3b82f6;
+    display: none;
   }
 </style>
 
