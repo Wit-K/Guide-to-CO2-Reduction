@@ -54,7 +54,25 @@ description: "Learn the foundational theory of CO2RR, including the CO2 reductio
     text-decoration: underline;
   }
 
+/* Style the ## headings (Second Level) so they look nice */
   .toc-box ul ul {
+    display: block; /* Make sure these are visible! */
+    padding-left: 20px;
+    font-size: 0.95em;
+    margin-top: 5px;
+    border-left: 2px solid #e2e8f0;
+    margin-left: 5px;
+  }
+  .toc-box ul ul a {
+    color: #475569;
+    font-weight: normal;
+  }
+  .toc-box ul ul a:hover {
+    color: #3b82f6;
+  }
+
+  /* Completely hide the ### headings (Third Level) and deeper */
+  .toc-box ul ul ul {
     display: none;
   }
 </style>
