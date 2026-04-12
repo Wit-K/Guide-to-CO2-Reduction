@@ -171,14 +171,12 @@ LSV is the standard method to determine how fast your reaction is occurring and 
 
 ![LSV Graph](./assets/images/lsv_graph.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
 
-*Figure : A Linear Sweep Voltammetry (LSV) scan. The "knee" of the curve indicates where the reaction turns on.*
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div style="width: 100%; max-width: 700px; margin: 30px auto; background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
   <h4 style="margin-top: 0; text-align: center;">Interactive LSV: Argon Baseline vs. CO₂ Scan</h4>
   <p style="text-align: center; font-size: 14px; color: #666;">
-    <em>💡 <strong>Interactive:</strong> Click the colored boxes in the legend below to toggle the curves on and off!</em>
+    <em> <strong>Interactive:</strong> Click the colored boxes in the legend below to toggle the curves on and off.</em>
   </p>
   <canvas id="lsvChart"></canvas>
 </div>
@@ -258,8 +256,6 @@ CV is used to diagnose the health and surface properties of your electrode. Unli
 
 ![CV Graph](./assets/images/Cyclic.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
 
-*Figure : A Cyclic Voltammetry (CV) scan vs Ag/AgCl.*
-
 ### 3.3 Chronoamperometry (CA)
 
 CA is the endurance test for your system. While LSV tells you how fast the reaction can go, CA tells you if it can keep going.
@@ -293,8 +289,6 @@ If you read a paper in *Nature* or *Science*, they use separate instruments for 
 *   **Result:** A concentration reading of the compounds found in the solution
 
 ![Calibration Curve](./assets/images/calibration.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
-
-*Figure 3: A standard calibration curve converting peak area into concentration.*
 
 <style>
   .nmr-container {
@@ -402,7 +396,7 @@ If you read a paper in *Nature* or *Science*, they use separate instruments for 
     </svg>
   </div>
   
-  <div class="pulse-text">👆 Click the highlighted boxes over the peaks! 👆</div>
+  <div class="pulse-text">Click the highlighted boxes over the peaks.</div>
 
   <div class="nmr-info-panel" id="nmr-info">
     <h3 class="nmr-title">Awaiting Selection...</h3>
@@ -590,7 +584,7 @@ To report your final results, you combine the efficiencies and normalize the cur
 
 <div class="calc-container">
   <div class="calc-header">
-    <h3 style="margin: 0;">⚡ Live Faradaic Efficiency Calculator ⚡</h3>
+    <h3 style="margin: 0;">Live Faradaic Efficiency Calculator</h3>
     <p style="margin: 5px 0 0 0; font-size: 14px;">Tweak the lab parameters to see how it affects your results!</p>
   </div>
 
