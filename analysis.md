@@ -93,7 +93,7 @@ description: "Learn how to analyze CO2 reduction data. Interactive guides on cal
 ## 1. The Big Picture
 
 ### 1.1 Three Pillars of Analysis
-To evaluate the success of a CO2 reduction experiment, researchers focus on three primary performance metrics. Data collection is designed to answer these three questions:
+To evaluate the success of a $CO_2$ reduction experiment, researchers focus on three primary performance metrics. Data collection is designed to answer these three questions:
 
 1.  **Activity (Speed):** *How fast is the reaction occurring?*
     *   In chemistry, we usually measure reaction rates in Moles/Second. In electrochemistry, we measure this from the Current. Higher current equals faster fuel production.
@@ -167,7 +167,7 @@ LSV is the standard method to determine how fast your reaction is occurring and 
 
 #### Interpretation
 1.  **Onset Potential:** Look at the specific voltage where the current starts to drop sharply. A less negative onset potential is better. For example, if Catalyst A starts reacting at -0.5V and Catalyst B starts at -0.8V, Catalyst A is more energy efficient.
-2.  **Argon vs. CO2 Baseline:** To prove your catalyst is actually reducing CO2 and not just splitting water, you should run one LSV in an inert gas like Argon or Nitrogen first. Then, run a second LSV in CO2. If the CO2 line shows significantly more current than the Argon line, your catalyst is active for CO2 reduction.
+2.  **Argon vs. CO2 Baseline:** To prove your catalyst is actually reducing $CO_2$ and not just splitting water, you should run one LSV in an inert gas like Argon or Nitrogen first. Then, run a second LSV in $CO_2$. If the $CO_2$ line shows significantly more current than the Argon line, your catalyst is active for $CO_2$ reduction.
 
 ![LSV Graph](./assets/images/lsv_graph.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
 
@@ -447,7 +447,7 @@ Liquid products like Formate or Ethanol act as reducing agents.
 **3. Solid-State Gas Sensing**
 Modern air quality monitoring technology has made specific gas detection more accessible.
 *   **The Concept:** Metal-oxide semiconductor sensors (commonly used in safety alarms) react specifically to Carbon Monoxide or combustible gases.
-*   **The Insight:** While these sensors typically lack the high resolution of a GC, they can provide semi-quantitative data (Parts Per Million) to confirm that Carbon Monoxide is being produced, distinguishing a successful CO2 reduction from a simple Hydrogen evolution reaction.
+*   **The Insight:** While these sensors typically lack the high resolution of a GC, they can provide semi-quantitative data (Parts Per Million) to confirm that Carbon Monoxide is being produced, distinguishing a successful $CO_2$ reduction from a simple Hydrogen evolution reaction.
 
 **4. Water Displacement**
 We can actually measure the gas volume by using the concept of displacement.
@@ -673,7 +673,7 @@ To report your final results, you combine the efficiencies and normalize the cur
 ---
 
 ## 6. Summary
-Data analysis is something that is not only done at the end of the experiments but dictates what the next step in the experiment is as well. This is a simple workflow for the data collection and analysis in general study CO2 reduction reaction:
+Data analysis is something that is not only done at the end of the experiments but dictates what the next step in the experiment is as well. This is a simple workflow for the data collection and analysis in general study $CO_2$ reduction reaction:
 
 1.  **Measuring the surface area:** Before starting, measure the Surface Area of your working electrode.
 2.  **Diagnostic Check (CV):** Run a Cyclic Voltammetry scan to see if the electrode is clean.
