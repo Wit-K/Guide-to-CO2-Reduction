@@ -92,7 +92,7 @@ description: "Learn how to analyze CO2 reduction data. Interactive guides on cal
 
 ## 1. The Big Picture
 
-### 1.1 Three Pillars of Analysis
+### 1.1 Three Parameters in Analysis
 To evaluate the success of a $CO_2$ reduction experiment, researchers focus on three primary performance metrics. Data collection is designed to answer these three questions:
 
 1.  **Activity (Speed):** *How fast is the reaction occurring?*
