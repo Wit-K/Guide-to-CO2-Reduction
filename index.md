@@ -43,5 +43,15 @@ Conceptual and experimental issues beginners frequently encounter, and how to re
 ### [5. Curated Resources](./resources.html)
 Papers, textbooks, and reviews annotated with guidance on how to approach them as a beginner.
 
+<style>
+  .page-nav { display: flex; justify-content: flex-end; align-items: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
+  .nav-btn { display: inline-block; padding: 12px 24px; background: #ffffff; color: #3b82f6; text-decoration: none; border: 2px solid #3b82f6; border-radius: 6px; font-weight: bold; transition: all 0.2s; }
+  .nav-btn:hover { background: #3b82f6; color: #ffffff; text-decoration: none; }
+</style>
+
+<div class="page-nav">
+  <a href="./theory" class="nav-btn">Start the Guide: Theory & Foundations →</a>
+</div>
+
 ---
 *Created by [Wit Kulvutiroj]*
