@@ -53,5 +53,4 @@ Papers, textbooks, and reviews annotated with guidance on how to approach them a
   <a href="./theory" class="nav-btn">Start the Guide: Theory & Foundations →</a>
 </div>
 
----
 *Created by [Wit Kulvutiroj]*
