@@ -370,3 +370,14 @@ Invalidation cause by failure in the H-Cell setup that alters the chemical envir
     3.  Poor seal between the glass chambers and the clamp.
 *   **Common Diagnosis:**
     If the electricity passed suggests you made 10 moles of gas, but you only collected 3 moles, the gas didn't disappearit, it leaked. A simple Soap Bubble Test often reveals leaks in the headspace.
+
+<style>
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
+  .nav-btn { display: inline-block; padding: 10px 20px; background: #ffffff; color: #3b82f6; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 600; transition: all 0.2s; }
+  .nav-btn:hover { background: #3b82f6; color: #ffffff; border-color: #3b82f6; text-decoration: none; }
+</style>
+
+<div class="page-nav">
+  <a href="./analysis" class="nav-btn">← Previous: Analysis</a>
+  <a href="./" class="nav-btn" style="border-color: #3b82f6; background: #3b82f6; color: #fff;">Finish Guide: Return Home</a>
+</div>
