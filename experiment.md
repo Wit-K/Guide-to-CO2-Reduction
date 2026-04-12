@@ -106,7 +106,7 @@ Part2: Analysis and Break Down of each Critical Component in Common Design.
     *   *Risk:* Saltwater is highly conductive. Spills near the power supply can cause short circuits.
     *   *Protocol:* Power supplies should be kept above the bench surface and ensure that all alligator clips are dry before turning on the voltage.
  
-Note that these are just some common safety and protocal when working with CO2 reduction. There are other several guidlines which should always be looked up and followed for each chemical and instruments.
+Note that these are just some common safety and protocal when working with $CO_2$ reduction. There are other several guidlines which should always be looked up and followed for each chemical and instruments.
 
 ---
 
@@ -120,14 +120,14 @@ Imagine two separate building connected by a bridge.
 *   **The Membrane/Bridge:** This allows ions to flow between the chambers but stops the liquids and gases from mixing.
 
 **Why separate them?**
-If you put everything in one beaker, the oxygen produced in Anodic Chamber would float over to Chamber 1 and ruin your sensitive CO2 reaction. The "H" shape physically isolates these compounds while allowing electricity to flow and reactions to happen.
+If you put everything in one beaker, the oxygen produced in Anodic Chamber would float over to Chamber 1 and ruin your sensitive $CO_2$ reaction. The "H" shape physically isolates these compounds while allowing electricity to flow and reactions to happen.
 
 *(Note: There are also other types of Cells including Flow Cells and Single Cell. But, because Flow Cells are too advance and require expensive pumps and Single Cell will get all the liquid mixed up, we will left them out and focus on H-Cell. If you are interested, you can research further by looking into scientific papers regarding the Flow Cell pros, cons, and set up)*
 
 ---
 
 ## 2. The Hardware Setup
-To perform CO2 reduction, you need a specific set of components arranged in a standard 3-Electrode System. This setup ensures we can control the voltage precisely while keeping the fuel products separate from the waste oxygen.
+To perform $CO_2$ reduction, you need a specific set of components arranged in a standard 3-Electrode System. This setup ensures we can control the voltage precisely while keeping the fuel products separate from the waste oxygen.
 
 <style>
   .hcell-container {
@@ -895,7 +895,7 @@ You cannot simply turn on the voltage. You must first create the right environme
 ### 5.1 Purging
 Air contains gases other than $CO_2$ that aren't inert. They can react and steal the electricity from your CO2RR, so we need to remove them first.
 
-1.  **Insert the Gas Tube:** Place the CO2 gas tube directly into the liquid at the bottom of the cell.
+1.  **Insert the Gas Tube:** Place the $CO_2$ gas tube directly into the liquid at the bottom of the cell.
 2.  **Bubble:** Let the $CO_2$ bubble vigorously for 20-30 minutes before running the experiment. This ensures that the solutionus is saturated with $CO_2$ and every experiment is valid.
 3.  **Check:** Ensure that the gas isn't blanketting in the headspace and is sparging in the solution. Blanketting could starve your catalyst from receiving sufficient $CO_2$.
 4.  **Measure:** Measure the flow rate of the $CO_2$ for each test typically by using mass flow controller. This is crucial for further calculation for accurate result.
