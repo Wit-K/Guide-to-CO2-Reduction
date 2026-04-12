@@ -278,7 +278,7 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
     </div>
   </div>
 </div>
-*Interactive Figure : The "Family Tree" of CO2 reduction products.*
+*Figure 1: The "Family Tree" of CO2 reduction products.*
 
 ---
 
@@ -302,7 +302,7 @@ The anode is the "electrode" connected to the positive terminal. This is where e
 ---
 
 ## 3. The Core Idea
-If we are applying electricity, why doesn't the CO2 just break apart on its own?
+If we are applying electricity, why doesn't the $$CO_2$$ just break apart on its own?
 
 ### The Stability Problem
 Carbon Dioxide is an incredibly stable molecule: it has a linear shape ($$O=C=O$$) with strong double bonds. It is already happy as is and resist changes coming in its way. So if you just stick a wire in water and apply voltage, don't expect long chain carbon compound to form; the electricity will ignore $$CO_2$$ and just split water, which is easy to break apart, instead.
@@ -691,12 +691,12 @@ document.addEventListener("DOMContentLoaded", function() {
 The most difficult part of $$CO_2$$ reduction is not breaking the $$CO_2$$; it is avoiding the water.
 
 ### The Hydrogen Problem
-Since our electrolyte is mostly water, there are billions of water molecules surrounding the electrode for every one CO2 molecule. Water can also accept electrons to form Hydrogen gas ($$H_2$$).
+Since our electrolyte is mostly water, there are billions of water molecules surrounding the electrode for every one $$CO_2$$ molecule. Water can also accept electrons to form Hydrogen gas ($$H_2$$).
 
 $$ 2H^+ + 2e^- \rightarrow H_2 $$
 
 This is called the "Hydrogen Evolution Reaction (HER)". It is an annoying competing reaction that wastes electricity and hinders reactions that we actually want.
-And, where does the hydrogen comes from then? You might wonder: if we only pump in CO2 gas, where does the Hydrogen come from? It comes from the water itself.
+And, where does the hydrogen comes from then? You might wonder: if we only pump in $$CO_2$$ gas, where does the Hydrogen come from? It comes from the water itself.
 
 $$ H_2O ⇌ H^+ + OH^- $$
 
@@ -716,7 +716,7 @@ When we say we are making fuel, don't expect liquid gasoline to drip off the cat
 **Metals:** Platinum (Pt), Nickel (Ni), Iron (Fe), Titanium (Ti) and more.
 Do not use these metals if you are aiming for $$CO_2$$ reduction.
 *   **Behavior:** These metals bind to Hydrogen atoms very strongly.
-*   **Typical Products:** Mostly Hydrogen gas. The CO2 will barely touch the surface.
+*   **Typical Products:** Mostly Hydrogen gas. The $$CO_2$$ will barely touch the surface.
 
 ### Group 2: Two-Electron Pathway (CO / Formate)
 **Metals:** Silver ($$Ag$$), Gold ($$Au$$), Zinc ($$Zn$$), Tin ($$Sn$$) and more.
@@ -833,7 +833,7 @@ It is unique in the periodic table and the only metal known to make multi-carbon
 We must understand the environment and its limit in real-world. $$CO_2$$ is a gas, but the reaction happens on the solid metal surface inside a liquid. For the reaction to work, $$CO_2$$ gas must dissolve into the water to reach the electrode.
 Some of the limits are:
 1.  **Solubility:** $CO_2$ does not dissolve well in water: just around 33mM concentration at room temperature.
-2.  **Mass Transport:** As you run the reaction, you use up the CO2 near the metal surface. If new $CO_2$ cannot diffuse in fast enough, the reaction stops and Hydrogen evolution takes over instead.
+2.  **Mass Transport:** As you run the reaction, you use up the $$CO_2$$ near the metal surface. If new $CO_2$ cannot diffuse in fast enough, the reaction stops and Hydrogen evolution takes over instead.
 
 This is why you will see instructions to bubble $CO_2$ gas continuously into the solution. It keeps the water saturated with $CO_2$, giving enough room for valuable reactions to happen. 
 
