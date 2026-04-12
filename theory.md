@@ -278,7 +278,6 @@ Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It 
     </div>
   </div>
 </div>
-*Figure 1: The "Family Tree" of CO2 reduction products.*
 
 ---
 
