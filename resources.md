@@ -14,7 +14,7 @@
 # Curated Resources
 *Part 5: Useful Literature for Conducting $CO_2$ Reduction*
 
-Below is a curated list of resources essential for understanding Electrochemical $CO_2$ Reduction ($CO_2$RR). To make navigation easier, these have been categorized by their primary function in your research journey.
+Below is a curated list of resources essential for understanding Electrochemical $CO_2$ Reduction ($CO_2$RR). To make navigation easier, these have been categorized by their primary function.
 
 ---
 
