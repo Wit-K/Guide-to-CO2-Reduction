@@ -914,3 +914,17 @@ Before starting the electricity:
 
 ## Conclusion
 There is no universally "correct" $CO_2$ electrochemical setup. Valid designs are chosen based on research goals, constraints, and trade-offs. The best equipment is simply the setup that allows you to isolate the variable you are trying to study while minimizing sources of error like contamination or instability. Further information on the exact set up each experiment should be obtain from literature reviews and each consequence should be carefully considered before adjusting.
+
+<style>
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
+  .nav-btn { display: inline-block; padding: 10px 20px; background: #ffffff; color: #3b82f6; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 600; transition: all 0.2s; }
+  .nav-btn:hover { background: #3b82f6; color: #ffffff; border-color: #3b82f6; text-decoration: none; }
+  .nav-home { color: #64748b; font-weight: bold; text-decoration: none; transition: color 0.2s; }
+  .nav-home:hover { color: #0f172a; text-decoration: underline; }
+</style>
+
+<div class="page-nav">
+  <a href="./theory" class="nav-btn">← Previous: Theory</a>
+  <a href="./" class="nav-home">Back to Directory</a>
+  <a href="./analysis" class="nav-btn">Next: Data Analysis →</a>
+</div>
