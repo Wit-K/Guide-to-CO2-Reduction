@@ -838,3 +838,17 @@ Some of the limits are:
 This is why you will see instructions to bubble $CO_2$ gas continuously into the solution. It keeps the water saturated with $CO_2$, giving enough room for valuable reactions to happen. 
 
 ---
+
+<style>
+  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
+  .nav-btn { display: inline-block; padding: 10px 20px; background: #ffffff; color: #3b82f6; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 600; transition: all 0.2s; }
+  .nav-btn:hover { background: #3b82f6; color: #ffffff; border-color: #3b82f6; text-decoration: none; }
+  .nav-home { color: #64748b; font-weight: bold; text-decoration: none; transition: color 0.2s; }
+  .nav-home:hover { color: #0f172a; text-decoration: underline; }
+</style>
+
+<div class="page-nav">
+  <a href="./" class="nav-btn">← Home</a>
+  <a href="./" class="nav-home">Back to Directory</a>
+  <a href="./experiment" class="nav-btn">Next: Experimental Setup →</a>
+</div>
