@@ -193,14 +193,14 @@ To perform $CO_2$ reduction, you need a specific set of components arranged in a
       </text>
       
       <!-- Instructions -->
-      <text x="210" y="310" font-size="14" fill="#d32f2f" font-style="italic" text-anchor="middle" font-weight="bold">👆 Click the components above!</text>
+      <text x="210" y="310" font-size="14" fill="#d32f2f" font-style="italic" text-anchor="middle" font-weight="bold">Click the components above</text>
     </svg>
   </div>
   
   <div class="hcell-info" id="hcell-info-panel">
     <h3 style="margin-top:0; font-size: 1.1rem; color: #1976d2;">Interactive H-Cell</h3>
     <p style="font-size: 13px; line-height: 1.5; color: #444;">Welcome to the standard H-Type Electrolytic Cell. This is the workhorse of CO₂ reduction research.</p>
-    <p style="font-size: 13px; line-height: 1.5; color: #444;"><strong>👈 Click on any part of the diagram</strong> (electrodes, membrane, bubbler) to learn its role.</p>
+    <p style="font-size: 13px; line-height: 1.5; color: #444;"><strong>Click on any part of the diagram</strong> (electrodes, membrane, bubbler) to learn its role.</p>
   </div>
 </div>
 
