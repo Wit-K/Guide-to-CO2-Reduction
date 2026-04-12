@@ -628,8 +628,6 @@ The electrode surface must first be atomically clean.
 
 ![Polishing Motion](./assets/images/polishing.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
 
-*Figure : The correct "Figure-8" motion for polishing electrodes to ensure an even surface.*
-
 ### 3.2 Membrane Hydration
 The Nafion membrane acts like a sponge. If it is dry, it is brittle and non-conductive.
 *   **The Rule:** Never let the membrane dry out.
@@ -901,8 +899,6 @@ Air contains gases other than $CO_2$ that aren't inert. They can react and steal
 4.  **Measure:** Measure the flow rate of the $CO_2$ for each test typically by using mass flow controller. This is crucial for further calculation for accurate result.
 
 ![Sparging vs Blanketing](./assets/images/sparging.png){: style="display:block; margin-left:auto; margin-right:auto; width:75%;" }
-
-*Figure : Ensure the gas tube goes into the liquid to fully saturate the electrolyte.*
 
 ### 5.2 The Leak Check
 Before starting the electricity:
