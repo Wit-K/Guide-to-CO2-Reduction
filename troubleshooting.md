@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "CO2RR Troubleshooting: Fix Common Experimental Issues"
-description: "Having trouble with your CO2 reduction setup? Use our interactive diagnostic wizard to fix dropping currents, noisy data, and low Faradaic Efficiency."
+description: "Having trouble with your CO2 reduction setup? Use our interactive diagnostic tool to fix dropping currents, noisy data, and low Faradaic Efficiency."
 ---
 
 <script>
