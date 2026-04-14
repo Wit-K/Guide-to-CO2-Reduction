@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "CO2RR Guide: A Beginner's Guide to CO2 Reduction"
-canonical: "https://Wit-K.github.io/Guide-to-CO2-Reduction/"
 description: "The ultimate beginner's guide to Electrochemical CO2 Reduction (CO2RR). Explore interactive tutorials on CO2RR theory, H-cell experimental setup, data analysis, and troubleshooting."
 ---
 
