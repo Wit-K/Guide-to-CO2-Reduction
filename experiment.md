@@ -129,6 +129,17 @@ If you put everything in one beaker, the oxygen produced in Anodic Chamber would
 ## 2. The Hardware Setup
 To perform $CO_2$ reduction, you need a specific set of components arranged in a standard 3-Electrode System. This setup ensures we can control the voltage precisely while keeping the fuel products separate from the waste oxygen.
 
+### Component Table
+
+| **Component** | **Role** | **Standard Materials** |
+| :--- | :--- | :--- |
+| **Working Electrode (WE)** | This is the Cathode where CO2 reduction happens. | Copper Foil (Cu), Gold (Au), or Silver (Ag) |
+| **Counter Electrode (CE)** | This is the Anode that completes the circuit (usually making Oxygen). | Platinum (Pt) Mesh or Wire |
+| **Reference Electrode (RE)** | Measures the voltage accurately without passing current. | Ag/AgCl (Silver/Silver Chloride) |
+| **H-Cells and External Supplies** | A two-chamber glass vessel and essential $CO_2$ and electricity sources. | Potentiostat, $CO_2$ Gas Tank |
+| **Nafion Membrane** | Allows protons ($H^+$) to cross but stops fuel from mixing with oxygen. | Nafion 117 or 115 |
+| **Electrolyte** | Conducts ions and holds the dissolved CO2. | 0.1M $KHCO_3$ (Potassium Bicarbonate) |
+
 <style>
   .hcell-container {
     display: flex; flex-wrap: wrap; gap: 20px; margin: 30px 0;
@@ -485,20 +496,9 @@ To perform $CO_2$ reduction, you need a specific set of components arranged in a
   });
 </script>
 
-### Component Table
-
-| **Component** | **Role** | **Standard Materials** |
-| :--- | :--- | :--- |
-| **Working Electrode (WE)** | This is the Cathode where CO2 reduction happens. | Copper Foil (Cu), Gold (Au), or Silver (Ag) |
-| **Counter Electrode (CE)** | This is the Anode that completes the circuit (usually making Oxygen). | Platinum (Pt) Mesh or Wire |
-| **Reference Electrode (RE)** | Measures the voltage accurately without passing current. | Ag/AgCl (Silver/Silver Chloride) |
-| **H-Cells and External Supplies** | A two-chamber glass vessel and essential $CO_2$ and electricity sources. | Potentiostat, $CO_2$ Gas Tank |
-| **Nafion Membrane** | Allows protons ($H^+$) to cross but stops fuel from mixing with oxygen. | Nafion 117 or 115 |
-| **Electrolyte** | Conducts ions and holds the dissolved CO2. | 0.1M $KHCO_3$ (Potassium Bicarbonate) |
-
 ---
 
-### 2.1 The Three Electrodes
+<!--### 2.1 The Three Electrodes
 
 #### 2.1.1 The Working Electrode (WE)
 
@@ -614,7 +614,7 @@ If the gas flow fluctuates, the concentration of $CO_2$ at the electrode changes
 *   **Electrical Control:** The most common device is the Potentiostat. It is a computer-controlled device that acts as both the power supply and the multimeter, automatically logging data.
 
 ---
-
+-->
 ## 3. Pre-Experiment Preparation
 Before you assemble the cell, you must prepare the materials.
 
