@@ -336,11 +336,11 @@ To perform $CO_2$ reduction, you need a specific set of components arranged in a
 <script>
   const infoPanel = document.getElementById('hcell-info-panel');
   const hcellData = {
-    we: { title: "Working Electrode (WE)", text: "<strong>Role:</strong> The Cathode. This is where the magic happens! CO₂ is reduced here. Connected to the negative terminal.<br><br><strong>Materials:</strong> Usually a catalyst like Copper (Cu), Gold (Au), or Silver (Ag)." },
+    we: { title: "Working Electrode (WE)", text: "<strong>Role:</strong> The Cathode. This is where CO₂ is reduced. Connected to the negative terminal.<br><br><strong>Materials:</strong> Usually a catalyst like Copper (Cu), Gold (Au), or Silver (Ag)." },
     ce: { title: "Counter Electrode (CE)", text: "<strong>Role:</strong> The Anode. It completes the electrical circuit. Water is oxidized to Oxygen gas (O₂) here.<br><br><strong>Materials:</strong> Needs to be highly stable so it doesn't dissolve. Platinum (Pt) mesh or wire is the standard." },
     re: { title: "Reference Electrode (RE)", text: "<strong>Role:</strong> Voltage Sensor. It measures the potential applied to the Working Electrode without passing current itself.<br><br><strong>Materials:</strong> Silver/Silver Chloride (Ag/AgCl) is standard for water-based electrolytes." },
     membrane: { title: "Ion Exchange Membrane", text: "<strong>Role:</strong> Traffic Controller. Allows positive ions (like H⁺ or K⁺) to cross the bridge but blocks gases.<br><br><strong>Why?</strong> If oxygen from the anode crossed over, it would ruin the reaction. Nafion 117 is standard." },
-    bubbler: { title: "CO₂ Gas Bubbler", text: "<strong>Role:</strong> Reactant Supply. Delivers a constant flow of CO₂ gas into the liquid.<br><br><strong>Pro-Tip:</strong> You must bubble the gas for 20-30 minutes <em>before</em> turning on electricity to purge out ambient oxygen." }
+    bubbler: { title: "CO₂ Gas Bubbler", text: "<strong>Role:</strong> Reactant Supply. Delivers a constant flow of CO₂ gas into the liquid.<br><br><strong>Tip:</strong> You must bubble the gas for 20-30 minutes <em>before</em> turning on electricity to purge out ambient oxygen." }
   };
 
   function showInfo(part) {
@@ -486,7 +486,7 @@ To perform $CO_2$ reduction, you need a specific set of components arranged in a
   </div>
 </div>
 
-### Summary
+<!--### Summary
 
 | **Component** | **Role** | **Standard Materials** |
 | :--- | :--- | :--- |
@@ -497,7 +497,7 @@ To perform $CO_2$ reduction, you need a specific set of components arranged in a
 | **Nafion Membrane** | Allows protons ($H^+$) to cross but stops fuel from mixing with oxygen. | Nafion 117 or 115 |
 | **Electrolyte** | Conducts ions and holds the dissolved CO2. | 0.1M $KHCO_3$ (Potassium Bicarbonate) |
 
-<!--### 2.1 The Three Electrodes
+### 2.1 The Three Electrodes
 
 #### 2.1.1 The Working Electrode (WE)
 
