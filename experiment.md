@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: guide
+nav_id: experiment
 title: "CO2RR Experimental Setup: H-Cells & Electrodes"
 description: "A step-by-step beginner guide to setting up a CO2 reduction experiment. Learn how to wire a potentiostat and build an H-cell."
 ---
@@ -17,73 +18,7 @@ description: "A step-by-step beginner guide to setting up a CO2 reduction experi
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
-<style>
-  .toc-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-left: 5px solid #3b82f6;
-    border-radius: 8px;
-    padding: 20px 25px;
-    margin: 30px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    font-family: system-ui, -apple-system, sans-serif;
-  }
-  .toc-box h4 {
-    margin-top: 0;
-    color: #1e3a8a;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-  }
-  .toc-box ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-  }
-  .toc-box li {
-    margin-bottom: 8px;
-  }
-  .toc-box a {
-    text-decoration: none;
-    color: #3b82f6;
-    font-weight: 600;
-    transition: all 0.2s;
-  }
-  .toc-box a:hover {
-    color: #1e40af;
-    text-decoration: underline;
-  }
-
-/* Style the ## headings (Second Level) so they look nice */
-  .toc-box ul ul {
-    display: block; /* Make sure these are visible! */
-    padding-left: 20px;
-    font-size: 0.95em;
-    margin-top: 5px;
-    border-left: 2px solid #e2e8f0;
-    margin-left: 5px;
-  }
-  .toc-box ul ul a {
-    color: #475569;
-    font-weight: normal;
-  }
-  .toc-box ul ul a:hover {
-    color: #3b82f6;
-  }
-
-  /* Completely hide the ### headings (Third Level) and deeper */
-  .toc-box ul ul ul {
-    display: none;
-  }
-</style>
-
-<!-- Paste this part exactly where you want the Table of Contents to appear! -->
-<div class="toc-box" markdown="1">
-<h4>Table of Contents</h4>
-
-* TOC
-{:toc}
-
-</div>
+{% include page-toc.html %}
 
 # Experimental Design & Set Up
 Part2: Analysis and Break Down of each Critical Component in Common Design.
@@ -909,17 +844,3 @@ Before starting the electricity:
 
 ## Conclusion
 There is no universally "correct" $CO_2$ electrochemical setup. Valid designs are chosen based on research goals, constraints, and trade-offs. The best equipment is simply the setup that allows you to isolate the variable you are trying to study while minimizing sources of error like contamination or instability. Further information on the exact set up each experiment should be obtain from literature reviews and each consequence should be carefully considered before adjusting.
-
-<style>
-  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
-  .nav-btn { display: inline-block; padding: 10px 20px; background: #ffffff; color: #3b82f6; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 600; transition: all 0.2s; }
-  .nav-btn:hover { background: #3b82f6; color: #ffffff; border-color: #3b82f6; text-decoration: none; }
-  .nav-home { color: #64748b; font-weight: bold; text-decoration: none; transition: color 0.2s; }
-  .nav-home:hover { color: #0f172a; text-decoration: underline; }
-</style>
-
-<div class="page-nav">
-  <a href="./theory" class="nav-btn">← Previous: Theory</a>
-  <a href="./" class="nav-home">Back to Directory</a>
-  <a href="./analysis" class="nav-btn">Next: Data Analysis →</a>
-</div>

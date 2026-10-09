@@ -1,0 +1,27 @@
+- id: home
+  label: Home
+  path: /
+  next: theory
+- id: theory
+  label: 1. Theory
+  path: /theory.html
+  next: experiment
+- id: experiment
+  label: 2. Experiment
+  path: /experiment.html
+  previous: theory
+  next: analysis
+- id: analysis
+  label: 3. Analysis
+  path: /analysis.html
+  previous: experiment
+  next: troubleshooting
+- id: troubleshooting
+  label: 4. Troubleshooting
+  path: /troubleshooting.html
+  previous: analysis
+  next: resources
+- id: resources
+  label: Resources
+  path: /resources.html
+  previous: troubleshooting

@@ -1,0 +1,9 @@
+---
+layout: default
+---
+
+<div id="guide-top" class="guide-page guide-page--{{ page.nav_id | escape }}">
+  {% include guide-navigation.html %}
+  {{ content }}
+  {% include chapter-navigation.html %}
+</div>

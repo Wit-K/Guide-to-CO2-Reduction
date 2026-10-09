@@ -4,6 +4,8 @@ url: "https://Wit-K.github.io"
 baseurl: "/Guide-to-CO2-Reduction" 
 theme: jekyll-theme-cayman
 markdown: kramdown
+kramdown:
+  toc_levels: "2..3"
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap

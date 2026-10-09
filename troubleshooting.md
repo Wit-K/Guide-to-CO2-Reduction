@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: guide
+nav_id: troubleshooting
 title: "CO2RR Troubleshooting: Fix Common Experimental Issues"
 description: "Having trouble with your CO2 reduction setup? Use our interactive diagnostic tool to fix dropping currents, noisy data, and low Faradaic Efficiency."
 ---
@@ -17,73 +18,7 @@ description: "Having trouble with your CO2 reduction setup? Use our interactive 
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
-<style>
-  .toc-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-left: 5px solid #3b82f6;
-    border-radius: 8px;
-    padding: 20px 25px;
-    margin: 30px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    font-family: system-ui, -apple-system, sans-serif;
-  }
-  .toc-box h4 {
-    margin-top: 0;
-    color: #1e3a8a;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-  }
-  .toc-box ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-  }
-  .toc-box li {
-    margin-bottom: 8px;
-  }
-  .toc-box a {
-    text-decoration: none;
-    color: #3b82f6;
-    font-weight: 600;
-    transition: all 0.2s;
-  }
-  .toc-box a:hover {
-    color: #1e40af;
-    text-decoration: underline;
-  }
-
-/* Style the ## headings (Second Level) so they look nice */
-  .toc-box ul ul {
-    display: block; /* Make sure these are visible! */
-    padding-left: 20px;
-    font-size: 0.95em;
-    margin-top: 5px;
-    border-left: 2px solid #e2e8f0;
-    margin-left: 5px;
-  }
-  .toc-box ul ul a {
-    color: #475569;
-    font-weight: normal;
-  }
-  .toc-box ul ul a:hover {
-    color: #3b82f6;
-  }
-
-  /* Completely hide the ### headings (Third Level) and deeper */
-  .toc-box ul ul ul {
-    display: none;
-  }
-</style>
-
-<!-- Paste this part exactly where you want the Table of Contents to appear! -->
-<div class="toc-box" markdown="1">
-<h4>Table of Contents</h4>
-
-* TOC
-{:toc}
-
-</div>
+{% include page-toc.html %}
 
 # Common Problems & Troubleshooting
 *Part 4: A Diagnostic Approach to Unexpected Experimental Outcomes*
@@ -370,14 +305,3 @@ Invalidation cause by failure in the H-Cell setup that alters the chemical envir
     3.  Poor seal between the glass chambers and the clamp.
 *   **Common Diagnosis:**
     If the electricity passed suggests you made 10 moles of gas, but you only collected 3 moles, the gas didn't disappearit, it leaked. A simple Soap Bubble Test often reveals leaks in the headspace.
-
-<style>
-  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
-  .nav-btn { display: inline-block; padding: 10px 20px; background: #ffffff; color: #3b82f6; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 600; transition: all 0.2s; }
-  .nav-btn:hover { background: #3b82f6; color: #ffffff; border-color: #3b82f6; text-decoration: none; }
-</style>
-
-<div class="page-nav">
-  <a href="./analysis" class="nav-btn">← Previous: Analysis</a>
-  <a href="./" class="nav-btn" style="border-color: #3b82f6; background: #3b82f6; color: #fff;">Finish Guide: Return Home</a>
-</div>
