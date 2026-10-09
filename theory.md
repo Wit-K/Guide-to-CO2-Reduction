@@ -1,851 +1,577 @@
 ---
-layout: default
-title: "CO2RR Theory: The Fundamentals of CO2 Reduction"
-description: "Learn the foundational theory of CO2RR, including the CO2 reduction reaction pathways, the volcano plot, and choosing the right metal catalyst."
+layout: guide
+nav_id: theory
+title: "CO2RR Theory: Foundations of CO2 Electroreduction"
+description: "Core concepts for aqueous CO2 electroreduction: electrode potential, current, selectivity, catalysis, and mass transport."
 ---
 
 <script>
   MathJax = {
     tex: {
-      inlineMath: [['$', '$'],['\\(', '\\)']],
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
       processEscapes: true
     }
   };
 </script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.js"></script>
 
 <style>
-  .toc-box {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-left: 5px solid #3b82f6;
+  .guide-page--theory mjx-container[display="true"] {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.25rem 0;
+  }
+  .theory-figure {
+    margin: 2rem 0;
+    padding: 1.25rem;
+    border: 1px solid #cbd5e1;
     border-radius: 8px;
-    padding: 20px 25px;
-    margin: 30px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    font-family: system-ui, -apple-system, sans-serif;
-  }
-  .toc-box h4 {
-    margin-top: 0;
-    color: #1e3a8a;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-  }
-  .toc-box ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 0;
-  }
-  .toc-box li {
-    margin-bottom: 8px;
-  }
-  .toc-box a {
-    text-decoration: none;
-    color: #3b82f6;
-    font-weight: 600;
-    transition: all 0.2s;
-  }
-  .toc-box a:hover {
-    color: #1e40af;
-    text-decoration: underline;
-  }
-
-/* Style the ## headings (Second Level) so they look nice */
-  .toc-box ul ul {
-    display: block; /* Make sure these are visible! */
-    padding-left: 20px;
-    font-size: 0.95em;
-    margin-top: 5px;
-    border-left: 2px solid #e2e8f0;
-    margin-left: 5px;
-  }
-  .toc-box ul ul a {
-    color: #475569;
-    font-weight: normal;
-  }
-  .toc-box ul ul a:hover {
-    color: #3b82f6;
-  }
-
-  /* Completely hide the ### headings (Third Level) and deeper */
-  .toc-box ul ul ul {
-    display: none;
-  }
-</style>
-
-<!-- Paste this part exactly where you want the Table of Contents to appear! -->
-<div class="toc-box" markdown="1">
-<h4>Table of Contents</h4>
-
-* TOC
-{:toc}
-
-</div>
-
-# Foundations & Theory
-*Part 1: The Electrochemical Basics*
-
----
-
-## 1. The Big Picture
-To understand this project, we must first know what electrochemical reduction is. In chemistry, "reduction" simply means gaining electrons.
-
-Most people are familiar with combustion, where we burn a fuel with oxygen to release energy. This process produces carbon dioxide ($$CO_2$$) and water.
-
-$$ Fuel + Oxygen \rightarrow CO_2 + H_2O + Energy $$
-
-We can actually reverse that process and that is essentially what "$$CO_2$$ Reduction ($$CO_2$$R)" is. We use energy from different sources (like heat or light) to complete this process, but electrical energy is what we will be focusing on as it is the most efficient yet. Using energy to force electrons back into carbon dioxide, we can convert it from a waste product back into a useful fuel or chemical feedstock, naming it the process of "electrochemical CO2 reduction".
-
-$$ CO_2 + H_2O + Energy (Electricity) \rightarrow Fuel + Oxygen $$
-
-Because $$CO_2$$ is an extremely stable molecule, it does not want to react. It requires a significant amount of energy and a specific environment to break its bonds and form new ones. This is why we need an electrochemical cell.
-
-<style>
-  .tree-container {
-    display: flex;
-    flex-direction: row; /* Horizontal flow */
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin: 40px 0;
-    font-family: system-ui, -apple-system, sans-serif;
-  }
-  
-  /* Replaced tree-row with tree-column to stack the products vertically in each phase */
-  .tree-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-  }
-
-  .tree-node {
-    position: relative;
-    padding: 15px 25px;
     background: #f8fafc;
-    border: 2px solid #3b82f6;
-    border-radius: 8px;
-    font-weight: 600;
-    color: #1e3a8a;
-    cursor: default;
-    text-align: center;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    min-width: 140px; /* Keeps nodes looking uniform */
   }
-
-  .tree-node:hover {
-    background: #3b82f6;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-
-  .node-tooltip {
-    visibility: hidden;
-    width: 240px;
-    background-color: #1f2937;
-    color: #f3f4f6;
-    text-align: left;
-    border-radius: 8px;
-    padding: 15px;
-    position: absolute;
-    z-index: 10;
-    bottom: 130%;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s, bottom 0.3s;
-    font-size: 0.85rem;
-    font-weight: normal;
-    line-height: 1.5;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
-  }
-
-  .node-tooltip::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -8px;
-    border-width: 8px;
-    border-style: solid;
-    border-color: #1f2937 transparent transparent transparent;
-  }
-
-  .tree-node:hover .node-tooltip {
-    visibility: visible;
-    opacity: 1;
-    bottom: 140%;
-  }
-
-  .tooltip-title {
-    font-weight: bold;
-    font-size: 1rem;
-    border-bottom: 1px solid #4b5563;
-    padding-bottom: 6px;
-    margin-bottom: 8px;
-    display: block;
-    color: #60a5fa;
-  }
-
-  .tree-arrow {
-    font-size: 45px; /* Much larger arrow */
-    color: #94a3b8;  /* Professional blue-gray tint */
-    font-weight: bold;
+  .theory-figure h4 { margin: 0 0 1rem; color: #1e3a8a; }
+  .theory-figure figcaption { margin-top: 1rem; font-size: 0.9rem; }
+  .theory-figure .chart-wrapper { position: relative; height: 320px; min-width: 0; }
+  .theory-figure .widget-controls {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    transition: transform 0.3s ease;
+    gap: 0.75rem;
+    margin: 1rem 0;
   }
-
-  /* Automatically adjust for mobile phones so it doesn't break off the screen */
-  @media (max-width: 768px) {
-    .tree-container {
-      flex-direction: column;
-    }
-    .tree-arrow {
-      transform: rotate(90deg); /* Turn horizontal arrows downward on mobile */
-      margin: 10px 0;
-    }
-  }
-</style>
-
-<div class="tree-container">
-  <!-- First Stage: Starting Material -->
-  <div class="tree-column">
-    <div class="tree-node">CO₂ (Carbon Dioxide)
-      <div class="node-tooltip">
-        <span class="tooltip-title">Carbon Dioxide (CO₂)</span>
-        Our highly stable starting material. Requires significant energy and a catalyst to break its C=O double bonds.
-      </div>
-    </div>
-  </div>
-  
-  <!-- Massive Right Arrow -->
-  <div class="tree-arrow">➔</div>
-  
-  <!-- Second Stage: 2-Electron Products -->
-  <div class="tree-column">
-    <div class="tree-node">CO (Carbon Monoxide)
-      <div class="node-tooltip">
-        <span class="tooltip-title">Carbon Monoxide (CO)</span>
-        <strong>Electrons:</strong> 2e⁻<br>
-        <strong>Phase:</strong> Gas<br>
-        <strong>Use:</strong> Essential precursor for "syngas" to manufacture synthetic industrial chemicals.
-      </div>
-    </div>
-    <div class="tree-node">HCOO⁻ (Formate)
-      <div class="node-tooltip">
-        <span class="tooltip-title">Formate (HCOO⁻)</span>
-        <strong>Electrons:</strong> 2e⁻<br>
-        <strong>Phase:</strong> Liquid<br>
-        <strong>Use:</strong> Utilized in direct liquid fuel cells, agriculture, and the chemical industry.
-      </div>
-    </div>
-  </div>
-  
-  <!-- Massive Right Arrow -->
-  <div class="tree-arrow">➔</div>
-  
-  <!-- Third Stage: >2 Electron Products -->
-  <div class="tree-column">
-    <div class="tree-node">CH₄ (Methane)
-      <div class="node-tooltip">
-        <span class="tooltip-title">Methane (CH₄)</span>
-        <strong>Electrons:</strong> 8e⁻<br>
-        <strong>Phase:</strong> Gas<br>
-        <strong>Use:</strong> Direct, drop-in substitute for natural gas in heating and electricity generation.
-      </div>
-    </div>
-    <div class="tree-node">C₂H₄ (Ethylene)
-      <div class="node-tooltip">
-        <span class="tooltip-title">Ethylene (C₂H₄)</span>
-        <strong>Electrons:</strong> 12e⁻<br>
-        <strong>Phase:</strong> Gas<br>
-        <strong>Use:</strong> The world's most important precursor for creating plastics (polyethylene).
-      </div>
-    </div>
-    <div class="tree-node">C₂H₅OH (Ethanol)
-      <div class="node-tooltip">
-        <span class="tooltip-title">Ethanol (C₂H₅OH)</span>
-        <strong>Electrons:</strong> 12e⁻<br>
-        <strong>Phase:</strong> Liquid<br>
-        <strong>Use:</strong> High-density liquid fuel, fuel additive, and universal solvent.
-      </div>
-    </div>
-  </div>
-</div>
-
----
-
-## 2. Basic Electrochemistry
-Experiments in this field take place inside an "electrolytic cell". An electrolytic cell uses an external power source to force non-spontaneous chemical reactions to happen. Think of it as charging a battery, but instead of storing the energy inside the battery itself, we are storing the energy in the liquid fuel we create. The 'Cathode' is where we shove electrons in to build these fuel molecules.
-
-There are two sides of the reaction which can happen in electrochemstry:
-
-### The Cathode (The Reduction Site)
-The cathode is the "electrode" connected to the negative terminal of the power supply. This is where electrons enter the solution.
-*   **What happens here:** Positive ions or neutral molecules (like $$CO_2$$) are attracted to the surface. They accept electrons and undergo reduction.
-*   **Function:** This is the most important part of the setup. The material of the cathode determines what product you make. Researchers are working together to create better cathode which makes better product.
-*   **Key Equation:** $$ CO_2 + 2H^+ + 2e^- \rightarrow CO + H_2O $$
-
-### The Anode (The Oxidation Site)
-The anode is the "electrode" connected to the positive terminal. This is where electrons leave the solution to return to the power supply.
-*   **What happens here:** To balance the electrons used at the cathode, something must lose electrons (oxidize) at the anode. In most experiments, water is oxidized into oxygen gas.
-*   **Function:** While we focus on what is happening on the cathode, the anode is necessary to complete the circuit.
-*   **Key Equation:** $$ 2H_2O \rightarrow O_2 + 4H^+ + 4e^- $$
-
----
-
-## 3. The Core Idea
-If we are applying electricity, why doesn't the $$CO_2$$ just break apart on its own?
-
-### The Stability Problem
-Carbon Dioxide is an incredibly stable molecule: it has a linear shape ($$O=C=O$$) with strong double bonds. It is already happy as is and resist changes coming in its way. So if you just stick a wire in water and apply voltage, don't expect long chain carbon compound to form; the electricity will ignore $$CO_2$$ and just split water, which is easy to break apart, instead.
-
-### What the Catalyst Does
-This is where the metal electrode comes into play. The reaction does not happen in the liquid; it happens on the surface of the metal.
-1.  **Adsorption:** The $$CO_2$$ molecule lands on the metal surface.
-2.  **Activation:** The metal atoms grab the Carbon and Oxygen, physically bending the molecule. This bending weakens the bonds, making it easier for electrons to attack.
-3.  **Formation:** The electron attack the reactants, breaking them apart. The atoms then combine with each other, forming new molecules which is our product.
-4.  **Desorption:** Once the fuel is made, the metal must let go so the product can float away and make room for more $$CO_2$$.
-
-### The "Goldilocks" Zone
-The metal must bind to the $$CO$$ (the intermediate) with just the right amount of force for it to create products efficeintly. Scientists are trying to find or design a material that is just right.
-*   **Too Weak:** If the metal doesn't hold onto the $$CO$$ strongly enough, they will just fly away and the main product will be $$CO$$.
-*   **Too Strong:** If the metal grabs too tight, the $$CO$$ gets stuck. The surface gets clogged by all the $$CO$$, preventing new $$CO_2$$ from entering. The reaction stops. This is the term define as "surface poisoning".
-*   **Just Right:** The metal holds onto $$CO$$ long enough to transform it into hydrocarbon, but lets go of after the product form.
-
-The goal of the research is to find a catalyst surface that has this perfect balance.
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<div style="width: 100%; max-width: 650px; margin: 30px auto;">
-  <canvas id="volcanoPlot"></canvas>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const ctx = document.getElementById('volcanoPlot').getContext('2d');
-  
-  const dataPoints =[
-    {x: -0.2, y: 30, label: 'Au (Gold)', product: 'CO'},
-    {x: -0.4, y: 50, label: 'Ag (Silver)', product: 'CO'},
-    {x: -0.8, y: 95, label: 'Cu (Copper)', product: 'Hydrocarbons'},
-    {x: -1.4, y: 20, label: 'Ni (Nickel)', product: 'H₂ (Poisoned)'},
-    {x: -1.7, y: 10, label: 'Pt (Platinum)', product: 'H₂ (Poisoned)'}
-  ];
-
-  new Chart(ctx, {
-    data: {
-      datasets:[
-        {
-          type: 'scatter',
-          label: 'Catalyst Metals',
-          data: dataPoints,
-          backgroundColor: function(context) {
-            const lbl = context.raw?.label;
-            if(lbl?.includes('Cu')) return '#4caf50'; // Green for Cu
-            if(lbl?.includes('Au') || lbl?.includes('Ag')) return '#2196f3'; // Blue for CO
-            return '#f44336'; // Red for H2
-          },
-          pointRadius: 8,
-          pointHoverRadius: 11,
-          order: 1
-        },
-        {
-          type: 'line',
-          label: 'Theoretical Volcano Curve',
-          data:[
-            {x: -0.1, y: 15}, {x: -0.4, y: 50}, {x: -0.8, y: 100}, {x: -1.4, y: 25}, {x: -1.9, y: 5}
-          ],
-          borderColor: 'rgba(0,0,0,0.3)',
-          borderDash: [5, 5],
-          fill: false,
-          pointRadius: 0,
-          tension: 0.4,
-          order: 2
-        }
-      ]
-    },
-    options: {
-      plugins: {
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              if (context.datasetIndex === 1) return null; // Hide tooltip for the curve
-              const pt = context.raw;
-              return `${pt.label} | Primary Product: ${pt.product} | Binding Energy: ${pt.x} eV`;
-            }
-          }
-        },
-        title: {
-          display: true,
-          text: 'Interactive Volcano Plot for CO₂ Reduction',
-          font: { size: 16 }
-        }
-      },
-      scales: {
-        x: { title: { display: true, text: 'CO Binding Energy (eV) [Weak ➔ Strong]' } },
-        y: { title: { display: true, text: 'Catalytic Activity' }, beginAtZero: true }
-      }
-    }
-  });
-});
-</script>
-<p align="center"><em>Hover over the data points to see the exact binding energy and the resulting primary product.</em></p>
-
-<div style="border: 1px solid #ccc; padding: 20px; border-radius: 8px; text-align: center; margin: 30px 0; background-color: #f9f9f9; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-    <h4 style="margin-top: 0;">Interactive Binding Energy: The "Goldilocks" Principle</h4>
-    <div style="height: 180px; position: relative; background: #e0f7fa; border-radius: 8px; overflow: hidden; margin-bottom: 20px;" id="animation-box">
-        <!-- Metal Surface -->
-        <div style="position: absolute; bottom: 0; width: 100%; height: 40px; background: #9e9e9e; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">Metal Catalyst Surface</div>
-        
-        <!-- Molecules -->
-        <div id="co-molecule-1" style="position: absolute; top: 10px; left: 45%; width: 40px; height: 40px; background: #ff5722; color: white; border-radius: 50%; line-height: 40px; font-size: 14px; font-weight: bold; transition: all 0.6s ease;">CO</div>
-        <div id="co-molecule-2" style="position: absolute; top: 10px; left: 55%; width: 40px; height: 40px; background: #ff5722; color: white; border-radius: 50%; line-height: 40px; font-size: 14px; font-weight: bold; transition: all 0.6s ease; opacity: 0;">CO</div>
-    </div>
-    
-    <input type="range" id="binding-slider" min="1" max="3" value="2" style="width: 80%; cursor: pointer;">
-    <div style="display: flex; justify-content: space-between; width: 80%; margin: 5px auto 15px auto; font-weight: bold; font-size: 14px;">
-        <span style="color: #2196f3;">Weak</span>
-        <span style="color: #4caf50;">Just Right</span>
-        <span style="color: #f44336;">Strong</span>
-    </div>
-    <div id="slider-description" style="font-size: 16px; min-height: 50px; background: white; padding: 10px; border-radius: 5px; border: 1px solid #ddd;"></div>
-</div>
-
-<script>
-    const slider = document.getElementById('binding-slider');
-    const mol1 = document.getElementById('co-molecule-1');
-    const mol2 = document.getElementById('co-molecule-2');
-    const desc = document.getElementById('slider-description');
-
-    function updateAnimation() {
-        const val = slider.value;
-        if (val == 1) { 
-            // Weak
-            mol1.style.top = '20px'; mol1.style.left = '80%'; mol1.style.transform = 'rotate(45deg)';
-            mol1.innerHTML = 'CO'; mol1.style.background = '#2196f3';
-            mol2.style.opacity = '0';
-            desc.innerHTML = "<strong>Too Weak:</strong> CO lands but immediately flies away. The main product is simply <strong>CO gas</strong>.";
-        } else if (val == 2) { 
-            // Just right
-            mol1.style.top = '100px'; mol1.style.left = '42%'; mol1.style.transform = 'rotate(0deg)';
-            mol1.innerHTML = 'C'; mol1.style.background = '#4caf50';
-            mol2.style.top = '100px'; mol2.style.left = '52%'; mol2.style.opacity = '1';
-            mol2.innerHTML = 'C'; mol2.style.background = '#4caf50';
-            desc.innerHTML = "<strong>Just Right:</strong> CO sticks long enough to bond with another Carbon. The metal lets go once formed. Result: <strong>Ethylene (C₂H₄)</strong>.";
-        } else if (val == 3) { 
-            // Strong
-            mol1.style.top = '105px'; mol1.style.left = '35%'; mol1.style.transform = 'rotate(0deg)';
-            mol1.innerHTML = 'CO'; mol1.style.background = '#f44336';
-            mol2.style.top = '105px'; mol2.style.left = '55%'; mol2.style.opacity = '1';
-            mol2.innerHTML = 'CO'; mol2.style.background = '#f44336';
-            desc.innerHTML = "<strong>Too Strong:</strong> CO gets permanently stuck. New CO₂ is blocked from entering. Result: <strong>Catalyst Poisoning / Hydrogen Evolution</strong>.";
-        }
-    }
-    slider.addEventListener('input', updateAnimation);
-    updateAnimation(); // trigger on load
-</script>
-
----
-
-## 4.1 Understanding Measurements and Variable
-In an electrochemical experiment, there are two main parameters we can alter or measure: Potential and Current. It is vital to understand the difference between the driving force and the reaction rate.
-
-### Potential (Voltage)
-Potential is the energy or basically, the push applied to the system. Every chemical reaction has its own minimum energy requirement to proceed.
-*   **Thermodynamic Potential:** This is the theoretical minimum voltage needed to start the reaction. For converting $$CO_2$$ to Carbon Monoxide, this is approximately -0.11 Volts.
-*   **Applied Potential:** This is the real potential applied in the real experiment, which is significantly more than the theoretical value. This is because real-world electrochemical reactions are hardly perfectly efficient and requires additional energy to overcome the theroretical minimum.
-
-### Current (Amperage)
-While voltage is the push, the current is the flow. Current measures the rate at which electrons are moving across the interface. Since the chemical reaction consumes electrons, the current tells you directly how fast the reaction is happening.
-*   **High Current:** A fast reaction rate.
-*   **Low Current:** A slow reaction rate.
-
-### Surface Area and Normalization
-A large piece of copper will naturally allow more current to pass than a thin copper wire, just because there is more space for the reaction to occur. This makes comparision unfair. So, to make fair comparisons between different experiments, we wil look at "Current Density" instead. This is the ratio of current by surface area of the electrode, telling us how active the material is regardless of its size.
-
-## 4.2 Thermodynamics and Kinetics
-Why does the reaction does not start exactly at the theoretical voltage?
-
-### The Energy Barrier
-Even if you apply enough energy to make the reaction possible, the reaction might still be too slow to measure. This is because molecules need to rearrange themselves, bonds need to break, and intermediates need to form.
-
-### Overpotential
-To overcome this slowness, we apply extra voltage. This extra voltage is the "Overpotential".
-*   If a catalyst is "good," it requires very little overpotential to reach a high current.
-*   If a catalyst is "bad," you must apply a massive voltage to get even a small current.
-
-In research, the goal is often to find a setup that produces the most product with the least amount of overpotential.
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<style>
-  .energy-container {
-    max-width: 800px;
-    margin: 40px auto;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-    overflow: hidden;
-    font-family: system-ui, -apple-system, sans-serif;
-  }
-  .energy-header {
-    background: #1e293b;
-    color: white;
-    padding: 15px 20px;
-    text-align: center;
-  }
-  .energy-header h3 { margin: 0; font-size: 1.25rem; color: #f8fafc; }
-  .chart-wrapper {
-    padding: 20px;
-    height: 350px;
-    position: relative;
-  }
-  .stepper-panel {
-    background: #f8fafc;
-    border-top: 2px solid #e2e8f0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  .stepper-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .step-btn {
-    background: #3b82f6;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+  .theory-figure button {
+    min-height: 44px;
+    padding: 0.5rem 0.8rem;
+    border: 2px solid #1e40af;
     border-radius: 6px;
-    font-weight: bold;
+    background: #fff;
+    color: #1e40af;
+    font: inherit;
     cursor: pointer;
-    transition: background 0.2s;
   }
-  .step-btn:hover { background: #2563eb; }
-  .step-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
-  .step-indicator {
-    font-weight: bold;
-    color: #475569;
+  .theory-figure button:hover { background: #eff6ff; }
+  .theory-figure button[aria-pressed="true"] { background: #1e40af; color: #fff; }
+  .theory-figure button:disabled { border-color: #64748b; color: #475569; cursor: default; }
+  .theory-figure button:focus-visible,
+  .theory-figure input:focus-visible { outline: 3px solid #1e40af; outline-offset: 3px; }
+  .theory-figure .widget-feedback { padding: 1rem; border-left: 4px solid #1e40af; background: #fff; }
+  .product-map,
+  .catalyst-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    gap: 0.75rem;
+    padding: 0;
+    margin: 1rem 0;
+    list-style: none;
   }
-  .explanation-box {
-    background: white;
-    border-left: 4px solid #3b82f6;
-    padding: 15px;
-    border-radius: 0 6px 6px 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #334155;
-    min-height: 80px;
+  .product-map li,
+  .catalyst-card { padding: 0.9rem; border: 1px solid #94a3b8; border-radius: 6px; background: #fff; }
+  .product-map strong,
+  .catalyst-card strong { display: block; color: #1e3a8a; }
+  .product-map span,
+  .catalyst-card span { display: block; margin-top: 0.4rem; font-size: 0.9rem; }
+  .catalyst-card.is-highlighted { border: 3px solid #1e40af; padding: calc(0.9rem - 2px); background: #eff6ff; }
+  #binding-slider { width: 100%; min-height: 44px; accent-color: #1e40af; }
+  .binding-labels { display: flex; justify-content: space-between; gap: 0.5rem; font-size: 0.9rem; }
+  #animation-box { height: 160px; position: relative; overflow: hidden; background: #e0f2fe; margin: 1rem 0; }
+  .catalyst-surface {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #475569;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 0.9rem;
   }
-  .highlight-gold { color: #d97706; font-weight: bold; }
-  .highlight-copper { color: #dc2626; font-weight: bold; }
+  .co-molecule {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #1e40af;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    transition: top 0.4s, left 0.4s, opacity 0.4s;
+  }
+  #step-counter { flex: 1 1 6rem; text-align: center; }
+  @media (max-width: 30rem) {
+    .theory-figure { padding: 0.75rem; }
+    .theory-figure .chart-wrapper { height: 300px; }
+    .theory-figure .widget-controls button { flex: 1 1 8rem; }
+    #step-counter { flex-basis: 100%; order: -1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .theory-figure * { transition: none !important; }
+  }
 </style>
 
-<div class="energy-container">
-  <div class="energy-header">
-    <h3>Interactive Energy Landscape: Why Copper Works and Gold Gets Stuck</h3>
+<div id="foundations--theory"></div>
+
+This chapter introduces the concepts needed to understand aqueous CO₂ electroreduction experiments: electrode potential, current, product selectivity, catalysis, and reactant transport. It assumes basic chemistry and introduces research-specific terminology as it appears. The examples focus on aqueous H-cells. Practical experimental work requires laboratory supervision and validated procedures appropriate to the equipment and materials.
+
+{% include page-toc.html %}
+
+<div id="1-the-big-picture"></div>
+
+## 1. What CO₂ electroreduction produces
+{: #products}
+
+Electrochemical CO₂ reduction, abbreviated **CO₂RR**, uses electrical energy to convert CO₂ into products such as carbon monoxide, formate, hydrocarbons, and oxygenated compounds. Reduction involves electron transfer to the reacting species. In aqueous systems, water or other proton donors also participate in forming many products. Comparisons with reversed combustion provide a broad energy-storage analogy; the actual reaction pathways depend on the catalyst, potential, electrolyte, and CO₂ supply.
+
+**Hydrocarbons** contain carbon and hydrogen, as in methane and ethylene. **Oxygenated products** also contain oxygen, as in ethanol and formate. Different products require different numbers of electrons, which becomes important when calculating Faradaic efficiency.
+
+<figure class="theory-figure" aria-labelledby="product-map-title">
+  <h4 id="product-map-title">Representative products from CO₂</h4>
+  <p>Starting reactant: CO₂. These are alternative products, not successive stages.</p>
+  <ul class="product-map">
+    <li><strong>CO: carbon monoxide</strong><span>2 electrons per molecule</span><span>Typically measured in outlet gas; a chemical feedstock.</span></li>
+    <li><strong>HCOO⁻: formate</strong><span>2 electrons per ion</span><span>Typically measured as a dissolved ion in the electrolyte.</span></li>
+    <li><strong>CH₄: methane</strong><span>8 electrons per molecule</span><span>Typically measured in outlet gas; a hydrocarbon.</span></li>
+    <li><strong>C₂H₄: ethylene</strong><span>12 electrons per molecule</span><span>Typically measured in outlet gas; a hydrocarbon.</span></li>
+    <li><strong>C₂H₅OH: ethanol</strong><span>12 electrons per molecule</span><span>Typically measured as a dissolved product; an oxygenated compound.</span></li>
+  </ul>
+  <figcaption>Representative CO₂RR products. Electron requirements are given per product molecule or ion. Each C₂ product consumes two CO₂ molecules. This map shows possible products and does not represent a universal sequence of reaction intermediates. Phase descriptions indicate typical analysis locations; recovery can also be affected by dissolution, volatility, and crossover.</figcaption>
+</figure>
+
+<div id="2-basic-electrochemistry"></div>
+
+## 2. The electrochemical cell and interface
+{: #electrochemical-cell}
+
+An **electrolytic cell** uses an external power source to drive electrochemical reactions. Reduction occurs at the cathode, and oxidation occurs at the anode. Electrons move through the electrodes and external circuit, while ions carry current through the electrolyte. In many aqueous CO₂RR experiments, CO₂ reduction and hydrogen evolution occur at the cathode, and water oxidation produces oxygen at the anode. Depending on the cathodic reaction, the products may be gases or dissolved species.
+
+### 2.1 Cathode, anode, and charge transport
+{: #electrodes-and-charge-transport}
+
+<div id="the-cathode-the-reduction-site"></div>
+
+At the **cathode**, reactants exchange electrons with the electrode at the electrode–electrolyte interface. Dissolved, electrically neutral CO₂ reaches this region mainly through diffusion and convection. **Diffusion** transports molecules down a concentration gradient; **convection** transports them with moving liquid. The catalyst surface, applied potential, electrolyte, and local reactant concentrations together influence the reaction rate and product distribution.
+
+<div id="the-anode-the-oxidation-site"></div>
+
+At the **anode**, oxidation releases electrons into the external circuit. Oxygen evolution is a common anodic reaction in aqueous CO₂RR, although other anodic reactions are possible. An H-cell usually separates the electrode compartments while maintaining an ionic connection. A membrane can limit mixing, but gas and product crossover may still occur.
+
+For CO formation coupled to oxygen evolution, acidic bookkeeping gives:
+
+$$\mathrm{CO_2 + 2H^+ + 2e^- \rightarrow CO + H_2O}$$
+
+$$\mathrm{2H_2O \rightarrow O_2 + 4H^+ + 4e^-}$$
+
+Corresponding neutral/alkaline forms are:
+
+$$\mathrm{CO_2 + H_2O + 2e^- \rightarrow CO + 2OH^-}$$
+
+$$\mathrm{4OH^- \rightarrow O_2 + 2H_2O + 4e^-}$$
+
+These equations use different bookkeeping forms for different electrolyte conditions. They represent net reactions and do not specify an elementary reaction mechanism. Combining CO formation with oxygen evolution gives this balanced net example, driven by electrical energy:
+
+$$\mathrm{2CO_2 \rightarrow 2CO + O_2}$$
+
+### 2.2 Three-electrode measurement
+{: #three-electrode-measurement}
+
+A **potentiostat** controls the working-electrode potential relative to a reference electrode while current flows between the working and counter electrodes. During CO₂RR, the **working electrode** normally acts as the cathode and the **counter electrode** supports oxidation. The **reference electrode** ideally carries negligible current and provides a stable potential reference. The working-electrode potential and the voltage across the complete cell are different measurements.
+
+The **electrochemical interface** is the region where the electrode and electrolyte meet. Surface charge, nearby ions, and solvent molecules form an interfacial arrangement often called the electric double layer. This local environment influences reactions and can differ from the bulk solution.
+
+See [the hardware setup]({{ '/experiment.html' | relative_url }}#2-the-hardware-setup) for the experimental components.
+
+<div id="41-understanding-measurements-and-variable"></div>
+<div id="potential-voltage"></div>
+
+## 3. Electrode potential, thermodynamics, and kinetics
+{: #electrode-potential}
+
+Electrode potential expresses electrical energy per unit charge relative to a stated reference: one volt is one joule per coulomb. It describes the electrical conditions at an electrode. To interpret a potential, first identify the reference scale and the relevant chemical conditions.
+
+### 3.1 Reference scales and conversions
+{: #reference-scales}
+
+The **standard hydrogen electrode (SHE)** provides a conventional reference scale. The **reversible hydrogen electrode (RHE)** references the hydrogen reaction at the solution pH. Converting a measurement from another reference electrode to RHE requires that electrode's potential relative to SHE and the solution pH at the stated temperature. For Ag/AgCl electrodes, the conversion also depends on the filling solution.
+
+At 25 °C, with hydrogen at its standard pressure:
+
+$$E_{\mathrm{vs\,RHE}} = E_{\mathrm{vs\,ref}} + E_{\mathrm{ref\,vs\,SHE}} + (0.05916\,\mathrm{V})\,\mathrm{pH}$$
+
+Report the temperature, reference electrode and filling solution, and pH used for conversion. The coefficient changes with temperature. A conversion based on bulk pH does not establish the pH immediately next to an operating electrode.
+
+### 3.2 Equilibrium and applied potential
+{: #equilibrium-and-applied-potential}
+
+An **equilibrium potential** describes the thermodynamic balance of a specified reaction under specified conditions, including temperature and chemical activities. Activity is an effective concentration used to describe chemical behavior. The **applied potential** is the potential imposed experimentally. An observable reaction onset also depends on kinetics, transport, background current, and the measurement threshold. Every reported potential should identify its reference scale and relevant experimental conditions.
+
+Different product reactions have different equilibrium potentials. A single numerical potential cannot describe the onset of all CO₂RR pathways.
+
+<div id="42-thermodynamics-and-kinetics"></div>
+<div id="the-stability-problem"></div>
+<div id="the-energy-barrier"></div>
+
+### 3.3 Thermodynamics and activation barriers
+{: #thermodynamics-and-kinetics}
+
+A reaction can be thermodynamically favorable and still proceed slowly. Its rate depends on **activation barriers** for processes such as electron transfer, proton transfer, and intermediate conversion. A transition state is a high-energy configuration crossed during a reaction step; an intermediate is a species formed between steps. An activation barrier is measured from the preceding state to the transition state, not simply from an arbitrary zero of energy.
+
+For the same net reaction and chemical conditions, a catalyst changes the reaction pathway and barriers without changing the overall equilibrium free-energy difference. **Free-energy changes** describe the thermodynamic driving force under specified conditions; they are distinct from kinetic barriers.
+
+<figure class="theory-figure" aria-labelledby="energy-title">
+  <h4 id="energy-title">Reaction free energy and activation barriers</h4>
+  <p id="energy-summary">Both illustrative pathways start and end at the same free energies. Each transition state lies above the preceding state, and the lower-barrier pathway has smaller rises. Use the stepper to reveal reactants, a transition state, an intermediate, a second transition state, and products.</p>
+  <div class="chart-wrapper"><canvas id="energyChart" role="img" aria-labelledby="energy-title" aria-describedby="energy-summary energy-caption">A schematic of two pathways with identical endpoints and different activation barriers.</canvas></div>
+  <div class="widget-controls">
+    <button type="button" id="btn-prev" disabled>Previous step</button>
+    <span id="step-counter">Step 0 of 4</span>
+    <button type="button" id="btn-next">Next step</button>
   </div>
-  
-  <div class="chart-wrapper">
-    <canvas id="energyChart"></canvas>
+  <p id="step-explanation" class="widget-feedback" role="status" aria-live="polite" aria-atomic="true">Reactants: both pathways begin at the same free energy under the specified conditions. Advancing the stepper reveals an explanation, not a simulated experiment.</p>
+  <figcaption id="energy-caption">Schematic pathways for the same net reaction under fixed conditions. Both pathways have the same overall free-energy change, but different activation barriers. Heights and shapes are illustrative; they are not calculated CO₂RR energies.</figcaption>
+</figure>
+
+<div id="overpotential"></div>
+
+### 3.4 Overpotential and uncompensated resistance
+{: #overpotential-and-resistance}
+
+The **overpotential** is the difference between the interfacial electrode potential and the equilibrium potential of the specified reaction on the same reference scale:
+
+$$\eta_p = E_{\mathrm{interface}} - E_{\mathrm{eq},p}$$
+
+Here $p$ identifies the product reaction. Under the signed convention used here, cathodic overpotential is negative. Publications may instead report its magnitude. Catalyst comparisons should specify the target product, product formation rate, selectivity, and experimental conditions. High total current alone does not demonstrate effective production of the desired product.
+
+Resistance between the working electrode and the reference-electrode sensing location causes an ohmic potential drop. Consequently, the measured potential can differ from the potential experienced at the reacting interface. With anodic current positive and cathodic current negative, a lumped-resistance correction is:
+
+$$E_{\mathrm{interface}} \approx E_{\mathrm{measured}} - I R_u$$
+
+Here $I$ is signed current in amperes and $R_u$ is uncompensated resistance in ohms. For negative current, the correction makes the interfacial potential less negative than the uncorrected measured potential. Report the resistance and how compensation or correction was applied; do not correct an already compensated value twice. Overpotential and ohmic loss are different contributions.
+
+<div id="5-selectivity-and-the-competing-reaction"></div>
+
+## 4. Current, charge, and product selectivity
+{: #current-and-selectivity}
+
+Potential establishes electrical conditions; current describes charge flow. Product measurements establish how much of that charge is associated with each reaction.
+
+<div id="current-amperage"></div>
+
+### 4.1 Current sign and accumulated charge
+{: #current-and-charge}
+
+**Current** is the rate of charge flow. Measured current can include charge transferred in chemical reactions, called Faradaic current, and transient charging of the electrode interface. Its magnitude therefore describes total charge flow, while the formation rate of an individual product requires product-specific information. In this chapter, anodic current is positive and cathodic current is negative; some instruments and publications use different plotting conventions.
+
+**Charge** is obtained by integrating current over the measurement interval. For an interval that remains cathodic under this sign convention, define a positive charge magnitude:
+
+$$Q_c = -\int_{t_0}^{t_1} I(t)\,dt$$
+
+Here $t_0$ and $t_1$ are the start and end times. Current in amperes integrated over seconds gives charge in coulombs. For constant cathodic current, $Q_c = \lvert I\rvert(t_1-t_0)$. An absolute-current integral should not be applied indiscriminately to measurements containing both anodic and cathodic periods.
+
+<div id="surface-area-and-normalization"></div>
+
+### 4.2 Geometric current density
+{: #current-density}
+
+**Geometric current density** is current divided by the exposed geometric electrode area:
+
+$$j_{\mathrm{geo}} = \frac{I}{A_{\mathrm{geo}}}$$
+
+It helps compare electrodes of different sizes, but it also depends on roughness, wetting, transport, and experimental conditions. State the area definition and whether signed current density or its magnitude is plotted. Normalization by electrochemically active surface area answers a different question and requires an appropriate area measurement.
+
+<div id="the-hydrogen-problem"></div>
+
+### 4.3 Competing hydrogen evolution
+{: #hydrogen-evolution}
+
+**Hydrogen evolution (HER)** competes with CO₂RR in aqueous electrolytes. In acidic conditions, protons can be reduced to H₂:
+
+$$\mathrm{2H^+ + 2e^- \rightarrow H_2}$$
+
+In neutral or alkaline conditions, water can supply hydrogen:
+
+$$\mathrm{2H_2O + 2e^- \rightarrow H_2 + 2OH^-}$$
+
+The competing rates depend on the catalyst, electrode potential, and local chemical environment, including available proton donors. Hydrogen formation lowers the charge fraction assigned to a chosen CO₂RR product, although hydrogen may itself be useful in other applications.
+
+<div id="selectivity-faradaic-efficiency"></div>
+
+### 4.4 Faradaic efficiency and partial current
+{: #faradaic-efficiency}
+
+**Faradaic efficiency (FE)** is the fraction of measured charge associated with formation of a specified product over a specified interval:
+
+$$\mathrm{FE}_p(\%) = 100\,\frac{z_p F N_p}{Q_c}$$
+
+Here $N_p$ is the number of moles of product formed over the interval, $z_p$ is the number of electrons required per product molecule or ion, and $F$ is the Faraday constant, approximately 96,485 C mol⁻¹. The electron requirements are 2 for CO and formate, 8 for methane, and 12 for ethylene and ethanol.
+
+For example, an FE for CO of 50% means that half of the charge is assigned to CO formation; the remaining charge may form hydrogen or other products. Zero FE for CO does not imply that all charge forms hydrogen. FE expresses **charge-based selectivity**. It does not directly describe product purity, the mole fraction in a product mixture, or energy efficiency, which also depends on the electrical energy consumed.
+
+The average **partial current** associated with product $p$ is:
+
+$$|\overline{I}_p| = \frac{z_p F N_p}{t_1-t_0}$$
+
+$$|\overline{I}_p| = \frac{\mathrm{FE}_p}{100}\,|\overline{I}|$$
+
+These relationships use the same interval for product amount, charge, and average current. Gas and liquid product measurements must cover compatible intervals. Charging/background contributions, dissolved or crossed-over products, and incomplete recovery can affect interpretation of the charge balance. If all Faradaic products are quantified and other contributions are negligible, their FEs should sum to approximately 100%.
+
+**Worked example — hypothetical inputs:** A constant current of −10 mA for 100 s gives $Q_c=1$ C. If the FE for CO is 60%, 0.6 C is assigned to CO formation. With two electrons per CO molecule, this corresponds to approximately 3.11 µmol of CO and an average partial-current magnitude of 6 mA. These values illustrate the calculation and are not experimental measurements.
+
+See [electrical measurements]({{ '/analysis.html' | relative_url }}#3-electrical-data) and [performance calculations]({{ '/analysis.html' | relative_url }}#5-calculating-performance) for how these quantities are used.
+
+<div id="3-the-core-idea"></div>
+
+## 5. Catalysts and reaction pathways
+{: #catalysts-and-pathways}
+
+Converting CO₂ to useful products involves competing reaction steps. A catalyst changes how readily those steps occur; its effect must be considered together with potential, electrolyte, and transport.
+
+<div id="what-the-catalyst-does"></div>
+
+### 5.1 Adsorption and intermediates
+{: #adsorption-and-intermediates}
+
+Catalysis occurs at the electrode–electrolyte interface, where the surface can stabilize reactants and reaction intermediates. **Adsorption** means binding to the surface; **desorption** means leaving it. An asterisk denotes an adsorbed species, so \*CO means CO bound to the surface. Representative pathways to CO can involve \*COOH and \*CO, while pathways to other products involve different intermediates and competing steps. The preferred pathway depends on the catalyst and reaction conditions.
+
+<div id="6-catalyst-materials"></div>
+<div id="group-1-hydrogen-producers"></div>
+<div id="group-2-two-electron-pathway-co--formate"></div>
+<div id="group-3-hydrocarbon-pathway"></div>
+
+### 5.2 Representative catalyst families
+{: #catalyst-families}
+
+Representative metal catalysts show different product preferences under aqueous CO₂RR conditions. Gold and silver are commonly studied for CO production, while tin, indium, and bismuth are commonly studied for formate production. Platinum and nickel often favor hydrogen evolution in these conditions. These examples describe characteristic behavior rather than fixed classifications: potential, surface structure, electrolyte, and local conditions can change the observed product distribution.
+
+Among commonly studied monometallic electrodes, copper is notable for producing both hydrocarbons and oxygenated products from CO₂. Examples include methane, ethylene, and ethanol. **C₂+** denotes products containing two or more carbon atoms. Their formation can involve reactions between adsorbed CO-derived intermediates. Copper's product distribution is sensitive to its surface and operating environment, so these pathways should be presented as copper-specific examples.
+
+<figure class="theory-figure" aria-labelledby="catalyst-title">
+  <h4 id="catalyst-title">Representative metal catalysts in aqueous CO₂RR</h4>
+  <p>Highlight a group to compare the examples. All cards remain visible, and the labels state their characteristic behavior.</p>
+  <div class="widget-controls" role="group" aria-label="Highlight catalyst examples">
+    <button type="button" data-catalyst-group="co" aria-pressed="false">CO examples</button>
+    <button type="button" data-catalyst-group="formate" aria-pressed="false">Formate examples</button>
+    <button type="button" data-catalyst-group="copper" aria-pressed="false">Copper products</button>
+    <button type="button" data-catalyst-group="her" aria-pressed="false">HER examples</button>
+    <button type="button" data-catalyst-group="all" aria-pressed="true">Show all</button>
   </div>
-  
-  <div class="stepper-panel">
-    <div class="explanation-box" id="step-explanation">
-      <strong>Start:</strong> We begin with CO₂ gas. We set this energy level to 0.0 eV as our baseline starting line. Click "Next Step" to apply voltage and start the reaction!
-    </div>
-    
-    <div class="stepper-controls">
-      <button class="step-btn" id="btn-prev" onclick="changeStep(-1)" disabled>Previous Step</button>
-      <div class="step-indicator" id="step-counter">Step 0 of 4</div>
-      <button class="step-btn" id="btn-next" onclick="changeStep(1)">Next Step</button>
-    </div>
+  <p id="catalyst-status" role="status" aria-live="polite" aria-atomic="true">All eight examples are shown.</p>
+  <ul class="catalyst-grid" id="ptable">
+    <li class="catalyst-card" data-group="co"><strong>Au: gold</strong><span>CO production</span></li>
+    <li class="catalyst-card" data-group="co"><strong>Ag: silver</strong><span>CO production</span></li>
+    <li class="catalyst-card" data-group="formate"><strong>Sn: tin</strong><span>Formate production</span></li>
+    <li class="catalyst-card" data-group="formate"><strong>In: indium</strong><span>Formate production</span></li>
+    <li class="catalyst-card" data-group="formate"><strong>Bi: bismuth</strong><span>Formate production</span></li>
+    <li class="catalyst-card" data-group="copper"><strong>Cu: copper</strong><span>Hydrocarbons and oxygenated products; a condition-dependent mixture</span></li>
+    <li class="catalyst-card" data-group="her"><strong>Pt: platinum</strong><span>Often favors hydrogen evolution</span></li>
+    <li class="catalyst-card" data-group="her"><strong>Ni: nickel</strong><span>Often favors hydrogen evolution</span></li>
+  </ul>
+  <figcaption>Selected examples of characteristic behavior in aqueous CO₂RR. Product preferences depend on surface structure and operating conditions; these categories are not fixed properties of the elements.</figcaption>
+</figure>
+
+<div id="the-goldilocks-zone"></div>
+
+### 5.3 What binding strength can explain
+{: #binding-strength}
+
+Adsorption strength can influence surface coverage, intermediate conversion, and product release. For CO production, forming CO and allowing it to desorb are useful outcomes. Further conversion on copper can require retention of CO-derived intermediates and subsequent reaction steps. Strongly adsorbed species can block sites under some conditions. A single CO-binding descriptor cannot determine the optimum catalyst for every CO₂RR product.
+
+Adsorption-energy conventions must be checked before reading a numerical plot. For the common definition that subtracts the energies of the separate surface and adsorbate from the combined system, more negative values mean stronger adsorption. The schematic below instead uses an explicitly qualitative weak-to-strong direction and assigns no energies to metals.
+
+<figure class="theory-figure" aria-labelledby="adsorption-title">
+  <h4 id="adsorption-title">A conceptual relationship between adsorption and reaction rate</h4>
+  <p id="adsorption-summary">For a chosen reaction, weak adsorption may limit intermediate formation, whereas strong adsorption may limit further reaction or release. The schematic has an intermediate maximum. Select a region for its explanation.</p>
+  <div class="chart-wrapper"><canvas id="volcanoPlot" role="img" aria-labelledby="adsorption-title" aria-describedby="adsorption-summary adsorption-caption">A qualitative curve rising from weak adsorption to an intermediate maximum and falling toward strong adsorption.</canvas></div>
+  <div class="widget-controls" role="group" aria-label="Select an adsorption region">
+    <button type="button" data-adsorption-region="0" aria-pressed="false">Weak adsorption</button>
+    <button type="button" data-adsorption-region="1" aria-pressed="true">Intermediate adsorption</button>
+    <button type="button" data-adsorption-region="2" aria-pressed="false">Strong adsorption</button>
   </div>
-</div>
+  <p id="adsorption-description" class="widget-feedback" role="status" aria-live="polite" aria-atomic="true">Intermediate adsorption: formation and subsequent reaction or release can be balanced for a particular reaction. Its optimum depends on the target reaction and conditions.</p>
+  <figcaption id="adsorption-caption">Some catalytic reactions exhibit a trade-off between intermediate formation and subsequent reaction or release. This schematic illustrates that idea without ranking CO₂RR catalysts. The shape and optimum depend on the target reaction and conditions; CO adsorption alone does not predict product selectivity.</figcaption>
+</figure>
+
+<figure class="theory-figure" aria-labelledby="binding-title">
+  <h4 id="binding-title">How adsorption can affect a surface reaction</h4>
+  <label for="binding-slider">Select a schematic adsorption regime</label>
+  <input type="range" id="binding-slider" min="1" max="3" step="1" value="2" aria-valuetext="Intermediate" aria-describedby="binding-caption">
+  <div class="binding-labels"><span>Weak</span><span>Intermediate</span><span>Strong</span></div>
+  <div id="animation-box" aria-hidden="true">
+    <div class="catalyst-surface">Catalyst surface</div>
+    <div class="co-molecule" id="co-molecule-1" style="top: 80px; left: 45%;">*CO</div>
+    <div class="co-molecule" id="co-molecule-2" style="top: 80px; left: 55%; opacity: 0;">*CO</div>
+  </div>
+  <p id="slider-description" class="widget-feedback" role="status" aria-live="polite" aria-atomic="true">Intermediate adsorption: retained intermediates can undergo further reactions when suitable pathways are available. On copper, CO-derived intermediates can participate in formation of more reduced and multicarbon products.</p>
+  <figcaption id="binding-caption">Qualitative adsorption regimes. The control does not predict a catalyst's binding energy, activity, or products. The animation only indicates release or retention of CO-derived species.</figcaption>
+</figure>
+
+<div id="7-the-physical-limit"></div>
+
+## 6. CO₂ supply and the local reaction environment
+{: #local-environment}
+
+### 6.1 Dissolution and mass transport
+{: #co2-supply}
+
+In an aqueous H-cell, CO₂ must dissolve and reach the electrode interface before it can react. The equilibrium concentration of dissolved CO₂ depends on temperature, CO₂ partial pressure, and electrolyte composition. Diffusion and convection replenish CO₂ consumed near the electrode. Bubbling replenishes the bulk solution, but the interfacial concentration can still decrease when consumption outpaces supply. This **mass-transport limitation** can reduce CO₂RR rates and change the balance between CO₂RR and hydrogen evolution.
+
+Gas-diffusion electrodes and flow cells provide other ways to deliver reactants, but their operation is outside this H-cell introduction. See [further reading on these configurations]({{ '/resources.html' | relative_url }}#4-scaling-up-flow-cells--gdes).
+
+### 6.2 Local pH, buffering, and carbonate species
+{: #local-ph}
+
+The chemical environment immediately next to the electrode can differ from the bulk electrolyte. Cathodic reactions often increase local pH, while buffering and transport oppose these changes. A **buffer** resists pH changes through acid–base reactions, but its capacity and transport are finite.
+
+CO₂ also participates in acid–base equilibria with bicarbonate and carbonate. Consequently, **total dissolved inorganic carbon** and **molecular CO₂ concentration** are different quantities. Changes in local pH, reactant availability, and electrolyte composition can affect both reaction rates and selectivity. A bulk pH measurement alone does not describe the operating interface.
+
+## 7. Connecting theory to a first H-cell experiment
+{: #preparing-for-an-experiment}
+
+Before planning an H-cell experiment, identify the target products, potential reference, current convention, electrode area definition, CO₂ supply, and product-analysis methods. The key distinctions are:
+
+- Electrode potential establishes electrical conditions relative to a reference; full-cell voltage is a separate measurement.
+- Total current measures charge flow; partial current describes an individual product's formation rate.
+- FE is product-specific charge selectivity; energy efficiency also depends on energy input.
+- Catalyst behavior depends on the target reaction and operating environment.
+- Bulk CO₂ supply and pH do not completely describe the reacting interface.
+
+The [Experiment chapter]({{ '/experiment.html' | relative_url }}) explains cell components and preparation considerations, including [safety and operational hazards]({{ '/experiment.html' | relative_url }}#safety--operational-hazards). The [Analysis chapter]({{ '/analysis.html' | relative_url }}) connects electrical measurements and quantified products to performance metrics. Use supervised, validated laboratory procedures when moving from this conceptual preparation to practical work.
+
+For deeper study, Resources contains [fundamentals and reviews]({{ '/resources.html' | relative_url }}#1-the-essentials-fundamentals--reviews), [measurement methodology]({{ '/resources.html' | relative_url }}#2-how-to-measure-methodology-standards--reference), and [catalyst examples]({{ '/resources.html' | relative_url }}#3-catalyst-library-materials--design-strategies).
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const ctx = document.getElementById('energyChart').getContext('2d');
-  
-  // Full DFT Data from your image
-  const labels =['CO₂', '*COOH', '*CO', '*CHO', 'CH₄'];
-  const dataGold =[0, 1.2, -0.1, 2.5, 2.0];
-  const dataCopper =[0, 0.5, -0.2, 0.3, -0.8];
-  
-  let currentStep = 0;
-  
-  // Explanations for each step
-  const explanations =[
-    "<strong>Start (CO₂):</strong> We begin with CO₂ gas. We set this energy level to 0.0 eV as our baseline starting line.",
-    "<strong>Step 1 (*COOH):</strong> The first electron and proton are added. <span class='highlight-copper'>Copper</span> forms this intermediate easily (+0.5 eV). <span class='highlight-gold'>Gold</span> requires a much higher energy (+1.2 eV). Higher energy means more <em>Overpotential</em> is needed.",
-    "<strong>Step 2 (*CO):</strong> Water leaves, leaving Carbon Monoxide (*CO) attached to the metal. Both metals drop in energy here. For <span class='highlight-gold'>Gold</span>, it is highly likely the CO just detaches floats away as a final gas product.",
-    "<strong>Step 3 (*CHO):</strong> To continue toward Methane, we must add another hydrogen. <span class='highlight-copper'>Copper</span> needs a tiny bump to +0.3 eV. <span class='highlight-gold'>Gold</span> faces a large energy barrier up to +2.5 eV. To force Gold over this, you would need an absurdly high Overpotential that water will likely be split into H₂ gas instead. This is why Gold gets stuck.",
-    "<strong>Step 4 (CH₄):</strong> Once <span class='highlight-copper'>Copper</span> gets past the *CHO barrier, the reaction easily adds the remaining protons and electrons until Methane (CH₄) is formed and releases from the surface."
+document.addEventListener('DOMContentLoaded', function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const adsorptionStates = [
+    'Weak adsorption: intermediate formation can be limited if relevant species do not bind sufficiently for the chosen reaction.',
+    'Intermediate adsorption: formation and subsequent reaction or release can be balanced for a particular reaction. Its optimum depends on the target reaction and conditions.',
+    'Strong adsorption: retained intermediates can occupy sites or be difficult to convert or release, limiting turnover for the chosen reaction.'
   ];
+  const energyStates = [
+    'Reactants: both pathways begin at the same free energy under the specified conditions. Advancing the stepper reveals an explanation, not a simulated experiment.',
+    'First transition state: the activation barrier is the rise from the reactants to this high-energy configuration. The lower-barrier pathway has a smaller rise.',
+    'Intermediate: this state lies between reaction steps. Its free energy is not itself an activation barrier.',
+    'Second transition state: this barrier is measured from the intermediate, not from the initial reactants or an arbitrary zero.',
+    'Products: both pathways end at the same free energy. The overall reaction free-energy change is identical, while the activation barriers differ.'
+  ];
+  let volcanoChart;
+  let energyChart;
+  let currentStep = 0;
 
-  // Initialize Chart
-  const energyChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: labels,
-      datasets:[
-        {
-          label: 'Gold (Stuck at CO)',
-          data:[0, null, null, null, null], // Starts at step 0
-          borderColor: '#f59e0b',
-          backgroundColor: '#f59e0b',
-          borderWidth: 4,
-          pointRadius: 6,
-          pointHoverRadius: 8,
-          tension: 0.1 // Slight curve for aesthetics
-        },
-        {
-          label: 'Copper (Makes Methane)',
-          data: [0, null, null, null, null], // Starts at step 0
-          borderColor: '#ef4444',
-          backgroundColor: '#ef4444',
-          borderWidth: 4,
-          pointRadius: 6,
-          pointHoverRadius: 8,
-          tension: 0.1
-        },
-        {
-          label: 'Baseline (0 eV)',
-          data: [0, 0, 0, 0, 0],
-          borderColor: '#94a3b8',
-          borderWidth: 2,
-          borderDash: [5, 5],
-          pointRadius: 0,
-          fill: false
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        tooltip: {
-          callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.raw} eV` }
-        }
+  // These dimensionless coordinates only draw schematic shapes. They are not
+  // measured rates, adsorption energies, simulated data, or calculated energies.
+  const higherBarriers = [2, 6, 1.5, 5, 0];
+  const lowerBarriers = [2, 4, 1.5, 3, 0];
+
+  if (typeof Chart !== 'undefined') {
+    volcanoChart = new Chart(document.getElementById('volcanoPlot'), {
+      type: 'line',
+      data: {
+        labels: ['Weak', 'Intermediate', 'Strong'],
+        datasets: [{ data: [1, 3, 1], borderColor: '#1e40af', backgroundColor: '#1e40af', pointRadius: [6, 9, 6], tension: 0.25 }]
       },
-      scales: {
-        y: {
-          title: { display: true, text: 'Free Energy (ΔG) in eV', font: { weight: 'bold' } },
-          min: -1.0,
-          max: 3.0
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: reduceMotion ? false : { duration: 250 },
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: context => adsorptionStates[context.dataIndex] } }
         },
-        x: {
-          title: { display: true, text: 'Reaction Intermediates', font: { weight: 'bold' } }
+        scales: {
+          x: { title: { display: true, text: 'Adsorption strength — schematic' }, ticks: { autoSkip: false, maxRotation: 0, font: { size: 11 } } },
+          y: { min: 0, max: 3.5, ticks: { display: false }, title: { display: true, text: ['Rate of a chosen reaction', '— schematic'] } }
         }
       }
-    }
-  });
-
-  // Expose function to global scope for buttons
-  window.changeStep = function(direction) {
-    currentStep += direction;
-    
-    // Bounds checking
-    if(currentStep < 0) currentStep = 0;
-    if(currentStep > 4) currentStep = 4;
-    
-    // Update Button States
-    document.getElementById('btn-prev').disabled = (currentStep === 0);
-    document.getElementById('btn-next').disabled = (currentStep === 4);
-    
-    // Update Text
-    document.getElementById('step-counter').innerText = `Step ${currentStep} of 4`;
-    
-    // Animate text change
-    const textBox = document.getElementById('step-explanation');
-    textBox.style.opacity = 0;
-    setTimeout(() => {
-      textBox.innerHTML = explanations[currentStep];
-      textBox.style.opacity = 1;
-    }, 200);
-
-    // Update Chart Data (Slices array up to current step)
-    const newGoldData = dataGold.map((val, idx) => idx <= currentStep ? val : null);
-    const newCopperData = dataCopper.map((val, idx) => idx <= currentStep ? val : null);
-    
-    energyChart.data.datasets[0].data = newGoldData;
-    energyChart.data.datasets[1].data = newCopperData;
-    energyChart.update();
-  };
-});
-</script>
-
----
-
-## 5. Selectivity and the Competing Reaction
-The most difficult part of $$CO_2$$ reduction is not breaking the $$CO_2$$; it is avoiding the water.
-
-### The Hydrogen Problem
-Since our electrolyte is mostly water, there are billions of water molecules surrounding the electrode for every one $$CO_2$$ molecule. Water can also accept electrons to form Hydrogen gas ($$H_2$$).
-
-$$ 2H^+ + 2e^- \rightarrow H_2 $$
-
-This is called the "Hydrogen Evolution Reaction (HER)". It is an annoying competing reaction that wastes electricity and hinders reactions that we actually want.
-And, where does the hydrogen comes from then? You might wonder: if we only pump in $$CO_2$$ gas, where does the Hydrogen come from? It comes from the water itself.
-
-$$ H_2O ⇌ H^+ + OH^- $$
-
-### Selectivity (Faradaic Efficiency)
-We measure the efficiency using "Faradaic Efficiency (FE)". It represents the percentage of electrons that went into making the product you want against all the products produced (including Hydrogen).
-**Example:**
-*   **100% FE:** Every electron resulted in $$CO_2$$ reduction.
-*   **50% FE:** Half of the electron resulted in $$CO_2$$ reduction.
-*   **0% FE:** All electrons were wasted making Hydrogen gas.
-
----
-
-## 6. Catalyst materials
-When we say we are making fuel, don't expect liquid gasoline to drip off the catalyst. For example, group 1 & 2 metals make gas (CO/Hydrogen) that float away and Copper makes liquid alcohols that dissolve invisibly into the water. So, because they don't act the same, they are often be categorized into groups based on what they produce:
-
-### Group 1: Hydrogen Producers
-**Metals:** Platinum (Pt), Nickel (Ni), Iron (Fe), Titanium (Ti) and more.
-Do not use these metals if you are aiming for $$CO_2$$ reduction.
-*   **Behavior:** These metals bind to Hydrogen atoms very strongly.
-*   **Typical Products:** Mostly Hydrogen gas. The $$CO_2$$ will barely touch the surface.
-
-### Group 2: Two-Electron Pathway (CO / Formate)
-**Metals:** Silver ($$Ag$$), Gold ($$Au$$), Zinc ($$Zn$$), Tin ($$Sn$$) and more.
-They are great for beginners; however, different metals are specialized in making different product, so research first on what products you are looking for. For example, Zinc makes Formate and Silver makes $$CO$$ efficiently.
-*   **Behavior:** These metals are poor at making hydrogen, allowing CO2 to react. However, they stop the reaction early and separate from the reaction site.
-*   **Typical Products:** Carbon Monoxide ($$CO$$) or Formate ($$HCOO-$$).
-
-### Group 3: Hydrocarbon Pathway
-**Metal:** Copper ($$Cu$$)
-It is unique in the periodic table and the only metal known to make multi-carbon products (very valuable). However, it is complex as it produces a mix of different products' state at once and can be somewhat unpredictable. Scientist are trying to tune the metal and understand mechanism of how each product forms in different environment.
-*   **Behavior:** Copper has just the right binding energy with the Carbon atom. This allows the carbon atoms to bond with other Carbon atoms without dettaching from the surface of the metal first.
-*   **Typical Products:** Methane ($$CH_4$$), Ethylene ($$C_2H_4$$), and Ethanol ($$C_2H_5OH$$).
-
-<style>
-  .ptable-container { text-align: center; margin: 30px 0; font-family: Arial, sans-serif; background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef;}
-  .ptable-buttons button { padding: 10px 15px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; color: white; transition: 0.2s;}
-  .ptable-buttons button:hover { opacity: 0.8; }
-  .btn-h2 { background-color: #f44336; }
-  .btn-co { background-color: #2196f3; }
-  .btn-hc { background-color: #4caf50; }
-  .btn-reset { background-color: #6c757d; }
-  
-  .ptable-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 5px;
-    max-width: 600px;
-    margin: 20px auto 0 auto;
-  }
-  .ptable-element {
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e0e0e0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-weight: bold;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    cursor: help;
-  }
-  /* Element Categories */
-  .cat-h2 { background-color: #ffcdd2; border: 2px solid #f44336; }
-  .cat-co { background-color: #bbdefb; border: 2px solid #2196f3; }
-  .cat-hc { background-color: #c8e6c9; border: 2px solid #4caf50; }
-  
-  /* Dimmed state for non-highlighted */
-  .dimmed { opacity: 0.15; filter: grayscale(100%); }
-</style>
-
-<div class="ptable-container">
-  <h4 style="margin-top: 0;">Interactive Periodic Table of CO₂ Reduction</h4>
-  <p style="font-size: 14px; margin-bottom: 15px;">Click a group below to highlight the respective metals.</p>
-  
-  <div class="ptable-buttons">
-    <button class="btn-h2" onclick="highlightGroup('h2')">Group 1 (H₂ Producers)</button>
-    <button class="btn-co" onclick="highlightGroup('co')">Group 2 (CO / Formate)</button>
-    <button class="btn-hc" onclick="highlightGroup('hc')">Group 3 (Hydrocarbons)</button>
-    <button class="btn-reset" onclick="highlightGroup('all')">Show All</button>
-  </div>
-  
-  <!-- Simplified d-block & p-block Grid -->
-  <div class="ptable-grid" id="ptable">
-    <!-- Row 1 -->
-    <div class="ptable-element cat-h2" title="Titanium (Hydrogen)">Ti</div>
-    <div class="ptable-element">V</div><div class="ptable-element">Cr</div><div class="ptable-element">Mn</div>
-    <div class="ptable-element cat-h2" title="Iron (Hydrogen)">Fe</div>
-    <div class="ptable-element cat-h2" title="Cobalt (Hydrogen)">Co</div>
-    <div class="ptable-element cat-h2" title="Nickel (Hydrogen)">Ni</div>
-    <div class="ptable-element cat-hc" title="Copper (Hydrocarbons!)">Cu</div>
-    <div class="ptable-element cat-co" title="Zinc (CO/Formate)">Zn</div>
-    <div class="ptable-element cat-co" title="Gallium (CO/Formate)">Ga</div>
-    <div class="ptable-element">Ge</div><div class="ptable-element">As</div>
-    <!-- Row 2 -->
-    <div class="ptable-element">Zr</div><div class="ptable-element">Nb</div><div class="ptable-element">Mo</div><div class="ptable-element">Tc</div>
-    <div class="ptable-element cat-h2" title="Ruthenium (Hydrogen)">Ru</div>
-    <div class="ptable-element cat-h2" title="Rhodium (Hydrogen)">Rh</div>
-    <div class="ptable-element cat-h2" title="Palladium (Hydrogen)">Pd</div>
-    <div class="ptable-element cat-co" title="Silver (CO)">Ag</div>
-    <div class="ptable-element cat-co" title="Cadmium (CO/Formate)">Cd</div>
-    <div class="ptable-element cat-co" title="Indium (Formate)">In</div>
-    <div class="ptable-element cat-co" title="Tin (Formate)">Sn</div>
-    <div class="ptable-element">Sb</div>
-    <!-- Row 3 -->
-    <div class="ptable-element">Hf</div><div class="ptable-element">Ta</div><div class="ptable-element">W</div><div class="ptable-element">Re</div>
-    <div class="ptable-element cat-h2" title="Osmium (Hydrogen)">Os</div>
-    <div class="ptable-element cat-h2" title="Iridium (Hydrogen)">Ir</div>
-    <div class="ptable-element cat-h2" title="Platinum (Hydrogen)">Pt</div>
-    <div class="ptable-element cat-co" title="Gold (CO)">Au</div>
-    <div class="ptable-element cat-co" title="Mercury (CO/Formate)">Hg</div>
-    <div class="ptable-element cat-co" title="Thallium (CO/Formate)">Tl</div>
-    <div class="ptable-element cat-co" title="Lead (Formate)">Pb</div>
-    <div class="ptable-element cat-co" title="Bismuth (Formate)">Bi</div>
-  </div>
-</div>
-
-<script>
-  function highlightGroup(group) {
-    const elements = document.querySelectorAll('.ptable-element');
-    elements.forEach(el => {
-      el.classList.remove('dimmed'); 
-      if (group === 'all') return;
-      if (!el.classList.contains('cat-' + group)) {
-        el.classList.add('dimmed');
+    });
+    energyChart = new Chart(document.getElementById('energyChart'), {
+      type: 'line',
+      data: {
+        labels: ['Reactants', ['Transition', 'state 1'], 'Intermediate', ['Transition', 'state 2'], 'Products'],
+        datasets: [
+          { label: 'Higher barriers', data: [higherBarriers[0], null, null, null, null], borderColor: '#92400e', backgroundColor: '#92400e', borderDash: [6, 4], pointStyle: 'triangle', pointRadius: 5, tension: 0.15 },
+          { label: 'Lower barriers', data: [lowerBarriers[0], null, null, null, null], borderColor: '#1e40af', backgroundColor: '#1e40af', pointRadius: 5, tension: 0.15 }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: reduceMotion ? false : { duration: 250 },
+        plugins: { tooltip: { enabled: false }, legend: { labels: { usePointStyle: true } } },
+        scales: {
+          x: { title: { display: true, text: 'Reaction progress — schematic' }, ticks: { autoSkip: false, maxRotation: 0, font: { size: 10 } } },
+          y: { min: -0.5, max: 6.5, ticks: { display: false }, title: { display: true, text: ['Relative free energy', '— schematic'] } }
+        }
       }
     });
   }
+
+  document.querySelectorAll('[data-adsorption-region]').forEach(button => {
+    button.addEventListener('click', function () {
+      const selected = Number(button.dataset.adsorptionRegion);
+      document.querySelectorAll('[data-adsorption-region]').forEach(control => {
+        control.setAttribute('aria-pressed', String(Number(control.dataset.adsorptionRegion) === selected));
+      });
+      document.getElementById('adsorption-description').textContent = adsorptionStates[selected];
+      if (volcanoChart) {
+        volcanoChart.data.datasets[0].pointRadius = adsorptionStates.map((_, index) => index === selected ? 9 : 6);
+        volcanoChart.update();
+      }
+    });
+  });
+
+  function changeStep(direction) {
+    currentStep = Math.max(0, Math.min(4, currentStep + direction));
+    document.getElementById('btn-prev').disabled = currentStep === 0;
+    document.getElementById('btn-next').disabled = currentStep === 4;
+    document.getElementById('step-counter').textContent = 'Step ' + currentStep + ' of 4';
+    document.getElementById('step-explanation').textContent = energyStates[currentStep];
+    if (energyChart) {
+      energyChart.data.datasets[0].data = higherBarriers.map((value, index) => index <= currentStep ? value : null);
+      energyChart.data.datasets[1].data = lowerBarriers.map((value, index) => index <= currentStep ? value : null);
+      energyChart.update();
+    }
+  }
+  document.getElementById('btn-prev').addEventListener('click', () => changeStep(-1));
+  document.getElementById('btn-next').addEventListener('click', () => changeStep(1));
+
+  const bindingStates = [
+    { name: 'Weak', text: 'Weak adsorption: if CO forms but desorbs readily, it may leave as a product. Weak adsorption can also limit other surface steps, depending on the reaction.' },
+    { name: 'Intermediate', text: 'Intermediate adsorption: retained intermediates can undergo further reactions when suitable pathways are available. On copper, CO-derived intermediates can participate in formation of more reduced and multicarbon products.' },
+    { name: 'Strong', text: 'Strong adsorption: strongly adsorbed species can occupy sites and slow turnover. The resulting activity and product distribution depend on the surface and reaction conditions.' }
+  ];
+  const slider = document.getElementById('binding-slider');
+  function updateBinding() {
+    const selected = Number(slider.value) - 1;
+    const state = bindingStates[selected];
+    slider.setAttribute('aria-valuetext', state.name);
+    document.getElementById('slider-description').textContent = state.text;
+    const first = document.getElementById('co-molecule-1');
+    const second = document.getElementById('co-molecule-2');
+    first.textContent = selected === 0 ? 'CO' : '*CO';
+    first.style.top = selected === 0 ? '20px' : '80px';
+    first.style.left = selected === 0 ? '70%' : selected === 1 ? '45%' : '35%';
+    second.style.opacity = selected === 2 ? '1' : '0';
+  }
+  slider.addEventListener('input', updateBinding);
+  updateBinding();
+
+  document.querySelectorAll('[data-catalyst-group]').forEach(button => {
+    button.addEventListener('click', function () {
+      const group = button.dataset.catalystGroup;
+      const selectedNames = [];
+      document.querySelectorAll('[data-catalyst-group]').forEach(control => {
+        control.setAttribute('aria-pressed', String(control.dataset.catalystGroup === group));
+      });
+      document.querySelectorAll('.catalyst-card').forEach(card => {
+        const selected = group !== 'all' && card.dataset.group === group;
+        card.classList.toggle('is-highlighted', selected);
+        if (selected) selectedNames.push(card.querySelector('strong').textContent);
+      });
+      document.getElementById('catalyst-status').textContent = group === 'all'
+        ? 'All eight examples are shown.'
+        : 'Highlighted: ' + selectedNames.join('; ') + '. All other examples remain visible.';
+    });
+  });
+});
 </script>
-
----
-
-## 7. The Physical Limit
-We must understand the environment and its limit in real-world. $$CO_2$$ is a gas, but the reaction happens on the solid metal surface inside a liquid. For the reaction to work, $$CO_2$$ gas must dissolve into the water to reach the electrode.
-Some of the limits are:
-1.  **Solubility:** $CO_2$ does not dissolve well in water: just around 33mM concentration at room temperature.
-2.  **Mass Transport:** As you run the reaction, you use up the $$CO_2$$ near the metal surface. If new $CO_2$ cannot diffuse in fast enough, the reaction stops and Hydrogen evolution takes over instead.
-
-This is why you will see instructions to bubble $CO_2$ gas continuously into the solution. It keeps the water saturated with $CO_2$, giving enough room for valuable reactions to happen. 
-
-<style>
-  .page-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
-  .nav-btn { display: inline-block; padding: 10px 20px; background: #ffffff; color: #3b82f6; text-decoration: none; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 600; transition: all 0.2s; }
-  .nav-btn:hover { background: #3b82f6; color: #ffffff; border-color: #3b82f6; text-decoration: none; }
-  .nav-home { color: #64748b; font-weight: bold; text-decoration: none; transition: color 0.2s; }
-  .nav-home:hover { color: #0f172a; text-decoration: underline; }
-</style>
-
-<div class="page-nav">
-  <a href="./" class="nav-btn">← Home</a>
-  <a href="./" class="nav-home">Back to Directory</a>
-  <a href="./experiment" class="nav-btn">Next: Experimental Setup →</a>
-</div>

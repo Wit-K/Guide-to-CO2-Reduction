@@ -1,0 +1,19 @@
+{% assign current = site.data.navigation | where: 'id', page.nav_id | first %}
+{% assign previous = site.data.navigation | where: 'id', current.previous | first %}
+{% assign next = site.data.navigation | where: 'id', current.next | first %}
+<nav class="chapter-nav" aria-label="Chapter navigation">
+  {% if current.id == 'home' %}
+  <a class="chapter-nav-link" href="{{ next.path | relative_url }}">Start the guide: Theory</a>
+  {% else %}
+    {% if current.previous %}
+  <a class="chapter-nav-link" href="{{ previous.path | relative_url }}">Previous: {{ previous.id | capitalize }}</a>
+    {% endif %}
+  <a class="chapter-nav-link" href="{{ '/' | relative_url }}">Home</a>
+    {% if current.next %}
+  <a class="chapter-nav-link" href="{{ next.path | relative_url }}">{% if next.id == 'resources' %}Further reading: Resources{% else %}Next: {{ next.id | capitalize }}{% endif %}</a>
+    {% endif %}
+  {% endif %}
+  {% unless current.id == 'home' %}
+  <a class="chapter-nav-top" href="#guide-top">Back to top</a>
+  {% endunless %}
+</nav>

@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: guide
+nav_id: home
 title: "CO2RR Guide: A Beginner's Guide to CO2 Reduction"
 description: "The ultimate beginner's guide to Electrochemical CO2 Reduction (CO2RR). Explore interactive tutorials on CO2RR theory, H-cell experimental setup, data analysis, and troubleshooting."
 ---
@@ -27,29 +28,20 @@ This guide aims to bridge that gap. Its goal is to organize concepts, design log
 
 ## Main Index Sections
 
-### [1. Foundations & Theory](./theory.html)
+### [1. Foundations & Theory]({{ '/theory.html' | relative_url }})
 Key electrochemical concepts explained from the root with intuition and context. Connecting equations to real-world experiments and understanding its reaction mechanisms.
 
-### [2. Experimental Design](./experiment.html)
+### [2. Experimental Design]({{ '/experiment.html' | relative_url }})
 A guide to the hardware. Identifying the correct electrochemical cell, electrode and electrolyte for different experiments.
 
-### [3. Data Collection, Analysis & Interpretation](./analysis.html)
+### [3. Data Collection, Analysis & Interpretation]({{ '/analysis.html' | relative_url }})
 How to read typical results, avoid common mistakes, and understand what conclusions can be made.
 
-### [4. Common Problems & Troubleshooting](./troubleshooting.html)
+### [4. Common Problems & Troubleshooting]({{ '/troubleshooting.html' | relative_url }})
 Conceptual and experimental issues beginners frequently encounter, and how to reason through them.
 
-### [5. Curated Resources](./resources.html)
+### [Further reading: Curated Resources]({{ '/resources.html' | relative_url }})
 Papers, textbooks, and reviews annotated with guidance on how to approach them as a beginner.
 
-<style>
-  .page-nav { display: flex; justify-content: flex-end; align-items: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-family: system-ui, -apple-system, sans-serif; }
-  .nav-btn { display: inline-block; padding: 12px 24px; background: #ffffff; color: #3b82f6; text-decoration: none; border: 2px solid #3b82f6; border-radius: 6px; font-weight: bold; transition: all 0.2s; }
-  .nav-btn:hover { background: #3b82f6; color: #ffffff; text-decoration: none; }
-</style>
-
-<div class="page-nav">
-  <a href="./theory" class="nav-btn">Start the Guide: Theory & Foundations →</a>
-</div>
 
 *Created by [Wit Kulvutiroj]*

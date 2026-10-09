@@ -1,0 +1,7 @@
+<nav class="guide-menu" aria-label="Guide chapters">
+  <ul>
+    {% for item in site.data.navigation %}
+    <li><a href="{{ item.path | relative_url }}"{% if item.id == page.nav_id %} aria-current="page"{% endif %}>{{ item.label | escape }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
